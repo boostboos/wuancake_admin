@@ -3,20 +3,16 @@ package org.wuancake.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.wuancake.entity.Admin;
-import org.wuancake.entity.Gather;
+import org.wuancake.entity.AdminBean;
 import org.wuancake.entity.PageBean;
 import org.wuancake.service.IAdminService;
 import org.wuancake.service.IReportService;
 import org.wuancake.service.IUserService;
-import org.wuancake.utils.WeekNumUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 public class AdminController extends FatherOfController {
@@ -31,7 +27,7 @@ public class AdminController extends FatherOfController {
     private IUserService userService;
 
     @RequestMapping(value = "/login")
-    String login(Admin admin, HttpServletRequest request, HttpServletResponse response) {
+    String login(AdminBean admin, HttpServletRequest request, HttpServletResponse response) {
         List<Object> sessionList = new ArrayList<>();
 
         //获取邮箱和密码,前端校验非空
@@ -44,7 +40,7 @@ public class AdminController extends FatherOfController {
             return "index";
         }
         //验证
-        Admin isAdmin = adminService.findAdminByEmailAndPassword(email, password);
+        AdminBean isAdmin = adminService.findAdminByEmailAndPassword(email, password);
 
         if (isAdmin == null) {
             request.getSession().setAttribute("msg", "邮箱或密码错误");

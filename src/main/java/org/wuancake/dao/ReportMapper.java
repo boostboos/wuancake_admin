@@ -3,8 +3,7 @@ package org.wuancake.dao;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
-import org.wuancake.entity.Gather;
-import org.wuancake.entity.Report;
+import org.wuancake.entity.GatherBean;
 
 import java.util.List;
 
@@ -21,7 +20,7 @@ public interface ReportMapper {
             "and r.group_id = w.id " +
             "and  u.deleteFlg = 0 " +
             "limit #{startIndex},#{pageSize}")
-    List<Gather> queryByGroupId(@Param("group_id") Integer group_id, @Param("startIndex") Integer startIndex, @Param("pageSize") Integer pageSize);
+    List<GatherBean> queryByGroupId(@Param("group_id") Integer group_id, @Param("startIndex") Integer startIndex, @Param("pageSize") Integer pageSize);
 
 
     @Select("select status from report " +
@@ -35,5 +34,5 @@ public interface ReportMapper {
             "and r.group_id = w.id " +
             "and  u.deleteFlg = 0 " +
             "limit #{startIndex},#{pageSize}")
-    List<Gather> queryAll(@Param("startIndex") Integer startIndex, @Param("pageSize") Integer pageSize);
+    List<GatherBean> queryAll(@Param("startIndex") Integer startIndex, @Param("pageSize") Integer pageSize);
 }

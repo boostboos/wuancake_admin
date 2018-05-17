@@ -4,7 +4,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
-import org.wuancake.entity.Group;
+import org.wuancake.entity.GroupBean;
 
 import java.util.List;
 
@@ -16,6 +16,6 @@ public interface GroupMapper {
 
     @Select("select * from wa_group")
     @Results({@Result(column = "id", property = "group_id")})
-    List<Group> showGroup();
+    List<GroupBean> showGroup();
 
 }

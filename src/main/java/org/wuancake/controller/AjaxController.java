@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-import org.wuancake.entity.Admin;
-import org.wuancake.entity.Gather;
-import org.wuancake.entity.Group;
+import org.wuancake.entity.GroupBean;
 import org.wuancake.entity.PageBean;
 import org.wuancake.service.IGroupService;
 import org.wuancake.service.IReportService;
@@ -16,11 +13,8 @@ import org.wuancake.utils.WeekNumUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * 专门接收ajax请求的
@@ -39,8 +33,8 @@ public class AjaxController extends FatherOfController {
 
     @RequestMapping(value = "showGroup")
     @ResponseBody
-    List<Group> showGroup(HttpServletResponse response) {
-        List<Group> groups = groupService.showGroup();
+    List<GroupBean> showGroup(HttpServletResponse response) {
+        List<GroupBean> groups = groupService.showGroup();
         return groups;
     }
 

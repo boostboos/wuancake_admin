@@ -3,17 +3,14 @@ package org.wuancake.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.wuancake.entity.Admin;
-import org.wuancake.entity.Gather;
+import org.wuancake.entity.AdminBean;
+import org.wuancake.entity.GatherBean;
 import org.wuancake.entity.PageBean;
 import org.wuancake.service.IReportService;
 import org.wuancake.service.IUserService;
 import org.wuancake.utils.WeekNumUtils;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -32,11 +29,11 @@ public class FatherOfController {
     private IUserService userService;
 
     public @ResponseBody
-    PageBean pageQuery(Integer currPage, HttpServletRequest request, Admin isAdmin) {
+    PageBean pageQuery(Integer currPage, HttpServletRequest request, AdminBean isAdmin) {
 
         //如果是null就从session中获取
         try {
-            isAdmin = (Admin) ((ArrayList<Object>) (request.getSession().getAttribute("sessionList"))).get(0);
+            isAdmin = (AdminBean) ((ArrayList<Object>) (request.getSession().getAttribute("sessionList"))).get(0);
         } catch (Exception e) {
             //会话过期
 
@@ -52,7 +49,7 @@ public class FatherOfController {
         Integer maxWeekNum = WeekNumUtils.getMaxWeekNum();
 
         //设置考勤汇总相关的list
-        List<Gather> list;
+        List<GatherBean> list;
         if (auth == 1) {
             //导师，只分页查询负责的分组,默认当前组最新四周
             Integer group_id = isAdmin.getGroup_id();
@@ -62,7 +59,7 @@ public class FatherOfController {
             list = reportService.queryAll(startIndex, pageSize);
         }
 
-        for (Gather gather : list) {
+        for (GatherBean gather : list) {
             //根据gather里的QQ号查找对应的distinct的group_id算了
             Integer user_id = userService.queryUserIdByQQ(gather.getQQ());
 

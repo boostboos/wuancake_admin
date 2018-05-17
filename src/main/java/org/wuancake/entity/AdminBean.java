@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Admin实体类
  */
-public class Admin implements Serializable {
+public class AdminBean implements Serializable {
     private Integer id;
     private String username;
     private String email;

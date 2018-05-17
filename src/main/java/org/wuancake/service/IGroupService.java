@@ -1,10 +1,10 @@
 package org.wuancake.service;
 
-import org.wuancake.entity.Group;
+import org.wuancake.entity.GroupBean;
 
 import java.util.List;
 
 public interface IGroupService {
-    List<Group> showGroup();
+    List<GroupBean> showGroup();
 
 }

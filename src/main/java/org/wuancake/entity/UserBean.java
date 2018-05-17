@@ -2,7 +2,7 @@ package org.wuancake.entity;
 
 import java.util.Date;
 
-public class User {
+public class UserBean {
     private Integer id;
     private String user_name;
     private String email;

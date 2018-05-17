@@ -2,7 +2,7 @@ package org.wuancake.entity;
 
 import java.util.Date;
 
-public class Report {
+public class ReportBean {
     private Integer week_num;
     private Integer user_id;
     private Integer group_id;

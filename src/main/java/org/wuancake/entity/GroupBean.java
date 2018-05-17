@@ -4,7 +4,7 @@ import org.apache.ibatis.annotations.Param;
 
 import java.io.Serializable;
 
-public class Group {
+public class GroupBean {
 
 
     private Integer group_id;

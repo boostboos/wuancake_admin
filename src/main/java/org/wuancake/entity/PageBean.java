@@ -17,7 +17,7 @@ public class PageBean {
     private Integer totalSize;
 
     //考勤汇总
-    private List<Gather> gathers;
+    private List<GatherBean> gathers;
 
     @Override
     public String toString() {
@@ -30,11 +30,11 @@ public class PageBean {
                 '}';
     }
 
-    public List<Gather> getGathers() {
+    public List<GatherBean> getGathers() {
         return gathers;
     }
 
-    public void setGathers(List<Gather> gathers) {
+    public void setGathers(List<GatherBean> gathers) {
         this.gathers = gathers;
     }
 

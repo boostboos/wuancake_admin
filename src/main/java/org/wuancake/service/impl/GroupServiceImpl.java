@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.wuancake.dao.GroupMapper;
 import org.wuancake.dao.ReportMapper;
-import org.wuancake.entity.Group;
+import org.wuancake.entity.GroupBean;
 import org.wuancake.service.IGroupService;
 
 import java.util.List;
@@ -19,7 +19,7 @@ public class GroupServiceImpl implements IGroupService {
     private ReportMapper reportMapper;
 
     @Override
-    public List<Group> showGroup() {
+    public List<GroupBean> showGroup() {
         return groupMapper.showGroup();
     }
 

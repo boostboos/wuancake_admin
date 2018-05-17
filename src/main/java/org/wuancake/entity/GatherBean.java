@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * 考勤汇总
  */
-public class Gather {
+public class GatherBean {
     private String group_name;
     private String user_name;
     private String QQ;

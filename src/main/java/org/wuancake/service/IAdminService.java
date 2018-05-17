@@ -1,7 +1,7 @@
 package org.wuancake.service;
 
-import org.wuancake.entity.Admin;
+import org.wuancake.entity.AdminBean;
 
 public interface IAdminService {
-    Admin findAdminByEmailAndPassword(String email, String password);
+    AdminBean findAdminByEmailAndPassword(String email, String password);
 }
