@@ -59,11 +59,10 @@ public class WeekNumUtils {
 
         //日期格式化类
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        //当前的标准时间，格式化，排除掉具体的时分秒
         Date nowTime = new Date();
 
-        //现在的时间（需求的）
         try {
+            //两个时间都需要格式化为不考虑时分秒的格式
             nowTime = simpleDateFormat.parse(simpleDateFormat.format(nowTime));
             date2NextWeek = simpleDateFormat.parse(simpleDateFormat.format(date2NextWeek));
         } catch (ParseException e) {
