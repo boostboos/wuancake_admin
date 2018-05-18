@@ -1,9 +1,6 @@
 <%--
-  Created by IntelliJ IDEA.
-  User: kellen
+  Created by Ericheel.
   Date: 2018/5/13
-  Time: 21:54
-  To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -121,17 +118,16 @@
 
                     <td>操作</td>
                 </tr>
-
                 <c:forEach items="${sessionList[1].gathers}" var="gathers">
                     <tr>
                         <td>${gathers.group_name}</td>
                         <td>${gathers.user_name}</td>
                         <td>${gathers.QQ}</td>
-
-
-                        <c:forEach items="${sessionList[1].gathers}" var="gather">
-
-                            <c:forEach items="${gather.report4StatusMap}" var="status">
+                        <c:if test="${gathers.isUnderProtected == 1}">
+                            <td colspan="4" class="right" style="text-align: center">处于保护期</td>
+                        </c:if>
+                        <c:if test="${gathers.isUnderProtected == 0}">
+                            <c:forEach items="${gathers.report4StatusMap}" var="status">
                                 <c:if test="${status.value == 1}">
                                     <td class="danger">未提交</td>
                                 </c:if>
@@ -142,13 +138,10 @@
                                     <td class="warning">已请假</td>
                                 </c:if>
                             </c:forEach>
-
-                        </c:forEach>
-
+                        </c:if>
                         <td>移除</td>
                     </tr>
                 </c:forEach>
-
             </table>
         </div>
     </div>

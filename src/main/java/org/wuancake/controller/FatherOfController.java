@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.wuancake.entity.AdminBean;
 import org.wuancake.entity.GatherBean;
 import org.wuancake.entity.PageBean;
+import org.wuancake.entity.UserBean;
 import org.wuancake.service.IReportService;
 import org.wuancake.service.IUserService;
 import org.wuancake.utils.WeekNumUtils;
@@ -60,10 +61,13 @@ public class FatherOfController {
         }
 
         for (GatherBean gather : list) {
-            //根据gather里的QQ号查找对应的distinct的group_id算了
-            Integer user_id = userService.queryUserIdByQQ(gather.getQQ());
+            UserBean user = userService.queryUserByQQ(gather.getQQ());
+            gather.setIsUnderProtected(WeekNumUtils.isProtected(user.getCreate_time()) ? 1 : 0);
 
-            List<Integer> statusList = reportService.queryReportStatus(user_id, maxWeekNum);
+            /**
+             * 根据userId和最大周数查找这最新四周的周报状态
+             */
+            List<Integer> statusList = reportService.queryReportStatus(user.getId(), maxWeekNum);
 
             Map<Integer, Integer> report4StatusMap = new HashMap<>();
             report4StatusMap.put(maxWeekNum - 3, statusList.get(0));

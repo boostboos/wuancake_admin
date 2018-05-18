@@ -10,8 +10,18 @@ public class GatherBean {
     private String group_name;
     private String user_name;
     private String QQ;
-
+    //放关于最后4周报状态的Map
     private Map<Integer, Integer> report4StatusMap;
+    //是否是保护期 1.是 0.否
+    private Integer isUnderProtected;
+
+    public Integer getIsUnderProtected() {
+        return isUnderProtected;
+    }
+
+    public void setIsUnderProtected(Integer isUnderProtected) {
+        this.isUnderProtected = isUnderProtected;
+    }
 
     public Map<Integer, Integer> getReport4StatusMap() {
         return report4StatusMap;

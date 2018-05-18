@@ -22,10 +22,11 @@ public interface ReportMapper {
             "limit #{startIndex},#{pageSize}")
     List<GatherBean> queryByGroupId(@Param("group_id") Integer group_id, @Param("startIndex") Integer startIndex, @Param("pageSize") Integer pageSize);
 
-
     @Select("select status from report " +
             "where user_id = #{user_id} " +
-            "and week_num in ( select x.week_num from (select week_num from report where user_id = #{user_id} order by week_num desc limit 0,4) as x)")
+            "and week_num in " +
+            "(select x.week_num from " +
+            "(select week_num from report where user_id = #{user_id} order by week_num desc limit 0,4) as x)")
     List<Integer> queryReportStatus(@Param("user_id") Integer user_id, @Param("weekNum") Integer weekNum);
 
     @Select("select distinct user_name,QQ,group_name " +

@@ -1,5 +1,7 @@
 package org.wuancake.service;
 
+import org.wuancake.entity.UserBean;
+
 public interface IUserService {
-    Integer queryUserIdByQQ(String qq);
+    UserBean queryUserByQQ(String qq);
 }

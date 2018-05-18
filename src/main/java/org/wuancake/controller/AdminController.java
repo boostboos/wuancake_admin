@@ -14,6 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * admin相关控制层类
+ */
 @Controller
 public class AdminController extends FatherOfController {
 

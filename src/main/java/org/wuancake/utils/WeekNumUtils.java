@@ -6,6 +6,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * 与周报相关的工具类，如判断当前第几周，是否处于保护期等
+ */
 public class WeekNumUtils {
 
     private static final Date FIRST_DAY;
@@ -24,21 +27,12 @@ public class WeekNumUtils {
     private WeekNumUtils() {
     }
 
-    /**
-     * 获取截止到现在的最大周数
-     *
-     * @return
-     */
+
     public static Integer getMaxWeekNum() {
         return (int) ((new Date().getTime() - FIRST_DAY.getTime()) / (7 * 24 * 60 * 60 * 1000));
     }
 
-    /**
-     * 判断是否是保护期
-     * true 是保护期 false 不是保护期
-     *
-     * @return
-     */
+
     public static Boolean isProtected(Date time2Wuanlife) {
         /**
          * 判断思路，加入午安时间到那周末的天数和加入午安时间和现在天数作比较
@@ -49,9 +43,8 @@ public class WeekNumUtils {
 
         //加入时间是那周的星期几
         int days = instance.get(Calendar.DAY_OF_WEEK) - 1;
-        if (days == 0) {
+        if (days == 0)
             days = 7;
-        }
 
         //加入那周的下周一的日期
         instance.add(Calendar.DAY_OF_WEEK, 8 - days);
