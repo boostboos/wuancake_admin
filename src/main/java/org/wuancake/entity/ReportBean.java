@@ -2,6 +2,12 @@ package org.wuancake.entity;
 
 import java.util.Date;
 
+/**
+ * 周报相关Bean
+ *
+ * @author
+ * @date
+ */
 public class ReportBean {
     private Integer week_num;
     private Integer user_id;

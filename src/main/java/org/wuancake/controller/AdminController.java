@@ -3,6 +3,7 @@ package org.wuancake.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.wuancake.entity.AdminBean;
 import org.wuancake.entity.PageBean;
 import org.wuancake.service.IAdminService;
@@ -16,29 +17,27 @@ import java.util.List;
 
 /**
  * admin相关控制层类
+ *
+ * @author
+ * @date
  */
 @Controller
-public class AdminController extends FatherOfController {
+public class AdminController extends SuperController {
 
     @Autowired
     private IAdminService adminService;
-
-    @Autowired
-    private IReportService reportService;
 
     @Autowired
     private IUserService userService;
 
     @RequestMapping(value = "/login")
     String login(AdminBean admin, HttpServletRequest request, HttpServletResponse response) {
-        List<Object> sessionList = new ArrayList<>();
 
-        //获取邮箱和密码,前端校验非空
         String email = admin.getEmail();
         String password = admin.getPassword();
 
-        //后台校验非空
-        if (email.equals("") || password.equals("")) {
+        //校验非空
+        if ("".equals(email) || "".equals(password)) {
             request.getSession().setAttribute("msg", "邮箱或密码不能为空");
             return "index";
         }
@@ -49,20 +48,19 @@ public class AdminController extends FatherOfController {
             request.getSession().setAttribute("msg", "邮箱或密码错误");
             return "index";
         }
-        //session放入admin
-        sessionList.add(isAdmin);
-        /**
-         * 设置默认的分页查询相关
-         */
-        //currPage此字段在分页查询时为变动的
-        Integer currPage = 1;
-        PageBean pageBean = pageQuery(currPage, request, isAdmin);
-        //session放入PageBean
-        sessionList.add(pageBean);
+        PageBean pageBean = pageQuery(1, request, isAdmin);
+        //放入会话
+        request.getSession().setAttribute("isAdmin", isAdmin);
+        request.getSession().setAttribute("pageBean", pageBean);
 
-        //将分页查询的PageBean和isAdmin的List放入session中
-        request.getSession().setAttribute("sessionList", sessionList);
         return "main";
     }
 
+
+    @RequestMapping(value = "/removeSb")
+    String removeSomeBody(Integer user_id, Integer currPage, RedirectAttributes redirectAttributes) {
+        userService.removeByUserId(user_id);
+        redirectAttributes.addAttribute("currPage", currPage);
+        return "redirect:queryGatherList";
+    }
 }

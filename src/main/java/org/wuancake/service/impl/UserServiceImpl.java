@@ -16,4 +16,9 @@ public class UserServiceImpl implements IUserService {
     public UserBean queryUserByQQ(String qq) {
         return userMapper.queryUserByQQ(qq);
     }
+
+    @Override
+    public void removeByUserId(Integer user_id) {
+        userMapper.removeByUserId(user_id);
+    }
 }

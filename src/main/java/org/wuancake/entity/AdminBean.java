@@ -4,6 +4,9 @@ import java.io.Serializable;
 
 /**
  * Admin实体类
+ *
+ * @author
+ * @date
  */
 public class AdminBean implements Serializable {
     private Integer id;

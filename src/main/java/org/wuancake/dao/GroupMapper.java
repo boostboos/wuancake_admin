@@ -10,10 +10,18 @@ import java.util.List;
 
 /**
  * 分组相关
+ *
+ * @author
+ * @date
  */
 @Mapper
 public interface GroupMapper {
 
+    /**
+     * 查找数据库中分组相关
+     *
+     * @return 分组JavaBean的list集合
+     */
     @Select("select * from wa_group")
     @Results({@Result(column = "id", property = "group_id")})
     List<GroupBean> showGroup();

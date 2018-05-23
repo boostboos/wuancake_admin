@@ -1,11 +1,10 @@
 package org.wuancake.entity;
 
-import org.apache.ibatis.annotations.Param;
-
-import java.io.Serializable;
-
+/**
+ * @author
+ * @date
+ */
 public class GroupBean {
-
 
     private Integer group_id;
     private String group_name;

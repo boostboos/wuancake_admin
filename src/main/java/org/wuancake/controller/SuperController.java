@@ -21,7 +21,7 @@ import java.util.Map;
  * 可能这些Controller会有一些重复的代码，都放它们父类
  */
 @Controller
-public class FatherOfController {
+public class SuperController {
 
     @Autowired
     private IReportService reportService;
@@ -31,14 +31,6 @@ public class FatherOfController {
 
     public @ResponseBody
     PageBean pageQuery(Integer currPage, HttpServletRequest request, AdminBean isAdmin) {
-
-        //如果是null就从session中获取
-        try {
-            isAdmin = (AdminBean) ((ArrayList<Object>) (request.getSession().getAttribute("sessionList"))).get(0);
-        } catch (Exception e) {
-            //会话过期
-
-        }
 
         Integer auth = isAdmin.getAuth();
 
@@ -63,7 +55,7 @@ public class FatherOfController {
         for (GatherBean gather : list) {
             UserBean user = userService.queryUserByQQ(gather.getQQ());
             gather.setIsUnderProtected(WeekNumUtils.isProtected(user.getCreate_time()) ? 1 : 0);
-
+            gather.setId(user.getId());
             /**
              * 根据userId和最大周数查找这最新四周的周报状态
              */
@@ -86,7 +78,6 @@ public class FatherOfController {
         //每页固定显式10条,limit (start,10)
         pageBean.setPageSize(pageSize);
         pageBean.setTotalPage((int) Math.ceil((double) totalSize / pageSize));
-        //设置考勤汇总Bean
         pageBean.setGathers(list);
 
         return pageBean;

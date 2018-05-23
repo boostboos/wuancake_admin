@@ -2,6 +2,12 @@ package org.wuancake.entity;
 
 import java.util.Date;
 
+/**
+ * 用户相关Bean
+ *
+ * @author
+ * @date
+ */
 public class UserBean {
     private Integer id;
     private String user_name;

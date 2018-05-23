@@ -16,62 +16,19 @@
 <body>
 <div class="container-fluid">
 
-    <nav class="navbar navbar-default">
-
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">考勤汇总</a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a href="# ">查看周报</a>
-                </li>
-                <li>
-                    <a href="# ">新增管理员</a>
-                </li>
-                <li>
-                    <a href="# ">新增导师</a>
-                </li>
-                <li>
-                    <a href="# ">清人汇总</a>
-                </li>
-            </ul>
-
-            <form class="navbar-form navbar-right " style="padding-left: 50px; ">
-                <div class="form-group ">
-                    <input type="text " class="form-control " placeholder="输入学员QQ号 ">
-                </div>
-                <button type="submit " class="btn btn-default ">学员检索</button>
-            </form>
-            <font style="line-height: 50px;padding-left: 200px;float: right">
-                <c:if test="${sessionList[0].auth == 1}">
-                    导师：
-                </c:if>
-                <c:if test="${sessionList[0].auth == 2}">
-                    管理员：
-                </c:if>
-                <c:if test="${sessionList[0].auth == 3}">
-                    超级管理员：
-                </c:if>
-                ${sessionList[0].username}
-            </font>
-
-
-        </div>
-    </nav>
+    <jsp:include page="guide.jsp"/>
 
     <div class="row ">
         <form method="post" action="main">
             <script>
                 $(function () {
-                    //异步请求分组和周数填充select组件
-
+                    //请求分组
                     $.post("${pageContext.request.contextPath}/showGroup", "", function (data) {
                         $(data).each(function (m, n) {
                             $("#groups").append("<option>" + n.group_name + "</option>")
                         })
                     }, "json")
-
+                    //请求周数
                     $.post("${pageContext.request.contextPath}/showWeekNum", "", function (data) {
                         for (var i = data; i >= 1; i--) {
                             $("#weekNum").append("<option>" + i + "</option>");
@@ -79,9 +36,19 @@
                     }, "json")
 
                 })
+
+
+                //移除学员
+                function sureRemove(id, currPage) {
+                    var flag = confirm("确定移除?");
+                    if (flag) {
+                        window.location.href = "${pageContext.request.contextPath}/removeSb?user_id=" + id + "&currPage=" + currPage;
+                    }
+                }
+
             </script>
 
-            <c:if test="${sessionList[0].auth != 1}">
+            <c:if test="${isAdmin.auth != 1}">
                 <div class="col-lg-2 " style="padding-left: 5%; ">
                     分组：
                     <select id="groups" name="groups">
@@ -109,16 +76,15 @@
                     <td>分组</td>
                     <td>昵称</td>
                     <td>QQ号</td>
-
-                    <c:forEach items="${sessionList[1].gathers}" var="gather">
+                    <c:forEach items="${pageBean.gathers}" var="gather">
                         <c:forEach items="${gather.report4StatusMap}" var="week">
                             <td>第${week.key}周</td>
                         </c:forEach>
                     </c:forEach>
-
                     <td>操作</td>
                 </tr>
-                <c:forEach items="${sessionList[1].gathers}" var="gathers">
+
+                <c:forEach items="${pageBean.gathers}" var="gathers">
                     <tr>
                         <td>${gathers.group_name}</td>
                         <td>${gathers.user_name}</td>
@@ -139,9 +105,10 @@
                                 </c:if>
                             </c:forEach>
                         </c:if>
-                        <td>移除</td>
+                        <td><a href="#" onclick="sureRemove(${gathers.id},${pageBean.currPage})">移除</a></td>
                     </tr>
                 </c:forEach>
+
             </table>
         </div>
     </div>
@@ -150,33 +117,32 @@
         <ul class="pagination ">
 
             <%--上一页--%>
-            <c:if test="${sessionList[1].currPage!=1}">
+            <c:if test="${pageBean.currPage!=1}">
                 <li>
                 <span>
                         <span aria-hidden="true "><a
-                                href="${pageContext.request.contextPath}/queryGatherByPage?currPage=${sessionList[1].currPage-1}">&laquo;</a></span>
+                                href="#">&laquo;</a></span>
                 </span>
                 </li>
             </c:if>
 
-            <c:forEach varStatus="vs" begin="1" end="${sessionList[1].totalPage}">
+            <c:forEach varStatus="vs" begin="1" end="${pageBean.totalPage}">
 
-                <c:if test="${sessionList[1].currPage == vs.count}">
+                <c:if test="${pageBean.currPage == vs.count}">
                     <li class="active">
                 </c:if>
 
                 <li>
-                    <a href="${pageContext.request.contextPath}/queryGatherByPage?currPage=${sessionList[1].currPage}"> <span> ${vs.count} <span
-                            class="sr-only "></span></span></a>
+                    <a href="#"> <span> ${vs.count} <span class="sr-only "></span></span></a>
                 </li>
 
             </c:forEach>
             <%--下一页--%>
-            <c:if test="${sessionList[1].currPage != sessionList[1].totalPage}">
+            <c:if test="${pageBean.currPage != pageBean.totalPage}">
                 <li>
                 <span>
                     <span aria-hidden="true "><a
-                            href="${pageContext.request.contextPath}/queryGatherByPage?currPage=${sessionList[1].currPage+1}">&raquo;</a></span>
+                            href="#">&raquo;</a></span>
                  </span>
                 </li>
             </c:if>

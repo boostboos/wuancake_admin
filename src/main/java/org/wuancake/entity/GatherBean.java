@@ -5,14 +5,31 @@ import java.util.Map;
 
 /**
  * 考勤汇总
+ *
+ * @author
+ * @date
  */
 public class GatherBean {
     private String group_name;
     private String user_name;
     private String QQ;
-    //放关于最后4周报状态的Map
+    private Integer id;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    /**
+     * 截至四周的周报状态集合
+     */
     private Map<Integer, Integer> report4StatusMap;
-    //是否是保护期 1.是 0.否
+    /**
+     * 是否是保护期 1 是 2 否
+     */
     private Integer isUnderProtected;
 
     public Integer getIsUnderProtected() {

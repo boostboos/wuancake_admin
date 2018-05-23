@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.wuancake.entity.AdminBean;
+import org.wuancake.entity.GatherBean;
 import org.wuancake.entity.GroupBean;
 import org.wuancake.entity.PageBean;
 import org.wuancake.service.IGroupService;
@@ -18,9 +20,12 @@ import java.util.List;
 
 /**
  * 专门接收ajax请求的
+ *
+ * @author
+ * @date
  */
 @Controller
-public class AjaxController extends FatherOfController {
+public class AjaxController {
 
     @Autowired
     private IGroupService groupService;
@@ -44,17 +49,5 @@ public class AjaxController extends FatherOfController {
         return WeekNumUtils.getMaxWeekNum();
     }
 
-    @RequestMapping(value = "queryGatherByPage")
-    String queryGatherByPage(Integer currPage, HttpServletRequest request) {
-
-        PageBean pageBean = pageQuery(currPage, request, null);
-
-        ArrayList<Object> sessionList = (ArrayList<Object>) request.getSession().getAttribute("sessionList");
-
-        //更新session中的PageBean信息
-        sessionList.set(1, pageBean);
-
-        return "main";
-    }
 
 }
