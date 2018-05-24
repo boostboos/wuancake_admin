@@ -6,14 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.wuancake.entity.AdminBean;
 import org.wuancake.entity.PageBean;
+import org.wuancake.entity.TutorBean;
 import org.wuancake.service.IAdminService;
-import org.wuancake.service.IReportService;
 import org.wuancake.service.IUserService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * admin相关控制层类
@@ -62,5 +60,30 @@ public class AdminController extends SuperController {
         userService.removeByUserId(user_id);
         redirectAttributes.addAttribute("currPage", currPage);
         return "redirect:queryGatherList";
+    }
+
+    @RequestMapping(value = "addTutor")
+    String addTutor(HttpServletRequest request, TutorBean tutorBean) {
+        //前端校验字段非空
+        request.getSession().removeAttribute("authGoodInfo");
+        request.getSession().removeAttribute("authBadInfo");
+        AdminBean isAdmin = (AdminBean) request.getSession().getAttribute("isAdmin");
+
+        if (isAdmin.getAuth() == 1) {
+            //校验权限
+            request.getSession().setAttribute("authBadInfo", "权限不足");
+        } else {
+            //检查是否存在
+            TutorBean bean = adminService.findTutorByEmail(tutorBean.getEmail());
+            if (bean != null) {
+                request.getSession().setAttribute("authBadInfo", "邮箱已经存在，添加失败");
+                return "addTutor";
+            }
+            //添加
+            adminService.addTutor(tutorBean);
+            request.getSession().setAttribute("authGoodInfo", "添加成功");
+        }
+        return "addTutor";
+
     }
 }

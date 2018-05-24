@@ -120,8 +120,9 @@
             <c:if test="${pageBean.currPage!=1}">
                 <li>
                 <span>
-                        <span aria-hidden="true "><a
-                                href="#">&laquo;</a></span>
+                        <span aria-hidden="true ">
+                            <a href="${pageContext.request.contextPath}/queryGatherList?currPage = ${pageBean.currPage - 1}">&laquo;</a>
+                        </span>
                 </span>
                 </li>
             </c:if>
@@ -133,7 +134,10 @@
                 </c:if>
 
                 <li>
-                    <a href="#"> <span> ${vs.count} <span class="sr-only "></span></span></a>
+                    <a href="${pageContext.request.contextPath}/queryGatherList?currPage = ${pageBean.currPage}">
+                        <span> ${vs.count} <span class="sr-only "></span></span>
+                    </a>
+                </li>
                 </li>
 
             </c:forEach>
@@ -141,8 +145,9 @@
             <c:if test="${pageBean.currPage != pageBean.totalPage}">
                 <li>
                 <span>
-                    <span aria-hidden="true "><a
-                            href="#">&raquo;</a></span>
+                    <span aria-hidden="true ">
+                        <a href="${pageContext.request.contextPath}/queryGatherList?currPage=${pageBean.currPage + 1}">&raquo;</a>
+                    </span>
                  </span>
                 </li>
             </c:if>

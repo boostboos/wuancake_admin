@@ -3,19 +3,23 @@
 <nav class="navbar navbar-default">
 
     <div class="navbar-header">
-        <a class="navbar-brand" href="#">考勤汇总</a>
+        <a class="navbar-brand" href="${pageContext.request.contextPath}/main.jsp">考勤汇总</a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
             <li>
                 <a href="# ">查看周报</a>
             </li>
-            <li>
-                <a href="# ">新增管理员</a>
-            </li>
-            <li>
-                <a href="# ">新增导师</a>
-            </li>
+            <c:if test="${isAdmin.auth==3}">
+                <li>
+                    <a href="# ">新增管理员</a>
+                </li>
+            </c:if>
+            <c:if test="${isAdmin.auth!=1}">
+                <li>
+                    <a href="${pageContext.request.contextPath}/addTutor.jsp ">新增导师</a>
+                </li>
+            </c:if>
             <li>
                 <a href="# ">清人汇总</a>
             </li>
