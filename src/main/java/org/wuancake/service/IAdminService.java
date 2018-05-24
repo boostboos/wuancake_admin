@@ -9,4 +9,6 @@ public interface IAdminService {
     void addTutor(TutorBean tutor);
 
     TutorBean findTutorByEmail(String email);
+
+    void addAdmin(AdminBean adminBean);
 }

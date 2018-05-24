@@ -29,4 +29,9 @@ public class AdminServiceImpl implements IAdminService {
     public TutorBean findTutorByEmail(String email) {
         return adminMapper.findTutorByEmail(email);
     }
+
+    @Override
+    public void addAdmin(AdminBean adminBean) {
+        adminMapper.addAdmin(adminBean);
+    }
 }

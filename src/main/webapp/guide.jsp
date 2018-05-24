@@ -12,7 +12,7 @@
             </li>
             <c:if test="${isAdmin.auth==3}">
                 <li>
-                    <a href="# ">新增管理员</a>
+                    <a href="${pageContext.request.contextPath}/addAdmin.jsp ">新增管理员</a>
                 </li>
             </c:if>
             <c:if test="${isAdmin.auth!=1}">
@@ -42,6 +42,8 @@
                 超级管理员：
             </c:if>
             ${isAdmin.username}
+            &nbsp;&nbsp;&nbsp;
+            <a href="${pageContext.request.contextPath}/logout">注销</a>
         </font>
 
 

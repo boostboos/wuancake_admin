@@ -42,4 +42,13 @@ public interface AdminMapper {
     @Select("select * from adm " +
             "where email = #{email}")
     TutorBean findTutorByEmail(String email);
+    
+    /**
+     * 增加管理员
+     *
+     * @param adminBean
+     */
+    @Insert("insert into adm " +
+            "values(null,#{username},#{email},#{password},#{auth},#{group_id})")
+    void addAdmin(AdminBean adminBean);
 }

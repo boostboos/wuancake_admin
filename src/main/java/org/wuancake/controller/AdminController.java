@@ -86,4 +86,35 @@ public class AdminController extends SuperController {
         return "addTutor";
 
     }
+
+    @RequestMapping(value = "addAdmin")
+    String addAdmin(HttpServletRequest request, AdminBean adminBean) {
+        //前端校验字段非空
+        request.getSession().removeAttribute("authGoodInfo");
+        request.getSession().removeAttribute("authBadInfo");
+        AdminBean isAdmin = (AdminBean) request.getSession().getAttribute("isAdmin");
+        
+        if (isAdmin.getAuth() != 3) {
+            //校验权限
+            request.getSession().setAttribute("authBadInfo", "权限不足");
+        } else {
+            //检查是否存在
+            TutorBean bean = adminService.findTutorByEmail(adminBean.getEmail());
+            if (bean != null) {
+                request.getSession().setAttribute("authBadInfo", "邮箱已经存在，添加失败");
+                return "addAdmin";
+            }
+            //添加
+            adminService.addAdmin(adminBean);
+            request.getSession().setAttribute("authGoodInfo", "添加成功");
+        }
+        return "addAdmin";
+
+    }
+
+    @RequestMapping(value = "logout")
+    String logOut(HttpServletRequest request) {
+        request.getSession().invalidate();
+        return "index";
+    }
 }
