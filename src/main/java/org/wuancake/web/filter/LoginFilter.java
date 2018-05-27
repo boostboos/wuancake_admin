@@ -49,8 +49,10 @@ public class LoginFilter implements Filter {
             AdminBean isAdmin = (AdminBean) request.getSession().getAttribute("isAdmin");
 
             if (isAdmin == null) {
-                request.getSession().setAttribute("msg", "会话已过期请重新登录");
-                response.sendRedirect(request.getContextPath() + "index.jsp");
+            	 //放行
+                filterChain.doFilter(request, response);
+                //request.getSession().setAttribute("msg", "会话已过期请重新登录");
+                //response.sendRedirect(request.getContextPath() + "index.jsp");
             } else {
                 //放行
                 filterChain.doFilter(request, response);
