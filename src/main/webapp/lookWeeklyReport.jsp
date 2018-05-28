@@ -24,7 +24,10 @@
 			var groups = JSON.parse(content);
 			var p = document.getElementById("groups");
 			for(var i = 0; i < groups.length; i++) {
-				//window.alert(groups[i].group_id);
+				var option = document.createElement("option");
+				option.value = groups[i].group_id;
+				option.innerHTML=groups[i].group_name;
+				p.add(option,p.options[null]);
 			}
 			console.log(groups);
 		}
