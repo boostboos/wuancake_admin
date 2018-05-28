@@ -6,35 +6,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>查看周报</title>
 </head>
-<body>
-	分组
-	<script>
-		window.onload = function() {
-			var url = "${request.contextPath}/showGroup";
-			var request = new XMLHttpRequest();
-			request.onload = function() {
-				if(request.status == 200) {
-					displayContent(request.responseText);
-				}
-			};
-			request.open("POST",url);
-			request.send(null);
-		}
-		function displayContent(content) {
-			var groups = JSON.parse(content);
-			var p = document.getElementById("groups");
-			for(var i = 0; i < groups.length; i++) {
-				var option = document.createElement("option");
-				option.value = groups[i].group_id;
-				option.innerHTML=groups[i].group_name;
-				p.add(option,p.options[null]);
-			}
-			console.log(groups);
-		}
-	</script>
-	<select id = "groups">
-		<option>全部</option>
-	</select>
 
+<body>
+	<form method="post" action="#">
+		分组 
+		<select id="groups">
+			<option>全部</option>
+		</select> 
+		周数 
+		<select id="weeks">
+		</select>
+	</form>
 </body>
+<script type="text/javascript" src="./js/windowLoad.js"></script>
 </html>
