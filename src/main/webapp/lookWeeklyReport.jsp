@@ -10,7 +10,7 @@
 	分组
 	<script>
 		window.onload = function() {
-			var url = "${pageContext.request.contextPath}/showGroup";
+			var url = "${request.contextPath}/showGroup";
 			var request = new XMLHttpRequest();
 			request.onload = function() {
 				if(request.status == 200) {
@@ -21,15 +21,19 @@
 			request.send(null);
 		}
 		function displayContent(content) {
-			var p = document.getElementById("content");
-			p.innerHTML = content;
+			var groups = JSON.parse(content);
+			var p = document.getElementById("groups");
+			for(var i = 0; i < groups.length; i++) {
+				var option = document.createElement("option");
+				option.value = groups[i].group_id;
+				option.innerHTML=groups[i].group_name;
+				p.add(option,p.options[null]);
+			}
+			console.log(groups);
 		}
-		
 	</script>
-	<div id = "content"></div>
-	<select>
+	<select id = "groups">
 		<option>全部</option>
-
 	</select>
 
 </body>
