@@ -23,7 +23,7 @@ public interface GroupMapper {
      * @return 分组JavaBean的list集合
      */
     @Select("select * from wa_group")
-    @Results({@Result(column = "id", property = "group_id")})
+    @Results({@Result(column = "id", property = "groupId")})
     List<GroupBean> showGroup();
 
 }

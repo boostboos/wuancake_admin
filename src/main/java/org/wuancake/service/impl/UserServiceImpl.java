@@ -18,7 +18,7 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public void removeByUserId(Integer user_id) {
-        userMapper.removeByUserId(user_id);
+    public void removeByUserId(Integer userId) {
+        userMapper.removeByUserId(userId);
     }
 }

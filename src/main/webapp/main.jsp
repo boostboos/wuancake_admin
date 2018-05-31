@@ -1,6 +1,7 @@
 <%--
   Created by Ericheel.
   Date: 2018/5/13
+  按照最新周数进行查询考勤汇总的页面
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -11,7 +12,6 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-theme.css">
     <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
-
 </head>
 <body>
 <div class="container-fluid">
@@ -19,35 +19,53 @@
     <jsp:include page="guide.jsp"/>
 
     <div class="row ">
-        <form method="post" action="main">
-            <script>
-                $(function () {
-                    //请求分组
-                    $.post("${pageContext.request.contextPath}/showGroup", "", function (data) {
-                        $(data).each(function (m, n) {
-                            $("#groups").append("<option>" + n.group_name + "</option>")
-                        })
-                    }, "json")
-                    //请求周数
-                    $.post("${pageContext.request.contextPath}/showWeekNum", "", function (data) {
-                        for (var i = data; i >= 1; i--) {
-                            $("#weekNum").append("<option>" + i + "</option>");
-                        }
-                    }, "json")
 
-                })
-
-
-                //移除学员
-                function sureRemove(id, currPage) {
-                    var flag = confirm("确定移除?");
-                    if (flag) {
-                        window.location.href = "${pageContext.request.contextPath}/removeSb?user_id=" + id + "&currPage=" + currPage;
+        <script>
+            $(function () {
+                //请求分组
+                $.post("${pageContext.request.contextPath}/showGroup", "", function (data) {
+                    $(data).each(function (m, n) {
+                        $("#groups").append("<option>" + n.groupName + "</option>")
+                    })
+                }, "json")
+                //请求周数
+                $.post("${pageContext.request.contextPath}/showWeekNum", "", function (data) {
+                    for (var i = data; i >= 1; i--) {
+                        $("#weekNum").append("<option>" + i + "</option>");
                     }
+                }, "json")
+
+            })
+
+            //移除学员
+            function sureRemove(id, currPage) {
+                var flag = confirm("确定移除?");
+                if (flag) {
+                    window.location.href = "${pageContext.request.contextPath}/removeSb?userId=" + id + "&currPage=" + currPage;
                 }
+            }
 
-            </script>
+            //根据分组/周数查询考勤汇总的function
+            function sureSub() {
+                alert($("#groups").find("option:selected").text);
+                var $subGroup = $("#groups").find("option:selected").text
+                var $subWeek = $("#weekNum").find("option:selected").text
+                if ($subGroup == "选择分组" || $subWeek == "选择周数") {
+                    $("#sb").append("<font color='red'>请选择</font>")
+                    return;
+                }
+                $("#subGroup").val($subGroup)
+                $("#subWeek").val($subWeek)
+                $("#sub").submit()
 
+            }
+
+        </script>
+        <%--根据选择的分组/周数来查询考勤汇总--%>
+        <form id="sub" method="post"
+              action="${pageContext.request.contextPath}/queryGatherListByGroupAndWeek?currPage=1">
+            <input type="hidden" id="subGroup" name="subGroup"/>
+            <input type="hidden" id="subWeek" name="subWeek"/>
             <c:if test="${isAdmin.auth != 1}">
                 <div class="col-lg-2 " style="padding-left: 5%; ">
                     分组：
@@ -64,10 +82,12 @@
                 </select>
             </div>
             <div class="col-lg-8 ">
-                <button type="submit " id="subSearch1">确定</button>
+                <button type="button" onclick="sureSub()">确定</button>
                 <span id="warn"></span>
             </div>
+            <span id="sb"></span>
         </form>
+
     </div>
     <div class="container-fluid">
         <div class="row ">
@@ -86,8 +106,8 @@
 
                 <c:forEach items="${pageBean.gathers}" var="gathers">
                     <tr>
-                        <td>${gathers.group_name}</td>
-                        <td>${gathers.user_name}</td>
+                        <td>${gathers.groupName}</td>
+                        <td>${gathers.userName}</td>
                         <td>${gathers.QQ}</td>
                         <c:if test="${gathers.isUnderProtected == 1}">
                             <td colspan="4" class="right" style="text-align: center">处于保护期</td>

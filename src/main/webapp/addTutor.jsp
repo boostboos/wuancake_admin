@@ -18,14 +18,14 @@
 <jsp:include page="guide.jsp"/>
 <div class="container">
     <form id="sub" action="${pageContext.request.contextPath}/addTutor" method="post">
-        <input type="hidden" name="group_id" id="group"/>
+        <input type="hidden" name="groupId" id="group"/>
         <div style="margin-top: 120px" class="container">
             <script type="text/javascript">
                 $(function () {
                     //请求分组
                     $.post("${pageContext.request.contextPath}/showGroup", "", function (data) {
                         $(data).each(function (m, n) {
-                            $("#groups").append("<option value='" + n.group_id + "'>" + n.group_name + "</option>")
+                            $("#groups").append("<option value='" + n.groupId + "'>" + n.groupName + "</option>")
                         })
                     }, "json")
                 })

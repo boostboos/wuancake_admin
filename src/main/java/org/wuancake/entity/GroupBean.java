@@ -6,22 +6,22 @@ package org.wuancake.entity;
  */
 public class GroupBean {
 
-    private Integer group_id;
-    private String group_name;
+    private Integer groupId;
+    private String groupName;
 
-    public Integer getGroup_id() {
-        return group_id;
+    public Integer getGroupId() {
+        return groupId;
     }
 
-    public void setGroup_id(Integer group_id) {
-        this.group_id = group_id;
+    public void setGroupId(Integer groupId) {
+        this.groupId = groupId;
     }
 
-    public String getGroup_name() {
-        return group_name;
+    public String getGroupName() {
+        return groupName;
     }
 
-    public void setGroup_name(String group_name) {
-        this.group_name = group_name;
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
     }
 }

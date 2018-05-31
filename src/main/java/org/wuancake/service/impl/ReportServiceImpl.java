@@ -4,9 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.wuancake.dao.ReportMapper;
 import org.wuancake.entity.GatherBean;
+import org.wuancake.entity.ReportBean;
 import org.wuancake.service.IReportService;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ReportServiceImpl implements IReportService {
@@ -15,13 +17,13 @@ public class ReportServiceImpl implements IReportService {
     private ReportMapper reportMapper;
 
     @Override
-    public List<GatherBean> queryByGroupId(Integer group_id, Integer startIndex, Integer pageSize) {
-        return reportMapper.queryByGroupId(group_id, startIndex, pageSize);
+    public List<GatherBean> queryByGroupId(Integer groupId, Integer startIndex, Integer pageSize) {
+        return reportMapper.queryByGroupId(groupId, startIndex, pageSize);
     }
 
     @Override
-    public List<Integer> queryReportStatus(Integer user_id, Integer maxWeekNum) {
-        return reportMapper.queryReportStatus(user_id, maxWeekNum);
+    public List<ReportBean> queryReportStatus(Integer userId, Integer maxWeekNum) {
+        return reportMapper.queryReportStatus(userId, maxWeekNum);
     }
 
     @Override

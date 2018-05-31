@@ -9,35 +9,47 @@ import java.util.Date;
  * @date
  */
 public class ReportBean {
-    private Integer week_num;
-    private Integer user_id;
-    private Integer group_id;
+    private Integer weekNum;
+    private Integer userId;
+    private Integer groupId;
     private String text;
     private Integer status;
-    private Date reply_time;
+    private Date replyTime;
 
-    public Integer getWeek_num() {
-        return week_num;
+    @Override
+    public String toString() {
+        return "ReportBean{" +
+                "weekNum=" + weekNum +
+                ", userId=" + userId +
+                ", groupId=" + groupId +
+                ", text='" + text + '\'' +
+                ", status=" + status +
+                ", replyTime=" + replyTime +
+                '}';
     }
 
-    public void setWeek_num(Integer week_num) {
-        this.week_num = week_num;
+    public Integer getWeekNum() {
+        return weekNum;
     }
 
-    public Integer getUser_id() {
-        return user_id;
+    public void setWeekNum(Integer weekNum) {
+        this.weekNum = weekNum;
     }
 
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public Integer getGroup_id() {
-        return group_id;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
-    public void setGroup_id(Integer group_id) {
-        this.group_id = group_id;
+    public Integer getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(Integer groupId) {
+        this.groupId = groupId;
     }
 
     public String getText() {
@@ -56,11 +68,11 @@ public class ReportBean {
         this.status = status;
     }
 
-    public Date getReply_time() {
-        return reply_time;
+    public Date getReplyTime() {
+        return replyTime;
     }
 
-    public void setReply_time(Date reply_time) {
-        this.reply_time = reply_time;
+    public void setReplyTime(Date replyTime) {
+        this.replyTime = replyTime;
     }
 }

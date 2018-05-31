@@ -25,8 +25,8 @@ function displayContent(content) {
 	var p = document.getElementById("groups");
 	for (var i = 0; i < groups.length; i++) {
 		var option = document.createElement("option");
-		option.value = groups[i].group_id;
-		option.innerHTML = groups[i].group_name;
+		option.value = groups[i].groupId;
+		option.innerHTML = groups[i].groupName;
 		p.add(option, p.options[null]);
 	}
 }

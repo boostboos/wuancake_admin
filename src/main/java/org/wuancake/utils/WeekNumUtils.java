@@ -32,7 +32,8 @@ public class WeekNumUtils {
 
 
     public static Integer getMaxWeekNum() {
-        return (int) ((new Date().getTime() - FIRST_DAY.getTime()) / (7 * 24 * 60 * 60 * 1000));
+        //获得上一周的周数（最新周数-1）
+        return (int) ((new Date().getTime() - FIRST_DAY.getTime()) / (7 * 24 * 60 * 60 * 1000)) - 1;
     }
 
 
@@ -46,8 +47,9 @@ public class WeekNumUtils {
 
         //加入时间是那周的星期几
         int days = instance.get(Calendar.DAY_OF_WEEK) - 1;
-        if (days == 0)
+        if (days == 0) {
             days = 7;
+        }
 
         //加入那周的下周一的日期
         instance.add(Calendar.DAY_OF_WEEK, 8 - days);

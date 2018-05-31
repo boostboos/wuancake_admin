@@ -14,8 +14,12 @@ public class AdminBean implements Serializable {
     private String email;
     private String password;
     private Integer auth = 2;
-    private final Integer group_id = 0;
-    
+    private final Integer groupId = 0;
+
+    public Integer getGroupId() {
+        return groupId;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -56,9 +60,7 @@ public class AdminBean implements Serializable {
         this.auth = auth;
     }
 
-    public Integer getGroup_id() {
-        return group_id;
-    }
+
 
 
 }

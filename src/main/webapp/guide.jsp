@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
             <li>
-                <a href="# ">查看周报</a>
+                <a href="${pageContext.request.contextPath}/lookWeeklyReport.jsp">查看周报</a>
             </li>
             <c:if test="${isAdmin.auth==3}">
                 <li>

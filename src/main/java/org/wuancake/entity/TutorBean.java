@@ -15,7 +15,7 @@ public class TutorBean {
     private String email;
     private String password;
     private final Integer auth = 1;
-    private Integer group_id;
+    private Integer groupId;
 
     public String getUsername() {
         return username;
@@ -45,11 +45,11 @@ public class TutorBean {
         return auth;
     }
 
-    public Integer getGroup_id() {
-        return group_id;
+    public Integer getGroupId() {
+        return groupId;
     }
 
-    public void setGroup_id(Integer group_id) {
-        this.group_id = group_id;
+    public void setGroupId(Integer groupId) {
+        this.groupId = groupId;
     }
 }

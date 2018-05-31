@@ -30,7 +30,7 @@ public interface AdminMapper {
      * @param tutorBean
      */
     @Insert("insert into adm " +
-            "values(null,#{username},#{email},#{password},#{auth},#{group_id})")
+            "values(null,#{username},#{email},#{password},#{auth},#{groupId})")
     void addTutor(TutorBean tutorBean);
 
     /**
@@ -49,6 +49,6 @@ public interface AdminMapper {
      * @param adminBean
      */
     @Insert("insert into adm " +
-            "values(null,#{username},#{email},#{password},#{auth},#{group_id})")
+            "values(null,#{username},#{email},#{password},#{auth},#{groupId})")
     void addAdmin(AdminBean adminBean);
 }

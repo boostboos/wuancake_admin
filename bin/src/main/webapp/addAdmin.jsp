@@ -18,7 +18,7 @@
 <jsp:include page="guide.jsp"/>
 <div class="container">
     <form id="sub" action="${pageContext.request.contextPath}/addAdmin" method="post">
-        <input type="hidden" name="group_id" id="group"/>
+        <input type="hidden" name="groupId" id="group"/>
         <div style="margin-top: 120px" class="container">
             <script type="text/javascript">
                 function sureAdd() {

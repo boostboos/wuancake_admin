@@ -3,6 +3,8 @@ package org.wuancake.dao;
 import org.apache.ibatis.annotations.*;
 import org.wuancake.entity.UserBean;
 
+import java.util.List;
+
 /**
  * 用户相关Mapper接口
  *
@@ -24,10 +26,14 @@ public interface UserMapper {
     /**
      * 通过用户id踢掉用户（deleteFlg=1）即可
      *
-     * @param user_id 用户id
+     * @param userId 用户id
      */
     @Update("update user " +
             "set deleteFlg = 1 " +
-            "where id = #{user_id}")
-    void removeByUserId(@Param("user_id") Integer user_id);
+            "where id = #{userId}")
+    void removeByUserId(@Param("userId") Integer userId);
+
+    @Select("select id from user " +
+            "where deleteFlg = 0")
+    List<Integer> queryAllUserIdNotKicked();
 }

@@ -30,7 +30,6 @@ public class AdminController extends SuperController {
 
     @RequestMapping(value = "/login")
     String login(AdminBean admin, HttpServletRequest request, HttpServletResponse response) {
-
         String email = admin.getEmail();
         String password = admin.getPassword();
 
@@ -46,7 +45,7 @@ public class AdminController extends SuperController {
             request.getSession().setAttribute("msg", "邮箱或密码错误");
             return "index";
         }
-        PageBean pageBean = pageQuery(1, request, isAdmin);
+        PageBean pageBean = pageQuery(1, null, request, isAdmin);
         //放入会话
         request.getSession().setAttribute("isAdmin", isAdmin);
         request.getSession().setAttribute("pageBean", pageBean);
@@ -56,8 +55,8 @@ public class AdminController extends SuperController {
 
 
     @RequestMapping(value = "/removeSb")
-    String removeSomeBody(Integer user_id, Integer currPage, RedirectAttributes redirectAttributes) {
-        userService.removeByUserId(user_id);
+    String removeSomeBody(Integer userId, Integer currPage, RedirectAttributes redirectAttributes) {
+        userService.removeByUserId(userId);
         redirectAttributes.addAttribute("currPage", currPage);
         return "redirect:queryGatherList";
     }
@@ -93,7 +92,7 @@ public class AdminController extends SuperController {
         request.getSession().removeAttribute("authGoodInfo");
         request.getSession().removeAttribute("authBadInfo");
         AdminBean isAdmin = (AdminBean) request.getSession().getAttribute("isAdmin");
-        
+
         if (isAdmin.getAuth() != 3) {
             //校验权限
             request.getSession().setAttribute("authBadInfo", "权限不足");

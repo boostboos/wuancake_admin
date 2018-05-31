@@ -10,18 +10,11 @@ import java.util.Map;
  * @date
  */
 public class GatherBean {
-    private String group_name;
-    private String user_name;
+    private String groupName;
+    private String userName;
     private String QQ;
     private Integer id;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     /**
      * 截至四周的周报状态集合
@@ -36,32 +29,24 @@ public class GatherBean {
         return isUnderProtected;
     }
 
-    public void setIsUnderProtected(Integer isUnderProtected) {
-        this.isUnderProtected = isUnderProtected;
-    }
-
     public Map<Integer, Integer> getReport4StatusMap() {
         return report4StatusMap;
     }
 
-    public void setReport4StatusMap(Map<Integer, Integer> report4StatusMap) {
-        this.report4StatusMap = report4StatusMap;
+    public String getGroupName() {
+        return groupName;
     }
 
-    public String getGroup_name() {
-        return group_name;
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
     }
 
-    public void setGroup_name(String group_name) {
-        this.group_name = group_name;
+    public String getuserName() {
+        return userName;
     }
 
-    public String getUser_name() {
-        return user_name;
-    }
-
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
+    public void setuserName(String userName) {
+        this.userName = userName;
     }
 
     public String getQQ() {
@@ -72,4 +57,19 @@ public class GatherBean {
         this.QQ = QQ;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setReport4StatusMap(Map<Integer, Integer> report4StatusMap) {
+        this.report4StatusMap = report4StatusMap;
+    }
+
+    public void setIsUnderProtected(Integer isUnderProtected) {
+        this.isUnderProtected = isUnderProtected;
+    }
 }

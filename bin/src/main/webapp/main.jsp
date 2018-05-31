@@ -25,7 +25,7 @@
                     //请求分组
                     $.post("${pageContext.request.contextPath}/showGroup", "", function (data) {
                         $(data).each(function (m, n) {
-                            $("#groups").append("<option>" + n.group_name + "</option>")
+                            $("#groups").append("<option>" + n.groupName + "</option>")
                         })
                     }, "json")
                     //请求周数
@@ -42,7 +42,7 @@
                 function sureRemove(id, currPage) {
                     var flag = confirm("确定移除?");
                     if (flag) {
-                        window.location.href = "${pageContext.request.contextPath}/removeSb?user_id=" + id + "&currPage=" + currPage;
+                        window.location.href = "${pageContext.request.contextPath}/removeSb?userId=" + id + "&currPage=" + currPage;
                     }
                 }
 
@@ -86,8 +86,8 @@
 
                 <c:forEach items="${pageBean.gathers}" var="gathers">
                     <tr>
-                        <td>${gathers.group_name}</td>
-                        <td>${gathers.user_name}</td>
+                        <td>${gathers.groupName}</td>
+                        <td>${gathers.userName}</td>
                         <td>${gathers.QQ}</td>
                         <c:if test="${gathers.isUnderProtected == 1}">
                             <td colspan="4" class="right" style="text-align: center">处于保护期</td>
