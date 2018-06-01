@@ -28,23 +28,23 @@ public class LoginFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
-
-        String requestURL = request.getServletPath();
-        String[] splitURL = EXCLUDE_PAGE.split(",");
-
-        for (String url : splitURL) {
-            if (url.equals(requestURL)) {
-                filterChain.doFilter(request, response);
-                return;
-            }
-        }
-
-        AdminBean isAdmin = (AdminBean) request.getSession().getAttribute("isAdmin");
-        if (isAdmin == null) {
-            response.sendRedirect(request.getContextPath() + "index.jsp");
-        } else {
+//
+//        String requestURL = request.getServletPath();
+//        String[] splitURL = EXCLUDE_PAGE.split(",");
+//
+//        for (String url : splitURL) {
+//            if (url.equals(requestURL)) {
+//                filterChain.doFilter(request, response);
+//                return;
+//            }
+//        }
+//
+//        AdminBean isAdmin = (AdminBean) request.getSession().getAttribute("isAdmin");
+//        if (isAdmin == null) {
+//            response.sendRedirect(request.getContextPath() + "index.jsp");
+//        } else {
             filterChain.doFilter(request, response);
-        }
+//        }
     }
 
 
