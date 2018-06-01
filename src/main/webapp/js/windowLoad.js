@@ -30,11 +30,13 @@ function displayContent(content) {
 		p.add(option, p.options[null]);
 	}
 }
-//显示当前周数
+//显示周数
 function showWeekNum(weekNum) {
 	var p = document.getElementById("weeks");
-	var option = document.createElement("option");
-	option.value = weekNum;
-	option.innerHTML = weekNum;
-	p.add(option, p.options[null]);
+	for(var i = weekNum; i >= 1; i--) {
+		var option = document.createElement("option");
+		option.value = i;
+		option.innerHTML = i;
+		p.add(option, p.options[null]);
+	}
 }
