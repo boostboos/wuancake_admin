@@ -1,6 +1,8 @@
 package org.wuancake.dao;
 
 import org.apache.ibatis.annotations.*;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.Cacheable;
 import org.wuancake.entity.UserBean;
 
 import java.util.List;
@@ -12,6 +14,7 @@ import java.util.List;
  * @date
  */
 @Mapper
+@CacheConfig(cacheNames = "userCaches")
 public interface UserMapper {
 
     /**
@@ -21,6 +24,7 @@ public interface UserMapper {
      * @return 用户实体
      */
     @Select("select * from user where qq = #{QQ}")
+    @Cacheable
     UserBean queryUserByQQ(@Param("QQ") String QQ);
 
     /**
@@ -31,14 +35,17 @@ public interface UserMapper {
     @Update("update user " +
             "set deleteFlg = 1 " +
             "where id = #{userId}")
+    @Cacheable
     void removeByUserId(@Param("userId") Integer userId);
 
     @Select("select id from user " +
             "where deleteFlg = 0")
+    @Cacheable
     List<Integer> queryAllUserIdNotKicked();
 
     @Select("select group_id from user_group " +
             "where user_id = #{userId} " +
             "and deleteFlg = 0")
+    @Cacheable
     Integer queryGroupIdByUserId(@Param("userId") Integer userId);
 }

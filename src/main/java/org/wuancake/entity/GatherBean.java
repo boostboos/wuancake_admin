@@ -1,5 +1,6 @@
 package org.wuancake.entity;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,7 +10,7 @@ import java.util.Map;
  * @author
  * @date
  */
-public class GatherBean {
+public class GatherBean implements Serializable {
     private String groupName;
     private String userName;
     private String QQ;

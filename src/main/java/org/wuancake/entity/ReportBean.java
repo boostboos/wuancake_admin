@@ -1,5 +1,6 @@
 package org.wuancake.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -8,7 +9,7 @@ import java.util.Date;
  * @author
  * @date
  */
-public class ReportBean {
+public class ReportBean implements Serializable {
     private Integer weekNum;
     private Integer userId;
     private Integer groupId;

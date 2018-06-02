@@ -1,10 +1,12 @@
 package org.wuancake.entity;
 
+import java.io.Serializable;
+
 /**
  * @author
  * @date
  */
-public class GroupBean {
+public class GroupBean implements Serializable {
 
     private Integer groupId;
     private String groupName;

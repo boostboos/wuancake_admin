@@ -4,6 +4,8 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.Cacheable;
 import org.wuancake.entity.AdminBean;
 import org.wuancake.entity.TutorBean;
 
@@ -12,6 +14,7 @@ import org.wuancake.entity.TutorBean;
  * @date
  */
 @Mapper
+@CacheConfig(cacheNames = "adminCaches")
 public interface AdminMapper {
 
     /**
@@ -22,6 +25,7 @@ public interface AdminMapper {
      * @return AdminBean
      */
     @Select("select * from adm where email=#{email} and password=#{password}")
+    @Cacheable
     AdminBean findAdminByEmailAndPassword(@Param("email") String email, @Param("password") String password);
 
     /**
@@ -31,6 +35,7 @@ public interface AdminMapper {
      */
     @Insert("insert into adm " +
             "values(null,#{username},#{email},#{password},#{auth},#{groupId})")
+    @Cacheable
     void addTutor(TutorBean tutorBean);
 
     /**
@@ -41,8 +46,9 @@ public interface AdminMapper {
      */
     @Select("select * from adm " +
             "where email = #{email}")
+    @Cacheable
     TutorBean findTutorByEmail(String email);
-    
+
     /**
      * 增加管理员
      *
@@ -50,5 +56,6 @@ public interface AdminMapper {
      */
     @Insert("insert into adm " +
             "values(null,#{username},#{email},#{password},#{auth},#{groupId})")
+    @Cacheable
     void addAdmin(AdminBean adminBean);
 }

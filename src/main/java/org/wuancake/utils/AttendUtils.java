@@ -18,14 +18,12 @@ public class AttendUtils {
         Integer maxWeekNum = WeekNumUtils.getMaxWeekNum();
         List<Integer> ids = userMapper.queryAllUserIdNotKicked();
         for (Integer id : ids) {
-            for (int i = maxWeekNum; i >= maxWeekNum - 3; i--) {
-                ReportBean reportBean = reportMapper.queryReportStatu(id, i);
-                if (reportBean == null) {
-                    Integer groupId = userMapper.queryGroupIdByUserId(id);
-                    if (groupId != null && groupId != 0) {
-                        //当前周没提交 更新数据库
-                        reportMapper.updateUserReportStatu(id, i, groupId, new Date());
-                    }
+            ReportBean reportBean = reportMapper.queryReportStatu(id, maxWeekNum);
+            if (reportBean == null) {
+                Integer groupId = userMapper.queryGroupIdByUserId(id);
+                if (groupId != null && groupId != 0) {
+                    //当前周没提交 更新数据库
+                    reportMapper.updateUserReportStatu(id, maxWeekNum, groupId, new Date());
                 }
             }
         }

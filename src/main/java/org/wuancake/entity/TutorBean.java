@@ -2,13 +2,15 @@ package org.wuancake.entity;
 
 import org.apache.ibatis.annotations.Param;
 
+import java.io.Serializable;
+
 /**
  * @author Ericheel
  * @Description: 导师实体
  * @date 2018/5/2413:46
  */
 
-public class TutorBean {
+public class TutorBean implements Serializable {
 
 
     private String username;

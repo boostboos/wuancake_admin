@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.wuancake.dao.ReportMapper;
 import org.wuancake.entity.GatherBean;
+import org.wuancake.entity.PageBean;
 import org.wuancake.entity.ReportBean;
 import org.wuancake.service.IReportService;
 
@@ -23,11 +24,19 @@ public class ReportServiceImpl implements IReportService {
 
     @Override
     public List<ReportBean> queryReportStatus(Integer userId, Integer maxWeekNum) {
-        return reportMapper.queryReportStatus(userId, maxWeekNum);
+        List<ReportBean> reportBeans = reportMapper.queryReportStatus(userId, maxWeekNum);
+        return reportBeans;
     }
 
     @Override
     public List<GatherBean> queryAll(Integer startIndex, Integer pageSize) {
         return reportMapper.queryAll(startIndex, pageSize);
     }
+
+    @Override
+    public List<ReportBean> queryReportStatusByGroupId(Integer userId, Integer maxWeekNum, int groupId) {
+        return reportMapper.queryReportStatusByGroupId(userId, maxWeekNum, groupId);
+    }
+
+
 }

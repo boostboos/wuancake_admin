@@ -33,19 +33,19 @@ public class GatherController extends SuperController {
     }
 
     @RequestMapping(value = "queryGatherListByGroupAndWeek/**")
-    String queryGatherListByGroupAndWeek(HttpServletRequest request, Integer currPage) {
+    String queryGatherListByGroupAndWeek(HttpServletRequest request, Integer currPage, String subWeek, String subGroup) {
         String queryString = request.getQueryString().replace("%20", "").substring(9);
-
         AdminBean isAdmin = (AdminBean) request.getSession().getAttribute("isAdmin");
-        //选择要查看的分组（管理员以上才有这个）
-        String subGroup = (String) request.getSession().getAttribute("subGroup");
-        //选择要查看的截至周数 （导师以上都可以）
-        String subWeek = (String) request.getSession().getAttribute("subWeek");
 
-        PageBean pageBean = pageQuery(Integer.parseInt(queryString), null, request, isAdmin);
-
+        if ("选择周数".equals(subWeek)) {
+            subWeek = "0";
+        }
+        if ("选择分组".equals(subGroup)) {
+            subGroup = "0";
+        }
+        PageBean pageBean = pageQuery(Integer.parseInt(queryString), Integer.parseInt(subWeek), Integer.parseInt(subGroup), request, isAdmin);
         //pageBean放入会话
         request.getSession().setAttribute("pageBean", pageBean);
-        return "mainByGroupAndWeek";
+        return "main";
     }
 }

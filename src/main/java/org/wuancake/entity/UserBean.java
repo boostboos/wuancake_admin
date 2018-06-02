@@ -2,6 +2,7 @@ package org.wuancake.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -10,7 +11,7 @@ import java.util.Date;
  * @author
  * @date
  */
-public class UserBean {
+public class UserBean implements Serializable {
     private Integer id;
     private String userName;
     private String email;

@@ -28,6 +28,12 @@ public class SuperController {
 
     public @ResponseBody
     PageBean pageQuery(Integer currPage, Integer maxWeekNum, HttpServletRequest request, AdminBean isAdmin) {
+        PageBean pageBean = pageQuery(currPage, maxWeekNum, null, request, isAdmin);
+        return pageBean;
+    }
+
+    public @ResponseBody
+    PageBean pageQuery(Integer currPage, Integer maxWeekNum, Integer subGroup, HttpServletRequest request, AdminBean isAdmin) {
 
         Integer auth = isAdmin.getAuth();
 
@@ -35,20 +41,19 @@ public class SuperController {
         pageBean.setCurrPage(currPage);
         Integer pageSize = 10;
         Integer startIndex = (currPage - 1) * pageSize;
-
         //获取截至的周数
-        if (maxWeekNum == null) {
+        if (maxWeekNum == null || maxWeekNum == 0) {
             //按照最新的周数来，否则是按照选择的周数来查询
             maxWeekNum = WeekNumUtils.getMaxWeekNum();
         }
         //设置考勤汇总相关的list
         List<GatherBean> list;
         if (auth == 1) {
-            //导师，只分页查询负责的分组,默认当前组最新四周
             Integer groupId = isAdmin.getGroupId();
+            //导师，只分页查询负责的分组,默认当前组最新四周
             list = reportService.queryByGroupId(groupId, startIndex, pageSize);
         } else {
-            //管理员或最高管理员，默认查询所有分组最新四周
+            //默认查询所有分组最新四周
             list = reportService.queryAll(startIndex, pageSize);
         }
         for (GatherBean gather : list) {
@@ -56,23 +61,50 @@ public class SuperController {
             Boolean aProtected = WeekNumUtils.isProtected(user.getCreateTime());
             gather.setIsUnderProtected(WeekNumUtils.isProtected(user.getCreateTime()) ? 1 : 0);
             gather.setId(user.getId());
-            /**
-             * 根据userId和最大周数查找这最新四周的周报状态
-             */
-            List<ReportBean> reportBeans = reportService.queryReportStatus(user.getId(), maxWeekNum);
-            System.out.println(reportBeans.size());
-            System.out.println(reportBeans);
+            List<ReportBean> reportBeans = null;
+            if (auth == 1) {
+                reportBeans = reportService.queryReportStatus(user.getId(), maxWeekNum);
+            } else {
+                if (subGroup == null || subGroup == 0) {
+                    reportBeans = reportService.queryReportStatus(user.getId(), maxWeekNum);
+                } else {
+                    reportBeans = reportService.queryReportStatusByGroupId(user.getId(), maxWeekNum, subGroup);
+                }
+            }
+
             //要填充的周报状态map
             Map<Integer, Integer> report4StatusMap = new HashMap<>();
-
-            report4StatusMap.put(maxWeekNum - 3, reportBeans.get(0).getStatus());
-            report4StatusMap.put(maxWeekNum - 2, reportBeans.get(1).getStatus());
-            report4StatusMap.put(maxWeekNum - 1, reportBeans.get(2).getStatus());
-            report4StatusMap.put(maxWeekNum, reportBeans.get(3).getStatus());
-
+            switch (reportBeans.size()) {
+                case 4:
+                    report4StatusMap.put(maxWeekNum - 3, reportBeans.get(0).getStatus());
+                    report4StatusMap.put(maxWeekNum - 2, reportBeans.get(1).getStatus());
+                    report4StatusMap.put(maxWeekNum - 1, reportBeans.get(2).getStatus());
+                    report4StatusMap.put(maxWeekNum, reportBeans.get(3).getStatus());
+                    break;
+                case 3:
+                    report4StatusMap.put(maxWeekNum - 3, 1);
+                    report4StatusMap.put(maxWeekNum - 2, reportBeans.get(0).getStatus());
+                    report4StatusMap.put(maxWeekNum - 1, reportBeans.get(1).getStatus());
+                    report4StatusMap.put(maxWeekNum, reportBeans.get(2).getStatus());
+                    break;
+                case 2:
+                    report4StatusMap.put(maxWeekNum - 3, 1);
+                    report4StatusMap.put(maxWeekNum - 2, 1);
+                    report4StatusMap.put(maxWeekNum - 1, reportBeans.get(0).getStatus());
+                    report4StatusMap.put(maxWeekNum, reportBeans.get(1).getStatus());
+                    break;
+                case 1:
+                    report4StatusMap.put(maxWeekNum - 3, 1);
+                    report4StatusMap.put(maxWeekNum - 2, 1);
+                    report4StatusMap.put(maxWeekNum - 1, 1);
+                    report4StatusMap.put(maxWeekNum, reportBeans.get(0).getStatus());
+                    break;
+                case 0:
+                    break;
+            }
             gather.setReport4StatusMap(report4StatusMap);
-
             pageBean.getGathers().add(gather);
+
         }
         Integer totalSize = list.size();
         //当前页第一页

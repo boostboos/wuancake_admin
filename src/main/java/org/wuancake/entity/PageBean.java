@@ -1,5 +1,6 @@
 package org.wuancake.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +10,7 @@ import java.util.List;
  * @author
  * @date
  */
-public class PageBean {
+public class PageBean implements Serializable {
 
     private Integer currPage;
     private Integer totalPage;
