@@ -14,8 +14,6 @@ public class GatherBean {
     private String userName;
     private String QQ;
     private Integer id;
-
-
     /**
      * 截至四周的周报状态集合
      */
@@ -71,5 +69,17 @@ public class GatherBean {
 
     public void setIsUnderProtected(Integer isUnderProtected) {
         this.isUnderProtected = isUnderProtected;
+    }
+
+    @Override
+    public String toString() {
+        return "GatherBean{" +
+                "groupName='" + groupName + '\'' +
+                ", userName='" + userName + '\'' +
+                ", QQ='" + QQ + '\'' +
+                ", id=" + id +
+                ", report4StatusMap=" + report4StatusMap +
+                ", isUnderProtected=" + isUnderProtected +
+                '}';
     }
 }

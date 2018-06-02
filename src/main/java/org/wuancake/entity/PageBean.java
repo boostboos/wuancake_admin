@@ -1,5 +1,6 @@
 package org.wuancake.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,7 +16,7 @@ public class PageBean {
     private Integer pageSize;
     private Integer totalSize;
 
-    private List<GatherBean> gathers;
+    private List<GatherBean> gathers = new ArrayList<>();
 
     @Override
     public String toString() {
@@ -26,14 +27,6 @@ public class PageBean {
                 ", totalSize=" + totalSize +
                 ", gathers=" + gathers +
                 '}';
-    }
-
-    public List<GatherBean> getGathers() {
-        return gathers;
-    }
-
-    public void setGathers(List<GatherBean> gathers) {
-        this.gathers = gathers;
     }
 
     public Integer getCurrPage() {
@@ -66,5 +59,13 @@ public class PageBean {
 
     public void setTotalSize(Integer totalSize) {
         this.totalSize = totalSize;
+    }
+
+    public List<GatherBean> getGathers() {
+        return gathers;
+    }
+
+    public void setGathers(List<GatherBean> gathers) {
+        this.gathers = gathers;
     }
 }

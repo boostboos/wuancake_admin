@@ -36,4 +36,9 @@ public interface UserMapper {
     @Select("select id from user " +
             "where deleteFlg = 0")
     List<Integer> queryAllUserIdNotKicked();
+
+    @Select("select group_id from user_group " +
+            "where user_id = #{userId} " +
+            "and deleteFlg = 0")
+    Integer queryGroupIdByUserId(@Param("userId") Integer userId);
 }

@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 可能这些Controller会有一些重复的代码，都放它们父类
+ * 共性代码
  */
 @Controller
 public class SuperController {
@@ -56,25 +56,24 @@ public class SuperController {
             Boolean aProtected = WeekNumUtils.isProtected(user.getCreateTime());
             gather.setIsUnderProtected(WeekNumUtils.isProtected(user.getCreateTime()) ? 1 : 0);
             gather.setId(user.getId());
-            System.out.println(user);
             /**
              * 根据userId和最大周数查找这最新四周的周报状态
              */
             List<ReportBean> reportBeans = reportService.queryReportStatus(user.getId(), maxWeekNum);
+            System.out.println(reportBeans.size());
+            System.out.println(reportBeans);
             //要填充的周报状态map
             Map<Integer, Integer> report4StatusMap = new HashMap<>();
 
-            if (reportBeans != null && reportBeans.size() != 0) {
-            }
+            report4StatusMap.put(maxWeekNum - 3, reportBeans.get(0).getStatus());
+            report4StatusMap.put(maxWeekNum - 2, reportBeans.get(1).getStatus());
+            report4StatusMap.put(maxWeekNum - 1, reportBeans.get(2).getStatus());
+            report4StatusMap.put(maxWeekNum, reportBeans.get(3).getStatus());
 
-//            report4StatusMap.put(maxWeekNum - 3, statusList.get(0));
-//            report4StatusMap.put(maxWeekNum - 2, statusList.get(1));
-//            report4StatusMap.put(maxWeekNum - 1, statusList.get(2));
-//            report4StatusMap.put(maxWeekNum, statusList.get(3));
-//
-//            gather.setReport4StatusMap(report4StatusMap);
+            gather.setReport4StatusMap(report4StatusMap);
+
+            pageBean.getGathers().add(gather);
         }
-
         Integer totalSize = list.size();
         //当前页第一页
         pageBean.setCurrPage(currPage);
@@ -83,7 +82,6 @@ public class SuperController {
         //每页固定显式10条,limit (start,10)
         pageBean.setPageSize(pageSize);
         pageBean.setTotalPage((int) Math.ceil((double) totalSize / pageSize));
-        pageBean.setGathers(list);
 
         return pageBean;
 

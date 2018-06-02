@@ -4,11 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.wuancake.dao.AdminMapper;
+import org.wuancake.dao.ReportMapper;
+import org.wuancake.dao.UserMapper;
 import org.wuancake.entity.AdminBean;
 import org.wuancake.entity.PageBean;
 import org.wuancake.entity.TutorBean;
 import org.wuancake.service.IAdminService;
 import org.wuancake.service.IUserService;
+import org.wuancake.utils.AttendUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,12 +25,17 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Controller
 public class AdminController extends SuperController {
-
     @Autowired
     private IAdminService adminService;
 
     @Autowired
     private IUserService userService;
+
+    @Autowired
+    private UserMapper userMapper;
+
+    @Autowired
+    private ReportMapper reportMapper;
 
     @RequestMapping(value = "/login")
     String login(AdminBean admin, HttpServletRequest request, HttpServletResponse response) {
@@ -45,6 +54,9 @@ public class AdminController extends SuperController {
             request.getSession().setAttribute("msg", "邮箱或密码错误");
             return "index";
         }
+        //考勤周报状态
+        AttendUtils.rectifyUserReportStatus(userMapper, reportMapper);
+
         PageBean pageBean = pageQuery(1, null, request, isAdmin);
         //放入会话
         request.getSession().setAttribute("isAdmin", isAdmin);
@@ -57,6 +69,7 @@ public class AdminController extends SuperController {
     @RequestMapping(value = "/removeSb")
     String removeSomeBody(Integer userId, Integer currPage, RedirectAttributes redirectAttributes) {
         userService.removeByUserId(userId);
+        //TODO 其他有deleteFlg的也需要设置为1 代办
         redirectAttributes.addAttribute("currPage", currPage);
         return "redirect:queryGatherList";
     }

@@ -96,10 +96,8 @@
                     <td>分组</td>
                     <td>昵称</td>
                     <td>QQ号</td>
-                    <c:forEach items="${pageBean.gathers}" var="gather">
-                        <c:forEach items="${gather.report4StatusMap}" var="week">
-                            <td>第${week.key}周</td>
-                        </c:forEach>
+                    <c:forEach items="${pageBean.gathers[0].report4StatusMap}" var="week">
+                        <td>第${week.key}周</td>
                     </c:forEach>
                     <td>操作</td>
                 </tr>
