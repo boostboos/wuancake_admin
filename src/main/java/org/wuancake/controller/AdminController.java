@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.wuancake.dao.AdminMapper;
 import org.wuancake.dao.ReportMapper;
 import org.wuancake.dao.UserMapper;
 import org.wuancake.entity.AdminBean;
@@ -12,10 +11,11 @@ import org.wuancake.entity.PageBean;
 import org.wuancake.entity.TutorBean;
 import org.wuancake.service.IAdminService;
 import org.wuancake.service.IUserService;
-import org.wuancake.utils.AttendUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 /**
  * admin相关控制层类
@@ -38,7 +38,8 @@ public class AdminController extends SuperController {
     private ReportMapper reportMapper;
 
     @RequestMapping(value = "/login")
-    String login(AdminBean admin, HttpServletRequest request, HttpServletResponse response) {
+    String login(AdminBean admin, HttpServletRequest request, HttpServletResponse response) throws ExecutionException, InterruptedException {
+
         String email = admin.getEmail();
         String password = admin.getPassword();
 
@@ -54,13 +55,13 @@ public class AdminController extends SuperController {
             request.getSession().setAttribute("msg", "邮箱或密码错误");
             return "index";
         }
-        //考勤周报状态
-        AttendUtils.rectifyUserReportStatus(userMapper, reportMapper);
 
-        PageBean pageBean = pageQuery(1, null, request, isAdmin);
+        Future<PageBean> pageBeanFuture = pageQuery(1, null, null, request, isAdmin);
+        PageBean pageBean = pageBeanFuture.get();
+        request.getSession().setAttribute("pageBean", pageBean);
+
         //放入会话
         request.getSession().setAttribute("isAdmin", isAdmin);
-        request.getSession().setAttribute("pageBean", pageBean);
 
         return "main";
     }

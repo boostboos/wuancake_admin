@@ -1,6 +1,9 @@
 package org.wuancake.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.AsyncResult;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.wuancake.entity.*;
@@ -13,11 +16,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.Future;
 
 /**
  * 共性代码
  */
 @Controller
+@EnableAsync
 public class SuperController {
 
     @Autowired
@@ -26,21 +31,16 @@ public class SuperController {
     @Autowired
     private IUserService userService;
 
+    @Async
     public @ResponseBody
-    PageBean pageQuery(Integer currPage, Integer maxWeekNum, HttpServletRequest request, AdminBean isAdmin) {
-        PageBean pageBean = pageQuery(currPage, maxWeekNum, null, request, isAdmin);
-        return pageBean;
-    }
-
-    public @ResponseBody
-    PageBean pageQuery(Integer currPage, Integer maxWeekNum, Integer subGroup, HttpServletRequest request, AdminBean isAdmin) {
-
+    Future<PageBean> pageQuery(Integer currPage, Integer maxWeekNum, Integer subGroup, HttpServletRequest request, AdminBean isAdmin) {
         Integer auth = isAdmin.getAuth();
 
         PageBean pageBean = new PageBean();
         pageBean.setCurrPage(currPage);
         Integer pageSize = 10;
         Integer startIndex = (currPage - 1) * pageSize;
+
         //获取截至的周数
         if (maxWeekNum == null || maxWeekNum == 0) {
             //按照最新的周数来，否则是按照选择的周数来查询
@@ -71,7 +71,6 @@ public class SuperController {
                     reportBeans = reportService.queryReportStatusByGroupId(user.getId(), maxWeekNum, subGroup);
                 }
             }
-
             //要填充的周报状态map
             Map<Integer, Integer> report4StatusMap = new HashMap<>();
             switch (reportBeans.size()) {
@@ -115,7 +114,7 @@ public class SuperController {
         pageBean.setPageSize(pageSize);
         pageBean.setTotalPage((int) Math.ceil((double) totalSize / pageSize));
 
-        return pageBean;
+        return new AsyncResult<>(pageBean);
 
     }
 

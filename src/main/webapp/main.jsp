@@ -55,9 +55,6 @@
                 }
                 $("#subGroup").val($subGroup)
                 $("#subWeek").val($subWeek)
-
-                alert("选择的分组id是" + $("#subGroup").val())
-                alert("选择的周数是" + $("#subWeek").val())
                 $("#sub").submit()
 
             }

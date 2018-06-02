@@ -9,6 +9,8 @@ import org.wuancake.entity.AdminBean;
 import org.wuancake.entity.PageBean;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 /**
  * @author Ericheel
@@ -19,13 +21,14 @@ import javax.servlet.http.HttpServletRequest;
 public class GatherController extends SuperController {
 
     @RequestMapping(value = "queryGatherList/**")
-    String queryGatherList(HttpServletRequest request, Integer currPage) {
+    String queryGatherList(HttpServletRequest request, Integer currPage) throws ExecutionException, InterruptedException {
 
         String queryString = request.getQueryString().replace("%20", "").substring(9);
 
         AdminBean isAdmin = (AdminBean) request.getSession().getAttribute("isAdmin");
 
-        PageBean pageBean = pageQuery(Integer.parseInt(queryString), null, request, isAdmin);
+        Future<PageBean> pageBeanFuture = pageQuery(Integer.parseInt(queryString), null, null, request, isAdmin);
+        PageBean pageBean = pageBeanFuture.get();
 
         //pageBean放入会话
         request.getSession().setAttribute("pageBean", pageBean);
@@ -33,7 +36,7 @@ public class GatherController extends SuperController {
     }
 
     @RequestMapping(value = "queryGatherListByGroupAndWeek/**")
-    String queryGatherListByGroupAndWeek(HttpServletRequest request, Integer currPage, String subWeek, String subGroup) {
+    String queryGatherListByGroupAndWeek(HttpServletRequest request, Integer currPage, String subWeek, String subGroup) throws ExecutionException, InterruptedException {
         String queryString = request.getQueryString().replace("%20", "").substring(9);
         AdminBean isAdmin = (AdminBean) request.getSession().getAttribute("isAdmin");
 
@@ -43,7 +46,13 @@ public class GatherController extends SuperController {
         if ("选择分组".equals(subGroup)) {
             subGroup = "0";
         }
-        PageBean pageBean = pageQuery(Integer.parseInt(queryString), Integer.parseInt(subWeek), Integer.parseInt(subGroup), request, isAdmin);
+        Future<PageBean> pageBeanFuture = null;
+        if (isAdmin.getAuth() == 1) {
+            pageBeanFuture = pageQuery(Integer.parseInt(queryString), Integer.parseInt(subWeek), null, request, isAdmin);
+        } else {
+            pageBeanFuture = pageQuery(Integer.parseInt(queryString), Integer.parseInt(subWeek), Integer.parseInt(subGroup), request, isAdmin);
+        }
+        PageBean pageBean = pageBeanFuture.get();
         //pageBean放入会话
         request.getSession().setAttribute("pageBean", pageBean);
         return "main";
