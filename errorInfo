@@ -1,0 +1,37 @@
+访问/login时发生错误，错误信息nested exception is org.apache.ibatis.exceptions.TooManyResultsException: Expected one result (or null) to be returned by selectOne(), but found: 2
+访问/login时发生错误，错误信息nested exception is org.apache.ibatis.exceptions.TooManyResultsException: Expected one result (or null) to be returned by selectOne(), but found: 2
+访问/login时发生错误，错误信息nested exception is org.apache.ibatis.exceptions.TooManyResultsException: Expected one result (or null) to be returned by selectOne(), but found: 2
+访问/login时发生错误，错误信息nested exception is org.apache.ibatis.exceptions.TooManyResultsException: Expected one result (or null) to be returned by selectOne(), but found: 2
+访问/login时发生错误，错误信息/ by zero
+访问/login时发生错误，错误信息:/ by zero,错误轨迹信息:[Ljava.lang.StackTraceElement;@78c480df
+访问/login时发生错误，错误信息:/ by zero,错误轨迹信息:[Ljava.lang.StackTraceElement;@5b2722ff
+访问/login时发生错误，错误信息:/ by zero,错误轨迹信息:[Ljava.lang.StackTraceElement;@196271eb
+访问/login时发生错误，错误信息:java.lang.ArithmeticException: / by zero
+访问/login时发生错误，错误信息:java.lang.IndexOutOfBoundsException: Index: 1, Size: 1
+访问/login时发生错误，错误信息:java.lang.IndexOutOfBoundsException: Index: 1, Size: 1
+访问/login时发生错误，错误信息:java.lang.IndexOutOfBoundsException: Index: 1, Size: 1
+访问/login时发生错误，错误信息:java.lang.IndexOutOfBoundsException: Index: 1, Size: 1
+访问/login时发生错误，错误信息:java.lang.IndexOutOfBoundsException: Index: 1, Size: 1
+访问/login时发生错误，错误信息:java.lang.IndexOutOfBoundsException: Index: 1, Size: 1
+访问/login时发生错误，错误信息:java.lang.IndexOutOfBoundsException: Index: 1, Size: 1
+访问/login时发生错误，错误信息:java.lang.IndexOutOfBoundsException: Index: 1, Size: 1
+访问/login时发生错误，错误信息:java.lang.IndexOutOfBoundsException: Index: 1, Size: 1
+访问/login时发生错误，错误信息:java.lang.IndexOutOfBoundsException: Index: 1, Size: 1
+访问/login时发生错误，错误信息:java.lang.IndexOutOfBoundsException: Index: 1, Size: 1
+访问/login时发生错误，错误信息:java.lang.IndexOutOfBoundsException: Index: 1, Size: 1
+访问/login时发生错误，错误信息:java.lang.IndexOutOfBoundsException: Index: 1, Size: 1
+访问/login时发生错误，错误信息:java.lang.IndexOutOfBoundsException: Index: 1, Size: 1
+访问/login时发生错误，错误信息:java.lang.IndexOutOfBoundsException: Index: 1, Size: 1
+访问/login时发生错误，错误信息:org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.TooManyResultsException: Expected one result (or null) to be returned by selectOne(), but found: 4
+访问/login时发生错误，错误信息:java.lang.NullPointerException
+访问/login时发生错误，错误信息:java.lang.NullPointerException
+访问/login时发生错误，错误信息:java.lang.NullPointerException
+访问/login时发生错误，错误信息:org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'deleteFlg' in 'where clause'
+### The error may exist in org/wuancake/dao/ReportMapper.java (best guess)
+### The error may involve org.wuancake.dao.ReportMapper.queryReportStatus-Inline
+### The error occurred while setting parameters
+### SQL: select week_num,status from report r where user_id = ? and deleteFlg = 0 and week_num in (?,?-1,?-2,?-3)
+### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'deleteFlg' in 'where clause'
+; bad SQL grammar []; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'deleteFlg' in 'where clause'
+访问/login时发生错误，错误信息:java.lang.NullPointerException
