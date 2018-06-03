@@ -26,7 +26,7 @@ public class AttendManager {
     @Scheduled(cron = "0 0 4 ? * SUN")
     public void rectifyUserReportStatus() {
         /*
-        每周星期天凌晨检查所有用户上周周报状态
+        定时检查所有用户上周周报状态
          */
         Integer maxWeekNum = WeekNumUtils.getMaxWeekNum();
         List<Integer> ids = userMapper.queryAllUserIdNotKicked();
