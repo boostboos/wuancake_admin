@@ -35,7 +35,6 @@ public interface UserMapper {
     @Update("update user " +
             "set deleteFlg = 1 " +
             "where id = #{userId}")
-    @Cacheable
     void removeByUserId(@Param("userId") Integer userId);
 
     @Select("select id from user " +

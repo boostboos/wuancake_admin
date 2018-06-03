@@ -32,11 +32,6 @@ public class DruidDataSourceConfig {
     public ServletRegistrationBean druidStatViewServlet() {
         ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(new StatViewServlet(), "/druid/*");
 
-        servletRegistrationBean.addInitParameter("allow", "127.0.0.1");
-        servletRegistrationBean.addInitParameter("deny", "192.168.1.73");
-        servletRegistrationBean.addInitParameter("loginUsername", "admin");
-        servletRegistrationBean.addInitParameter("loginPassword", "123456");
-        servletRegistrationBean.addInitParameter("resetEnable", "false");
         return servletRegistrationBean;
     }
 

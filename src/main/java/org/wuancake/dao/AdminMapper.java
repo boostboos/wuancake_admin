@@ -25,7 +25,6 @@ public interface AdminMapper {
      * @return AdminBean
      */
     @Select("select * from adm where email=#{email} and password=#{password}")
-    @Cacheable
     AdminBean findAdminByEmailAndPassword(@Param("email") String email, @Param("password") String password);
 
     /**
@@ -35,7 +34,6 @@ public interface AdminMapper {
      */
     @Insert("insert into adm " +
             "values(null,#{username},#{email},#{password},#{auth},#{groupId})")
-    @Cacheable
     void addTutor(TutorBean tutorBean);
 
     /**
@@ -56,6 +54,5 @@ public interface AdminMapper {
      */
     @Insert("insert into adm " +
             "values(null,#{username},#{email},#{password},#{auth},#{groupId})")
-    @Cacheable
     void addAdmin(AdminBean adminBean);
 }

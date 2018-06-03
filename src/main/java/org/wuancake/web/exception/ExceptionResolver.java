@@ -12,6 +12,7 @@ import java.io.BufferedInputStream;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Date;
 
 /**
  * @author Ericheel
@@ -23,11 +24,10 @@ public class ExceptionResolver implements HandlerExceptionResolver {
     @ExceptionHandler(RuntimeException.class)
     @Override
     public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler, Exception e) {
-        System.err.println("访问" + request.getRequestURI() + "时发生错误，错误信息:" + e.toString());
         e.printStackTrace();
         try {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("errorInfo", true));
-            bufferedWriter.write("访问" + request.getRequestURI() + "时发生错误，错误信息:" + e.toString());
+            bufferedWriter.write(new Date().toLocaleString() + "时访问" + request.getRequestURI() + "时发生错误，错误信息:" + e.toString());
             bufferedWriter.newLine();
             bufferedWriter.close();
         } catch (Exception e1) {
