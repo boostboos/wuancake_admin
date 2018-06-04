@@ -14,7 +14,7 @@
 </head>
 <body>
 	<jsp:include page="guide.jsp" />
-	<form method="post" action="#">
+	<form method="post" action="/lookReport">
 		<div class="col-lg-2 " style="padding-left: 5%;">
 			分组 <select id="groups" name="groups">
 				<option value="all">选择分组</option>
@@ -26,7 +26,7 @@
 			</select>
 		</div>
 		<div class="col-lg-8 ">
-			<input type="button" value="确定">
+			<input type="submit" value="确定" />
 		</div>
 	</form>
 	<div class="container-fluid">
@@ -39,6 +39,7 @@
 					<td>考勤情况</td>
 					<td>考勤内容</td>
 				</tr>
+			
 			</table>
 		</div>
 	</div>
