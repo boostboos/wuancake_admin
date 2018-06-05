@@ -32,19 +32,19 @@ public interface UserMapper {
      *
      * @param userId 用户id
      */
-    @Update("update user " +
-            "set deleteFlg = 1 " +
-            "where id = #{userId}")
+    @Update("update user_group " +
+            "set group_id = 0 " +
+            "where user_id = #{userId}")
     void removeByUserId(@Param("userId") Integer userId);
 
-    @Select("select id from user " +
-            "where deleteFlg = 0")
+    @Select("select user_id from user_group " +
+            "where group_id != 0")
     @Cacheable
     List<Integer> queryAllUserIdNotKicked();
 
     @Select("select group_id from user_group " +
             "where user_id = #{userId} " +
-            "and deleteFlg = 0")
+            "and group_id != 0")
     @Cacheable
     Integer queryGroupIdByUserId(@Param("userId") Integer userId);
 }

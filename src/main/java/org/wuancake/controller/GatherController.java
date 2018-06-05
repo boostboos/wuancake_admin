@@ -43,13 +43,12 @@ public class GatherController extends SuperController {
         if ("选择周数".equals(subWeek)) {
             subWeek = "0";
         }
-        if ("选择分组".equals(subGroup)) {
-            subGroup = "0";
-        }
+
         Future<PageBean> pageBeanFuture = null;
         if (isAdmin.getAuth() == 1) {
             pageBeanFuture = pageQuery(Integer.parseInt(queryString), Integer.parseInt(subWeek), null, request, isAdmin);
         } else {
+            //管理员或超级管理员
             pageBeanFuture = pageQuery(Integer.parseInt(queryString), Integer.parseInt(subWeek), Integer.parseInt(subGroup), request, isAdmin);
         }
         PageBean pageBean = pageBeanFuture.get();

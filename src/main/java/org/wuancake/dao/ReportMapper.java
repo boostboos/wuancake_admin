@@ -28,21 +28,21 @@ public interface ReportMapper {
      * @return 汇总相关集合
      */
     @Select("select distinct user_name,QQ,group_name " +
-            "from user u,report r,wa_group w " +
+            "from user u,report r,wa_group w,user_group ug " +
             "where r.group_id = #{groupId} " +
             "and u.id = r.user_id " +
             "and r.group_id = w.id " +
-            "and  u.deleteFlg = 0 " +
+            "and  ug.group_id != 0 " +
             "limit #{startIndex},#{pageSize}")
     @Cacheable
     List<GatherBean> queryByGroupId(@Param("groupId") Integer groupId, @Param("startIndex") Integer startIndex, @Param("pageSize") Integer pageSize);
 
     @Select("select distinct user_name,QQ,group_name " +
-            "from user u,report r,wa_group w " +
+            "from user u,report r,wa_group w,user_group ug " +
             "where r.group_id = #{groupId} " +
             "and u.id = r.user_id " +
             "and r.group_id = w.id " +
-            "and  u.deleteFlg = 0 " +
+            "and  ug.group_id != 0 " +
             "limit #{startIndex},#{pageSize}")
     @Cacheable
     List<GatherBean> queryByGroupIdAndWeekNum(Integer groupId, Integer startIndex, Integer pageSize, String weekNum);
@@ -97,10 +97,10 @@ public interface ReportMapper {
      * @return 考勤汇总集合
      */
     @Select("select distinct user_name,QQ,group_name " +
-            "from user u,report r,wa_group w " +
+            "from user u,report r,wa_group w,user_group ug " +
             "where u.id = r.user_id " +
             "and r.group_id = w.id " +
-            "and  u.deleteFlg = 0 " +
+            "and  ug.group_id != 0 " +
             "limit #{startIndex},#{pageSize}")
     @Cacheable
     List<GatherBean> queryAll(@Param("startIndex") Integer startIndex, @Param("pageSize") Integer pageSize);

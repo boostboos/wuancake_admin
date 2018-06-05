@@ -47,10 +47,11 @@
 
             //根据分组/周数查询考勤汇总的function
             function sureSub() {
+                $("#sb").html()
                 var $subGroup = $("#groups").find("option:selected").val()
                 var $subWeek = $("#weekNum").find("option:selected").text()
-                if ($subGroup == "选择分组" && $subWeek == "选择周数") {
-                    $("#sb").append("<span><font color='red'>请选择</font></span>")
+                if ($subGroup == 0 && $subWeek == "选择周数") {
+                    $("#sb").html("<font color='red'>请选择</font>")
                     return;
                 }
                 $("#subGroup").val($subGroup)
