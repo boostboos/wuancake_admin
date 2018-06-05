@@ -36,20 +36,16 @@ public class GatherController extends SuperController {
     }
 
     @RequestMapping(value = "queryGatherListByGroupAndWeek/**")
-    String queryGatherListByGroupAndWeek(HttpServletRequest request, Integer currPage, String subWeek, String subGroup) throws ExecutionException, InterruptedException {
+    String queryGatherListByGroupAndWeek(HttpServletRequest request, Integer currPage, Integer weekNum, Integer groups) throws ExecutionException, InterruptedException {
         String queryString = request.getQueryString().replace("%20", "").substring(9);
         AdminBean isAdmin = (AdminBean) request.getSession().getAttribute("isAdmin");
 
-        if ("选择周数".equals(subWeek)) {
-            subWeek = "0";
-        }
-
         Future<PageBean> pageBeanFuture = null;
         if (isAdmin.getAuth() == 1) {
-            pageBeanFuture = pageQuery(Integer.parseInt(queryString), Integer.parseInt(subWeek), null, request, isAdmin);
+            pageBeanFuture = pageQuery(Integer.parseInt(queryString), weekNum, null, request, isAdmin);
         } else {
             //管理员或超级管理员
-            pageBeanFuture = pageQuery(Integer.parseInt(queryString), Integer.parseInt(subWeek), Integer.parseInt(subGroup), request, isAdmin);
+            pageBeanFuture = pageQuery(Integer.parseInt(queryString), weekNum, groups, request, isAdmin);
         }
         PageBean pageBean = pageBeanFuture.get();
         //pageBean放入会话

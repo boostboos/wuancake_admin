@@ -49,13 +49,11 @@
             function sureSub() {
                 $("#sb").html()
                 var $subGroup = $("#groups").find("option:selected").val()
-                var $subWeek = $("#weekNum").find("option:selected").text()
-                if ($subGroup == 0 && $subWeek == "选择周数") {
-                    $("#sb").html("<font color='red'>请选择</font>")
+                var $subWeek = $("#weekNum").find("option:selected").val()
+                if ($subGroup == 0 && $subWeek == 0) {
+                    window.location.href = "${pageContext.request.contextPath}/queryGatherList?currPage = 1";
                     return;
                 }
-                $("#subGroup").val($subGroup)
-                $("#subWeek").val($subWeek)
                 $("#sub").submit()
 
             }
@@ -64,8 +62,6 @@
         <%--根据选择的分组/周数来查询考勤汇总--%>
         <form id="sub" method="post"
               action="${pageContext.request.contextPath}/queryGatherListByGroupAndWeek?currPage=1">
-            <input type="hidden" id="subGroup" name="subGroup"/>
-            <input type="hidden" id="subWeek" name="subWeek"/>
             <c:if test="${isAdmin.auth != 1}">
                 <div class="col-lg-2" style="padding-left: 5%; ">
                     分组：

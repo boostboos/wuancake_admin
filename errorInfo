@@ -98,3 +98,11 @@
 2018-6-4 22:03:40时访问/queryGatherListByGroupAndWeek时发生错误，错误信息:java.lang.NullPointerException
 2018-6-4 22:05:47时访问/queryGatherListByGroupAndWeek时发生错误，错误信息:java.lang.NullPointerException
 2018-6-5 15:13:20时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-5 16:53:43时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-5 16:53:43时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-5 17:20:01时访问/queryGatherListByGroupAndWeek时发生错误，错误信息:java.lang.NullPointerException
+2018-6-5 18:45:24时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-5 18:45:24时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-5 18:45:24时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-5 18:45:27时访问/login时发生错误，错误信息:java.lang.NullPointerException
+2018-6-5 18:45:37时访问/login时发生错误，错误信息:java.lang.NullPointerException
