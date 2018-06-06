@@ -5,7 +5,11 @@ import org.springframework.stereotype.Service;
 import org.wuancake.dao.AdminMapper;
 import org.wuancake.entity.AdminBean;
 import org.wuancake.entity.TutorBean;
+import org.wuancake.entity.UserBean;
+import org.wuancake.entity.UserGroupBean;
 import org.wuancake.service.IAdminService;
+
+import java.util.List;
 
 @Service
 public class AdminServiceImpl implements IAdminService {
@@ -33,5 +37,10 @@ public class AdminServiceImpl implements IAdminService {
     @Override
     public void addAdmin(AdminBean adminBean) {
         adminMapper.addAdmin(adminBean);
+    }
+
+    @Override
+    public List<UserGroupBean> queryAllUserBeKicked() {
+        return adminMapper. queryAllUserBeKicked();
     }
 }

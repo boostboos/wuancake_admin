@@ -1,7 +1,9 @@
 <%--
-  Created by Ericheel.
-  Date: 2018/5/13
-  按照最新周数进行查询考勤汇总的页面
+  Created by IntelliJ IDEA.
+  User: kellen
+  Date: 2018/6/6
+  Time: 13:44
+  To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -26,12 +28,13 @@
                 $("#weekNum").append("<option>" + i + "</option>");
             }
         }, "json")
+
     })
 
     function sureRemove(id, currPage) {
         var flag = confirm("确定?");
         if (flag) {
-            window.location.href = "${pageContext.request.contextPath}/removeSb?userId=" + id + "&currPage=" + currPage;
+            window.location.href = "${pageContext.request.contextPath}/removeSbOnCondition?userId=" + id + "&currPage=" + currPage;
         }
     }
 
@@ -131,7 +134,7 @@
                 <li>
                 <span>
                         <span aria-hidden="true ">
-                            <a href="${pageContext.request.contextPath}/queryGatherList?currPage = ${pageBean.currPage - 1}">&laquo;</a>
+                            <a href="${pageContext.request.contextPath}/queryGatherListByGroupAndWeek?currPage = ${pageBean.currPage - 1}">&laquo;</a>
                         </span>
                 </span>
                 </li>
@@ -144,7 +147,7 @@
                 </c:if>
 
                 <li>
-                    <a href="${pageContext.request.contextPath}/queryGatherList?currPage = ${pageBean.currPage}">
+                    <a href="${pageContext.request.contextPath}/queryGatherListByGroupAndWeek?currPage = ${pageBean.currPage}">
                         <span> ${vs.count} <span class="sr-only "></span></span>
                     </a>
                 </li>
@@ -156,7 +159,7 @@
                 <li>
                 <span>
                     <span aria-hidden="true ">
-                        <a href="${pageContext.request.contextPath}/queryGatherList?currPage=${pageBean.currPage + 1}">&raquo;</a>
+                        <a href="${pageContext.request.contextPath}/queryGatherListByGroupAndWeek?currPage=${pageBean.currPage + 1}">&raquo;</a>
                     </span>
                  </span>
                 </li>
@@ -166,3 +169,4 @@
 </div>
 </body>
 </html>
+

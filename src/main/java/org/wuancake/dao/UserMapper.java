@@ -5,6 +5,7 @@ import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;
 import org.wuancake.entity.UserBean;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -24,7 +25,7 @@ public interface UserMapper {
      * @return 用户实体
      */
     @Select("select * from user where qq = #{QQ}")
-    @Cacheable
+
     UserBean queryUserByQQ(@Param("QQ") String QQ);
 
     /**
@@ -33,18 +34,18 @@ public interface UserMapper {
      * @param userId 用户id
      */
     @Update("update user_group " +
-            "set group_id = 0 " +
+            "set headsman=#{headsman},modify_time=#{modifyTime},deleteFlg = 1 " +
             "where user_id = #{userId}")
-    void removeByUserId(@Param("userId") Integer userId);
+    void removeByUserId(@Param("userId") Integer userId, @Param("headsman") String headsman, @Param("modifyTime") Date date);
 
     @Select("select user_id from user_group " +
-            "where group_id != 0")
-    @Cacheable
+            "where deleteFlg = 0")
+
     List<Integer> queryAllUserIdNotKicked();
 
     @Select("select group_id from user_group " +
             "where user_id = #{userId} " +
-            "and group_id != 0")
-    @Cacheable
+            "and deleteFlg = 0")
+
     Integer queryGroupIdByUserId(@Param("userId") Integer userId);
 }

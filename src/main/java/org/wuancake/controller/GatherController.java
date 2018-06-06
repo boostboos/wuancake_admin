@@ -9,6 +9,7 @@ import org.wuancake.entity.AdminBean;
 import org.wuancake.entity.PageBean;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
@@ -22,7 +23,6 @@ public class GatherController extends SuperController {
 
     @RequestMapping(value = "queryGatherList/**")
     String queryGatherList(HttpServletRequest request, Integer currPage) throws ExecutionException, InterruptedException {
-
         String queryString = request.getQueryString().replace("%20", "").substring(9);
 
         AdminBean isAdmin = (AdminBean) request.getSession().getAttribute("isAdmin");
@@ -37,19 +37,29 @@ public class GatherController extends SuperController {
 
     @RequestMapping(value = "queryGatherListByGroupAndWeek/**")
     String queryGatherListByGroupAndWeek(HttpServletRequest request, Integer currPage, Integer weekNum, Integer groups) throws ExecutionException, InterruptedException {
-        String queryString = request.getQueryString().replace("%20", "").substring(9);
+        HttpSession session = request.getSession();
+
         AdminBean isAdmin = (AdminBean) request.getSession().getAttribute("isAdmin");
+
 
         Future<PageBean> pageBeanFuture = null;
         if (isAdmin.getAuth() == 1) {
-            pageBeanFuture = pageQuery(Integer.parseInt(queryString), weekNum, null, request, isAdmin);
+            pageBeanFuture = pageQuery(currPage, weekNum, null, request, isAdmin);
         } else {
             //管理员或超级管理员
-            pageBeanFuture = pageQuery(Integer.parseInt(queryString), weekNum, groups, request, isAdmin);
+            if (session.getAttribute("weekNum") != null && session.getAttribute("groups") != null) {
+                pageBeanFuture = pageQuery(currPage, (Integer) session.getAttribute("weekNum"), (Integer) session.getAttribute("groups"), request, isAdmin);
+            } else {
+                pageBeanFuture = pageQuery(currPage, weekNum, groups, request, isAdmin);
+                session.setAttribute("weekNum", weekNum);
+                session.setAttribute("groups", groups);
+            }
         }
         PageBean pageBean = pageBeanFuture.get();
         //pageBean放入会话
-        request.getSession().setAttribute("pageBean", pageBean);
-        return "main";
+
+        session.setAttribute("pageBean", pageBean);
+
+        return "mainByCondition";
     }
 }

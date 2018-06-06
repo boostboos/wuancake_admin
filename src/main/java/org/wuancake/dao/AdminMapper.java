@@ -8,6 +8,10 @@ import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;
 import org.wuancake.entity.AdminBean;
 import org.wuancake.entity.TutorBean;
+import org.wuancake.entity.UserBean;
+import org.wuancake.entity.UserGroupBean;
+
+import java.util.List;
 
 /**
  * @author
@@ -44,7 +48,6 @@ public interface AdminMapper {
      */
     @Select("select * from adm " +
             "where email = #{email}")
-    @Cacheable
     TutorBean findTutorByEmail(String email);
 
     /**
@@ -55,4 +58,7 @@ public interface AdminMapper {
     @Insert("insert into adm " +
             "values(null,#{username},#{email},#{password},#{auth},#{groupId})")
     void addAdmin(AdminBean adminBean);
+
+    @Select("select * from user_group where deleteFlg = 1")
+    List<UserGroupBean> queryAllUserBeKicked();
 }

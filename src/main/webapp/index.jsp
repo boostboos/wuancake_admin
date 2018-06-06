@@ -6,10 +6,10 @@
 <html>
 <head>
     <title>管理员后台</title>
+    <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-theme.css">
-    <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
 </head>
 <body background="${pageContext.request.contextPath}/img/bg1.png">
 <form action="login" method="post">

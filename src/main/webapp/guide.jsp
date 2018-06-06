@@ -21,7 +21,7 @@
                 </li>
             </c:if>
             <li>
-                <a href="# ">清人汇总</a>
+                <a href="${pageContext.request.contextPath}/hitman47">清人汇总</a>
             </li>
         </ul>
 

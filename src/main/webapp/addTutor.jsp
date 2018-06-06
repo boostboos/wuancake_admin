@@ -9,46 +9,47 @@
 <html>
 <head>
     <title>添加导师</title>
+    <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-theme.css">
-    <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
 </head>
 <body background="${pageContext.request.contextPath}/img/bg1.png">
+<script type="text/javascript">
+
+    $(function () {
+        //请求分组
+        $.post("${pageContext.request.contextPath}/showGroup", "", function (data) {
+            $(data).each(function (m, n) {
+                $("#groups").append("<option value='" + n.groupId + "'>" + n.groupName + "</option>")
+            })
+        }, "json")
+    })
+
+    function sureAdd() {
+        $("#bad").html("");
+        $("#good").html("");
+        var v1 = $("#groups").find("option:selected").val();
+        var v2 = $("#email").val();
+        var v3 = $("#username").val();
+        var v4 = $("#password").val();
+        if (v1 == 0 || v2 == "" || v3 == "" || v4 == "") {
+            $("#bad").append("分组 昵称 邮箱 密码都填写了吗")
+        } else {
+            var flg = confirm("确定添加?");
+            if (flg) {
+                $("#group").val($("#groups").find($("option:selected")).val());
+                $("#sub").submit();
+            }
+        }
+    }
+
+</script>
 <jsp:include page="guide.jsp"/>
 <div class="container">
     <form id="sub" action="${pageContext.request.contextPath}/addTutor" method="post">
         <input type="hidden" name="groupId" id="group"/>
         <div style="margin-top: 120px" class="container">
-            <script type="text/javascript">
-                $(function () {
-                    //请求分组
-                    $.post("${pageContext.request.contextPath}/showGroup", "", function (data) {
-                        $(data).each(function (m, n) {
-                            $("#groups").append("<option value='" + n.groupId + "'>" + n.groupName + "</option>")
-                        })
-                    }, "json")
-                })
-
-                function sureAdd() {
-                    $("#bad").html("");
-                    $("#good").html("");
-                    var v1 = $("#groups").find("option:selected").val();
-                    var v2 = $("#email").val();
-                    var v3 = $("#username").val();
-                    var v4 = $("#password").val();
-                    if (v1 == 0 || v2 == "" || v3 == "" || v4 == "") {
-                        $("#bad").append("分组 昵称 邮箱 密码都填写了吗")
-                    } else {
-                        var flg = confirm("确定添加?");
-                        if (flg) {
-                            $("#group").val($("#groups").find($("option:selected")).val());
-                            $("#sub").submit();
-                        }
-                    }
-                }
-
-            </script>
             <div class="row">
                 <div class="col-lg-2 " style="padding-left: 5%; ">
                     分组：
@@ -90,8 +91,6 @@
                 </div>
                 <div class="col-lg-4"></div>
             </div>
-
-
             <div class="row">
                 <div class="col-lg-12">
                     <br>
@@ -108,10 +107,9 @@
                 <div class="col-lg-5" style="line-height: 35px"><font id="good" color="green">${ authGoodInfo }</font>
                 </div>
             </div>
-
-
         </div>
     </form>
 </div>
 </body>
+
 </html>

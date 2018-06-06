@@ -32,9 +32,8 @@ public interface ReportMapper {
             "where r.group_id = #{groupId} " +
             "and u.id = r.user_id " +
             "and r.group_id = w.id " +
-            "and  ug.group_id != 0 " +
+            "and ug.deleteFlg = 0 " +
             "limit #{startIndex},#{pageSize}")
-    @Cacheable
     List<GatherBean> queryByGroupId(@Param("groupId") Integer groupId, @Param("startIndex") Integer startIndex, @Param("pageSize") Integer pageSize);
 
     @Select("select distinct user_name,QQ,group_name " +
@@ -42,9 +41,8 @@ public interface ReportMapper {
             "where r.group_id = #{groupId} " +
             "and u.id = r.user_id " +
             "and r.group_id = w.id " +
-            "and  ug.group_id != 0 " +
+            "and ug.deleteFlg = 0 " +
             "limit #{startIndex},#{pageSize}")
-    @Cacheable
     List<GatherBean> queryByGroupIdAndWeekNum(Integer groupId, Integer startIndex, Integer pageSize, String weekNum);
 
     /**
@@ -54,21 +52,23 @@ public interface ReportMapper {
      * @param weekNum 截至周数（四周）
      * @return 状态码集合
      */
-    @Select("select week_num,status from report " +
-            "where user_id = #{userId} " +
-            "and week_num in " +
+    @Select("select week_num,status from report r,user_group ug " +
+            "where r.user_id = ug.user_id " +
+            "and r.user_id = #{userId} " +
+            "and ug.deleteFlg = 0 " +
+            "and r.week_num in " +
             "(#{weekNum},#{weekNum}-1,#{weekNum}-2,#{weekNum}-3)")
 //            "(select x.weekNum from " +
 //            "(select weekNum from report where userId = #{userId} order by weekNum desc limit 0,4) as x)")
-    @Cacheable
     List<ReportBean> queryReportStatus(@Param("userId") Integer userId, @Param("weekNum") Integer weekNum);
 
-    @Select("select week_num,status from report " +
-            "where user_id = #{userId} " +
-            "and group_id = #{groupId} " +
-            "and week_num in " +
+    @Select("select week_num,status from report r,user_group ug " +
+            "where r.user_id = ug.user_id " +
+            "and r.user_id = #{userId} " +
+            "and r.group_id = #{groupId} " +
+            "and ug.deleteFlg = 0 " +
+            "and r.week_num in " +
             "(#{weekNum},#{weekNum}-1,#{weekNum}-2,#{weekNum}-3)")
-    @Cacheable
     List<ReportBean> queryReportStatusByGroupId(@Param("userId") Integer userId, @Param("weekNum") Integer weekNum, @Param("groupId") int groupId);
 
     /**
@@ -85,7 +85,6 @@ public interface ReportMapper {
 
     @Insert("insert into report " +
             "values (#{weekNum},#{userId},#{groupId},'null',1,#{date}) ")
-    @Cacheable
     void updateUserReportStatu(@Param("userId") Integer userId, @Param("weekNum") Integer weekNum, @Param("groupId") Integer groupId, @Param("date") Date date);
 
 
@@ -100,9 +99,8 @@ public interface ReportMapper {
             "from user u,report r,wa_group w,user_group ug " +
             "where u.id = r.user_id " +
             "and r.group_id = w.id " +
-            "and  ug.group_id != 0 " +
+            "and ug.deleteFlg = 0 " +
             "limit #{startIndex},#{pageSize}")
-    @Cacheable
     List<GatherBean> queryAll(@Param("startIndex") Integer startIndex, @Param("pageSize") Integer pageSize);
 
 }

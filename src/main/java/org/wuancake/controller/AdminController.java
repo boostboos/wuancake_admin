@@ -6,14 +6,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.wuancake.dao.ReportMapper;
 import org.wuancake.dao.UserMapper;
-import org.wuancake.entity.AdminBean;
-import org.wuancake.entity.PageBean;
-import org.wuancake.entity.TutorBean;
+import org.wuancake.entity.*;
 import org.wuancake.service.IAdminService;
 import org.wuancake.service.IUserService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Date;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
@@ -68,11 +68,22 @@ public class AdminController extends SuperController {
 
 
     @RequestMapping(value = "/removeSb")
-    String removeSomeBody(Integer userId, Integer currPage, RedirectAttributes redirectAttributes) {
-        userService.removeByUserId(userId);
-        //TODO 其他有deleteFlg的也需要设置为1 代办
+    String removeSomeBody(HttpServletRequest request, Integer userId, Integer currPage, RedirectAttributes redirectAttributes) {
+        AdminBean isAdmin = (AdminBean) request.getSession().getAttribute("isAdmin");
+        userService.removeByUserId(userId, isAdmin.getUsername(), new Date());
         redirectAttributes.addAttribute("currPage", currPage);
         return "redirect:queryGatherList";
+    }
+
+    @RequestMapping(value = "/removeSbOnCondition")
+    String removeSomeBodyOnCondition(HttpServletRequest request, Integer userId, Integer currPage, RedirectAttributes redirectAttributes) {
+        AdminBean isAdmin = (AdminBean) request.getSession().getAttribute("isAdmin");
+        userService.removeByUserId(userId, isAdmin.getUsername(), new Date());
+        redirectAttributes.addAttribute("currPage", currPage);
+
+        redirectAttributes.addAttribute("groups", request.getSession().getAttribute("groups"));
+        redirectAttributes.addAttribute("weekNum", request.getSession().getAttribute("weekNum"));
+        return "redirect:queryGatherListByGroupAndWeek";
     }
 
     @RequestMapping(value = "addTutor")
@@ -129,5 +140,13 @@ public class AdminController extends SuperController {
     String logOut(HttpServletRequest request) {
         request.getSession().invalidate();
         return "index";
+    }
+
+    @RequestMapping(value = "hitman47")
+    String hitMan47(HttpServletRequest request) {
+        List<UserGroupBean> list = adminService.queryAllUserBeKicked();
+        request.getSession().setAttribute("kickList", list);
+        System.out.println(list);
+        return "hitman47";
     }
 }

@@ -106,3 +106,54 @@
 2018-6-5 18:45:24时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
 2018-6-5 18:45:27时访问/login时发生错误，错误信息:java.lang.NullPointerException
 2018-6-5 18:45:37时访问/login时发生错误，错误信息:java.lang.NullPointerException
+2018-6-5 19:21:44时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-5 19:21:44时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-5 19:21:58时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-5 19:40:33时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-5 19:51:04时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-5 19:52:43时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-5 19:52:43时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-5 20:03:47时访问/queryGatherList时发生错误，错误信息:java.lang.NullPointerException
+2018-6-5 22:22:18时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-5 22:22:18时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-5 23:32:42时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-5 23:32:42时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-6 0:02:39时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-6 0:02:39时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-6 0:06:48时访问/removeSb时发生错误，错误信息:org.springframework.jdbc.UncategorizedSQLException: 
+### Error updating database.  Cause: java.sql.SQLException: sql injection violation, syntax error: syntax error, error in :'me=? deleteFlg = 1 where user_id = ',expect IDENTIFIER, actual IDENTIFIER deleteFlg : update user_group set group_id = 0,headsman=?,modify_time=? deleteFlg = 1 where user_id = ?
+### SQL: update user_group set group_id = 0,headsman=?,modify_time=? deleteFlg = 1 where user_id = ?
+### Cause: java.sql.SQLException: sql injection violation, syntax error: syntax error, error in :'me=? deleteFlg = 1 where user_id = ',expect IDENTIFIER, actual IDENTIFIER deleteFlg : update user_group set group_id = 0,headsman=?,modify_time=? deleteFlg = 1 where user_id = ?
+; uncategorized SQLException; SQL state [null]; error code [0]; sql injection violation, syntax error: syntax error, error in :'me=? deleteFlg = 1 where user_id = ',expect IDENTIFIER, actual IDENTIFIER deleteFlg : update user_group set group_id = 0,headsman=?,modify_time=? deleteFlg = 1 where user_id = ?; nested exception is java.sql.SQLException: sql injection violation, syntax error: syntax error, error in :'me=? deleteFlg = 1 where user_id = ',expect IDENTIFIER, actual IDENTIFIER deleteFlg : update user_group set group_id = 0,headsman=?,modify_time=? deleteFlg = 1 where user_id = ?
+2018-6-6 10:37:32时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-6 10:37:32时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-6 10:37:32时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-6 10:56:19时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-6 11:38:31时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-6 12:08:26时访问/queryGatherList时发生错误，错误信息:java.lang.NullPointerException
+2018-6-6 12:15:15时访问/login时发生错误，错误信息:org.springframework.jdbc.UncategorizedSQLException: 
+### Error querying database.  Cause: java.sql.SQLException: sql injection violation, syntax error: syntax error, error in :' = ? ug.deleteFlg = 0 and r.week_nu',expect IDENTIFIER, actual IDENTIFIER ug : select week_num,status from report r,user_group ug where r.user_id = ug.user_id and r.user_id = ? ug.deleteFlg = 0 and r.week_num in (?,?-1,?-2,?-3)
+### The error may exist in org/wuancake/dao/ReportMapper.java (best guess)
+### The error may involve org.wuancake.dao.ReportMapper.queryReportStatus
+### The error occurred while executing a query
+### SQL: select week_num,status from report r,user_group ug where r.user_id = ug.user_id and r.user_id = ? ug.deleteFlg = 0 and r.week_num in (?,?-1,?-2,?-3)
+### Cause: java.sql.SQLException: sql injection violation, syntax error: syntax error, error in :' = ? ug.deleteFlg = 0 and r.week_nu',expect IDENTIFIER, actual IDENTIFIER ug : select week_num,status from report r,user_group ug where r.user_id = ug.user_id and r.user_id = ? ug.deleteFlg = 0 and r.week_num in (?,?-1,?-2,?-3)
+; uncategorized SQLException; SQL state [null]; error code [0]; sql injection violation, syntax error: syntax error, error in :' = ? ug.deleteFlg = 0 and r.week_nu',expect IDENTIFIER, actual IDENTIFIER ug : select week_num,status from report r,user_group ug where r.user_id = ug.user_id and r.user_id = ? ug.deleteFlg = 0 and r.week_num in (?,?-1,?-2,?-3); nested exception is java.sql.SQLException: sql injection violation, syntax error: syntax error, error in :' = ? ug.deleteFlg = 0 and r.week_nu',expect IDENTIFIER, actual IDENTIFIER ug : select week_num,status from report r,user_group ug where r.user_id = ug.user_id and r.user_id = ? ug.deleteFlg = 0 and r.week_num in (?,?-1,?-2,?-3)
+2018-6-6 12:16:57时访问/login时发生错误，错误信息:org.springframework.jdbc.UncategorizedSQLException: 
+### Error querying database.  Cause: java.sql.SQLException: sql injection violation, syntax error: syntax error, error in :' = ? ug.deleteFlg = 0 and r.week_nu',expect IDENTIFIER, actual IDENTIFIER ug : select week_num,status from report r,user_group ug on r.user_id = ug.user_id where r.user_id = ? ug.deleteFlg = 0 and r.week_num in (?,?-1,?-2,?-3)
+### The error may exist in org/wuancake/dao/ReportMapper.java (best guess)
+### The error may involve org.wuancake.dao.ReportMapper.queryReportStatus
+### The error occurred while executing a query
+### SQL: select week_num,status from report r,user_group ug on r.user_id = ug.user_id where r.user_id = ? ug.deleteFlg = 0 and r.week_num in (?,?-1,?-2,?-3)
+### Cause: java.sql.SQLException: sql injection violation, syntax error: syntax error, error in :' = ? ug.deleteFlg = 0 and r.week_nu',expect IDENTIFIER, actual IDENTIFIER ug : select week_num,status from report r,user_group ug on r.user_id = ug.user_id where r.user_id = ? ug.deleteFlg = 0 and r.week_num in (?,?-1,?-2,?-3)
+; uncategorized SQLException; SQL state [null]; error code [0]; sql injection violation, syntax error: syntax error, error in :' = ? ug.deleteFlg = 0 and r.week_nu',expect IDENTIFIER, actual IDENTIFIER ug : select week_num,status from report r,user_group ug on r.user_id = ug.user_id where r.user_id = ? ug.deleteFlg = 0 and r.week_num in (?,?-1,?-2,?-3); nested exception is java.sql.SQLException: sql injection violation, syntax error: syntax error, error in :' = ? ug.deleteFlg = 0 and r.week_nu',expect IDENTIFIER, actual IDENTIFIER ug : select week_num,status from report r,user_group ug on r.user_id = ug.user_id where r.user_id = ? ug.deleteFlg = 0 and r.week_num in (?,?-1,?-2,?-3)
+2018-6-6 12:18:39时访问/login时发生错误，错误信息:org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'on r.user_id = ug.user_id where r.user_id = 1 and ug.deleteFlg = 0 and r.week_nu' at line 1
+### The error may exist in org/wuancake/dao/ReportMapper.java (best guess)
+### The error may involve org.wuancake.dao.ReportMapper.queryReportStatus-Inline
+### The error occurred while setting parameters
+### SQL: select week_num,status from report r,user_group ug on r.user_id = ug.user_id where r.user_id = ? and ug.deleteFlg = 0 and r.week_num in (?,?-1,?-2,?-3)
+### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'on r.user_id = ug.user_id where r.user_id = 1 and ug.deleteFlg = 0 and r.week_nu' at line 1
+; bad SQL grammar []; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'on r.user_id = ug.user_id where r.user_id = 1 and ug.deleteFlg = 0 and r.week_nu' at line 1
+2018-6-6 14:42:10时访问/queryGatherListByGroupAndWeek时发生错误，错误信息:java.lang.NumberFormatException: For input string: "1&groups=2&weekNum=0"
+2018-6-6 14:46:57时访问/queryGatherListByGroupAndWeek时发生错误，错误信息:java.lang.NullPointerException

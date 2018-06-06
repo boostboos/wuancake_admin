@@ -6,6 +6,8 @@ import org.wuancake.dao.UserMapper;
 import org.wuancake.entity.UserBean;
 import org.wuancake.service.IUserService;
 
+import java.util.Date;
+
 @Service
 public class UserServiceImpl implements IUserService {
 
@@ -18,7 +20,8 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public void removeByUserId(Integer userId) {
-        userMapper.removeByUserId(userId);
+    public void removeByUserId(Integer userId, String headsman, Date date) {
+        userMapper.removeByUserId(userId, headsman, date);
     }
+
 }

@@ -8,8 +8,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 @EnableScheduling
-@EnableCaching
 @EnableAsync
+//@EnableCaching
 public class AdminBackApplication {
 
     public static void main(String[] args) {
