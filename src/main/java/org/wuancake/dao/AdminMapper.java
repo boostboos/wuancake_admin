@@ -22,16 +22,6 @@ import java.util.List;
 public interface AdminMapper {
 
     /**
-     * 通过邮箱和密码查找admin是否存在
-     *
-     * @param email    邮箱
-     * @param password 密码
-     * @return AdminBean
-     */
-    @Select("select * from adm where email=#{email} and password=#{password}")
-    AdminBean findAdminByEmailAndPassword(@Param("email") String email, @Param("password") String password);
-
-    /**
      * 添加导师
      *
      * @param tutorBean
@@ -61,4 +51,8 @@ public interface AdminMapper {
 
     @Select("select * from user_group where deleteFlg = 1")
     List<UserGroupBean> queryAllUserBeKicked();
+
+    @Select("select * from adm " +
+            "where email = #{email}")
+    AdminBean findAdminByEmail(@Param("email") String email);
 }

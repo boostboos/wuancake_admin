@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.wuancake.entity.AdminBean;
-import org.wuancake.entity.GatherBean;
-import org.wuancake.entity.GroupBean;
-import org.wuancake.entity.PageBean;
+import org.wuancake.entity.*;
 import org.wuancake.service.IGroupService;
 import org.wuancake.service.IReportService;
 import org.wuancake.service.IUserService;
@@ -47,6 +44,12 @@ public class AjaxController {
     @ResponseBody
     Integer showWeekNum(HttpServletResponse response) {
         return WeekNumUtils.getMaxWeekNum();
+    }
+
+    @RequestMapping(value = "searchInfoByQQ")
+    @ResponseBody
+    SimpleInfoByQQ searchInfoByQQ(String qq) {
+        return userService.searchInfoByQQ(qq);
     }
 
 

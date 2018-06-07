@@ -8,7 +8,6 @@ import org.wuancake.entity.UserGroupBean;
 import java.util.List;
 
 public interface IAdminService {
-    AdminBean findAdminByEmailAndPassword(String email, String password);
 
     void addTutor(TutorBean tutor);
 
@@ -17,4 +16,6 @@ public interface IAdminService {
     void addAdmin(AdminBean adminBean);
 
     List<UserGroupBean> queryAllUserBeKicked();
+
+    AdminBean findAdminByEmail(String email);
 }

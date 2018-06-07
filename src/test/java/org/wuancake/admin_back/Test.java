@@ -1,5 +1,7 @@
 package org.wuancake.admin_back;
 
+import org.wuancake.utils.MD5Utils;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -61,5 +63,10 @@ public class Test {
 
         System.out.println(nowTime.compareTo(date2NextWeek));
 
+    }
+
+    @org.junit.Test
+    public void testMd5(){
+        System.out.println(MD5Utils.generate("tt"));
     }
 }

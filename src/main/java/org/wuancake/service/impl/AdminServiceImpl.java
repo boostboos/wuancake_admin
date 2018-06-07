@@ -18,10 +18,6 @@ public class AdminServiceImpl implements IAdminService {
     private AdminMapper adminMapper;
 
 
-    @Override
-    public AdminBean findAdminByEmailAndPassword(String email, String password) {
-        return adminMapper.findAdminByEmailAndPassword(email, password);
-    }
 
     @Override
     public void addTutor(TutorBean tutor) {
@@ -42,5 +38,10 @@ public class AdminServiceImpl implements IAdminService {
     @Override
     public List<UserGroupBean> queryAllUserBeKicked() {
         return adminMapper. queryAllUserBeKicked();
+    }
+
+    @Override
+    public AdminBean findAdminByEmail(String email) {
+        return adminMapper.findAdminByEmail(email);
     }
 }

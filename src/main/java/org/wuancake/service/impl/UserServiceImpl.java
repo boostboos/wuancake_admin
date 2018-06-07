@@ -3,6 +3,7 @@ package org.wuancake.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.wuancake.dao.UserMapper;
+import org.wuancake.entity.SimpleInfoByQQ;
 import org.wuancake.entity.UserBean;
 import org.wuancake.service.IUserService;
 
@@ -22,6 +23,11 @@ public class UserServiceImpl implements IUserService {
     @Override
     public void removeByUserId(Integer userId, String headsman, Date date) {
         userMapper.removeByUserId(userId, headsman, date);
+    }
+
+    @Override
+    public SimpleInfoByQQ searchInfoByQQ(String qq) {
+        return userMapper.searchInfoByQQ(qq);
     }
 
 }

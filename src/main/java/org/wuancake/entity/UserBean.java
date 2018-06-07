@@ -17,7 +17,7 @@ public class UserBean implements Serializable {
     private String email;
     private String wuanName;
     private String password;
-
+    @JsonProperty(value = "QQ")
     private String QQ;
     private Integer auth;
     private Integer deleteFlg;

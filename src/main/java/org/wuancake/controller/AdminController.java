@@ -9,6 +9,7 @@ import org.wuancake.dao.UserMapper;
 import org.wuancake.entity.*;
 import org.wuancake.service.IAdminService;
 import org.wuancake.service.IUserService;
+import org.wuancake.utils.MD5Utils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -49,10 +50,14 @@ public class AdminController extends SuperController {
             return "index";
         }
         //验证
-        AdminBean isAdmin = adminService.findAdminByEmailAndPassword(email, password);
 
+        AdminBean isAdmin = adminService.findAdminByEmail(email);
         if (isAdmin == null) {
-            request.getSession().setAttribute("msg", "邮箱或密码错误");
+            request.getSession().setAttribute("msg", "邮箱错误");
+            return "index";
+        }
+        if (!MD5Utils.verify(password, isAdmin.getPassword())) {
+            request.getSession().setAttribute("msg", "密码错误");
             return "index";
         }
 
@@ -65,7 +70,6 @@ public class AdminController extends SuperController {
 
         return "main";
     }
-
 
     @RequestMapping(value = "/removeSb")
     String removeSomeBody(HttpServletRequest request, Integer userId, Integer currPage, RedirectAttributes redirectAttributes) {
@@ -104,11 +108,11 @@ public class AdminController extends SuperController {
                 return "addTutor";
             }
             //添加
+            tutorBean.setPassword(MD5Utils.generate(tutorBean.getPassword()));
             adminService.addTutor(tutorBean);
             request.getSession().setAttribute("authGoodInfo", "添加成功");
         }
         return "addTutor";
-
     }
 
     @RequestMapping(value = "addAdmin")
@@ -129,6 +133,7 @@ public class AdminController extends SuperController {
                 return "addAdmin";
             }
             //添加
+            adminBean.setPassword(MD5Utils.generate(adminBean.getPassword()));
             adminService.addAdmin(adminBean);
             request.getSession().setAttribute("authGoodInfo", "添加成功");
         }

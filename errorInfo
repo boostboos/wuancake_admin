@@ -157,3 +157,61 @@
 ; bad SQL grammar []; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'on r.user_id = ug.user_id where r.user_id = 1 and ug.deleteFlg = 0 and r.week_nu' at line 1
 2018-6-6 14:42:10时访问/queryGatherListByGroupAndWeek时发生错误，错误信息:java.lang.NumberFormatException: For input string: "1&groups=2&weekNum=0"
 2018-6-6 14:46:57时访问/queryGatherListByGroupAndWeek时发生错误，错误信息:java.lang.NullPointerException
+2018-6-6 14:56:01时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-6 15:37:37时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-6 16:13:04时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-6 16:54:03时访问/searchInfoByQQ时发生错误，错误信息:org.springframework.jdbc.UncategorizedSQLException: 
+### Error querying database.  Cause: java.sql.SQLException: sql injection violation, syntax error: syntax error, error in :'r_id ug.group_id = wg.group_id',expect IDENTIFIER, actual IDENTIFIER ug : select QQ,user_name,group_name from user u,user_group ug,wa_group wg where u.QQ = ? and u.user_id = ug.user_id ug.group_id = wg.group_id
+### The error may exist in org/wuancake/dao/UserMapper.java (best guess)
+### The error may involve org.wuancake.dao.UserMapper.searchInfoByQQ
+### The error occurred while executing a query
+### SQL: select QQ,user_name,group_name from user u,user_group ug,wa_group wg where u.QQ = ? and u.user_id = ug.user_id ug.group_id = wg.group_id
+### Cause: java.sql.SQLException: sql injection violation, syntax error: syntax error, error in :'r_id ug.group_id = wg.group_id',expect IDENTIFIER, actual IDENTIFIER ug : select QQ,user_name,group_name from user u,user_group ug,wa_group wg where u.QQ = ? and u.user_id = ug.user_id ug.group_id = wg.group_id
+; uncategorized SQLException; SQL state [null]; error code [0]; sql injection violation, syntax error: syntax error, error in :'r_id ug.group_id = wg.group_id',expect IDENTIFIER, actual IDENTIFIER ug : select QQ,user_name,group_name from user u,user_group ug,wa_group wg where u.QQ = ? and u.user_id = ug.user_id ug.group_id = wg.group_id; nested exception is java.sql.SQLException: sql injection violation, syntax error: syntax error, error in :'r_id ug.group_id = wg.group_id',expect IDENTIFIER, actual IDENTIFIER ug : select QQ,user_name,group_name from user u,user_group ug,wa_group wg where u.QQ = ? and u.user_id = ug.user_id ug.group_id = wg.group_id
+2018-6-6 16:55:08时访问/searchInfoByQQ时发生错误，错误信息:org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'u.user_id' in 'where clause'
+### The error may exist in org/wuancake/dao/UserMapper.java (best guess)
+### The error may involve org.wuancake.dao.UserMapper.searchInfoByQQ-Inline
+### The error occurred while setting parameters
+### SQL: select QQ,user_name,group_name from user u,user_group ug,wa_group wg where u.QQ = ? and u.user_id = ug.user_id and ug.group_id = wg.group_id
+### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'u.user_id' in 'where clause'
+; bad SQL grammar []; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'u.user_id' in 'where clause'
+2018-6-6 16:55:10时访问/searchInfoByQQ时发生错误，错误信息:org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'u.user_id' in 'where clause'
+### The error may exist in org/wuancake/dao/UserMapper.java (best guess)
+### The error may involve org.wuancake.dao.UserMapper.searchInfoByQQ-Inline
+### The error occurred while setting parameters
+### SQL: select QQ,user_name,group_name from user u,user_group ug,wa_group wg where u.QQ = ? and u.user_id = ug.user_id and ug.group_id = wg.group_id
+### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'u.user_id' in 'where clause'
+; bad SQL grammar []; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'u.user_id' in 'where clause'
+2018-6-6 16:57:41时访问/searchInfoByQQ时发生错误，错误信息:org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'wg.group_id' in 'where clause'
+### The error may exist in org/wuancake/dao/UserMapper.java (best guess)
+### The error may involve org.wuancake.dao.UserMapper.searchInfoByQQ-Inline
+### The error occurred while setting parameters
+### SQL: select QQ,user_name,group_name from user u,user_group ug,wa_group wg where u.QQ = ? and u.id = ug.user_id and ug.group_id = wg.group_id
+### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'wg.group_id' in 'where clause'
+; bad SQL grammar []; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'wg.group_id' in 'where clause'
+2018-6-6 16:57:45时访问/searchInfoByQQ时发生错误，错误信息:org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'wg.group_id' in 'where clause'
+### The error may exist in org/wuancake/dao/UserMapper.java (best guess)
+### The error may involve org.wuancake.dao.UserMapper.searchInfoByQQ-Inline
+### The error occurred while setting parameters
+### SQL: select QQ,user_name,group_name from user u,user_group ug,wa_group wg where u.QQ = ? and u.id = ug.user_id and ug.group_id = wg.group_id
+### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'wg.group_id' in 'where clause'
+; bad SQL grammar []; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'wg.group_id' in 'where clause'
+2018-6-6 16:57:47时访问/searchInfoByQQ时发生错误，错误信息:org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'wg.group_id' in 'where clause'
+### The error may exist in org/wuancake/dao/UserMapper.java (best guess)
+### The error may involve org.wuancake.dao.UserMapper.searchInfoByQQ-Inline
+### The error occurred while setting parameters
+### SQL: select QQ,user_name,group_name from user u,user_group ug,wa_group wg where u.QQ = ? and u.id = ug.user_id and ug.group_id = wg.group_id
+### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'wg.group_id' in 'where clause'
+; bad SQL grammar []; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'wg.group_id' in 'where clause'
+2018-6-6 17:29:11时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-6 17:35:28时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-6 17:35:28时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-6 17:37:19时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-7 13:04:35时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-7 13:04:35时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-7 13:04:36时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。

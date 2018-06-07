@@ -3,6 +3,7 @@ package org.wuancake.dao;
 import org.apache.ibatis.annotations.*;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;
+import org.wuancake.entity.SimpleInfoByQQ;
 import org.wuancake.entity.UserBean;
 
 import java.util.Date;
@@ -25,7 +26,6 @@ public interface UserMapper {
      * @return 用户实体
      */
     @Select("select * from user where qq = #{QQ}")
-
     UserBean queryUserByQQ(@Param("QQ") String QQ);
 
     /**
@@ -40,12 +40,17 @@ public interface UserMapper {
 
     @Select("select user_id from user_group " +
             "where deleteFlg = 0")
-
     List<Integer> queryAllUserIdNotKicked();
 
     @Select("select group_id from user_group " +
             "where user_id = #{userId} " +
             "and deleteFlg = 0")
-
     Integer queryGroupIdByUserId(@Param("userId") Integer userId);
+
+    @Select("select QQ,user_name,group_name " +
+            "from user u,user_group ug,wa_group wg " +
+            "where u.QQ = #{qq} " +
+            "and u.id = ug.user_id " +
+            "and ug.group_id = wg.id")
+    SimpleInfoByQQ searchInfoByQQ(@Param("qq") String qq);
 }

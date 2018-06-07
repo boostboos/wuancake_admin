@@ -25,13 +25,46 @@
             </li>
         </ul>
 
-        <form class="navbar-form navbar-right " style="padding-left: 50px; ">
-            <div class="form-group ">
-                <input type="text " class="form-control " placeholder="输入学员QQ号 ">
+        <form class="navbar-form navbar-left" style="padding-left: 100px;">
+            <div class="form-group">
+                <input id="qq" type="text" class="form-control" placeholder="输入学员QQ号">
             </div>
-            <button type="submit " class="btn btn-default ">学员检索</button>
+
+            <a tabindex="0"
+               class="btn btn-default"
+               role="button"
+               data-placement="bottom"
+               data-toggle="popover"
+               data-trigger="focus"
+               onclick="sure()">
+                学员检索
+            </a>&nbsp;&nbsp;&nbsp;<span id="fck"></span>
+            <script type="text/javascript">
+                function sure() {
+                    var reg = "[1-9]([0-9]{5,11})";
+                    if (!$("#qq").val().match(reg)) {
+                        $("#fck").html("");
+                        $("#fck").html("<font color='red'>QQ格式错误</font>");
+                        $('[data-toggle="popover"]').popover({
+                            content: ""
+                        })
+                    } else {
+                        $("#fck").html("");
+                        var qq = $("#qq").val()
+                        $.post("${pageContext.request.contextPath}/searchInfoByQQ", {"qq": qq}, function (data) {
+                            if (data == null) {
+                                $("#fck").html("<font color='green'>没有此学员</font>");
+                            } else {
+                                $('[data-toggle="popover"]').popover({
+                                    content: "QQ:" + data.QQ + "\n" + "昵称:" + data.userName + "\n" + "分组:" + data.groupName
+                                })
+                            }
+                        }, "json");
+                    }
+                }
+            </script>
         </form>
-        <font style="line-height: 50px;padding-left: 200px;float: right">
+        <font style="line-height: 50px;padding-right: 50px;float: right">
             <c:if test="${isAdmin.auth == 1}">
                 导师：
             </c:if>
