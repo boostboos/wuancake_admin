@@ -215,3 +215,23 @@
 2018-6-7 13:04:35时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
 2018-6-7 13:04:35时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
 2018-6-7 13:04:36时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-7 13:29:56时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-7 13:29:56时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-7 13:29:56时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-7 13:30:14时访问/hitman47时发生错误，错误信息:org.springframework.dao.DataIntegrityViolationException: 
+### Error querying database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'modify_time' in field list is ambiguous
+### The error may exist in org/wuancake/dao/AdminMapper.java (best guess)
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: select group_name,user_name,QQ,headsman,modify_time from wa_group wg,user u,user_group ug where ug.deleteFlg = 1 and ug.user_id = u.id and ug.group_id = wg.id
+### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'modify_time' in field list is ambiguous
+; ]; Column 'modify_time' in field list is ambiguous; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'modify_time' in field list is ambiguous
+2018-6-7 13:31:51时访问/hitman47时发生错误，错误信息:org.springframework.dao.DataIntegrityViolationException: 
+### Error querying database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'modify_time' in field list is ambiguous
+### The error may exist in org/wuancake/dao/AdminMapper.java (best guess)
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: select group_name,user_name,QQ,headsman,modify_time from wa_group wg,user u,user_group ug where ug.deleteFlg = 1 and ug.user_id = u.id and ug.group_id = wg.id
+### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'modify_time' in field list is ambiguous
+; ]; Column 'modify_time' in field list is ambiguous; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'modify_time' in field list is ambiguous
+2018-6-7 13:37:15时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。

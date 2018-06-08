@@ -23,7 +23,7 @@ public class AttendManager {
     @Autowired
     private ReportMapper reportMapper;
 
-    @Scheduled(cron = "0 0 4 ? * SUN")
+    //@Scheduled(cron = "0/5 * * * * *")
     public void rectifyUserReportStatus() {
         /*
         定时检查所有用户上周周报状态

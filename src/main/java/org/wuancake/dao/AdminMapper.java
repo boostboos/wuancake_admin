@@ -6,10 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;
-import org.wuancake.entity.AdminBean;
-import org.wuancake.entity.TutorBean;
-import org.wuancake.entity.UserBean;
-import org.wuancake.entity.UserGroupBean;
+import org.wuancake.entity.*;
 
 import java.util.List;
 
@@ -49,8 +46,12 @@ public interface AdminMapper {
             "values(null,#{username},#{email},#{password},#{auth},#{groupId})")
     void addAdmin(AdminBean adminBean);
 
-    @Select("select * from user_group where deleteFlg = 1")
-    List<UserGroupBean> queryAllUserBeKicked();
+    @Select("select group_name,user_name,QQ,headsman,ug.modify_time " +
+            "from wa_group wg,user u,user_group ug " +
+            "where ug.deleteFlg = 1 " +
+            "and ug.user_id = u.id " +
+            "and ug.group_id = wg.id")
+    List<KickBean> queryAllUserBeKicked();
 
     @Select("select * from adm " +
             "where email = #{email}")

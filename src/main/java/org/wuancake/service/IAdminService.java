@@ -1,9 +1,6 @@
 package org.wuancake.service;
 
-import org.wuancake.entity.AdminBean;
-import org.wuancake.entity.TutorBean;
-import org.wuancake.entity.UserBean;
-import org.wuancake.entity.UserGroupBean;
+import org.wuancake.entity.*;
 
 import java.util.List;
 
@@ -15,7 +12,7 @@ public interface IAdminService {
 
     void addAdmin(AdminBean adminBean);
 
-    List<UserGroupBean> queryAllUserBeKicked();
+    List<KickBean> queryAllUserBeKicked();
 
     AdminBean findAdminByEmail(String email);
 }

@@ -14,17 +14,14 @@ import java.util.List;
  * @Description: 用户_分组
  * @date 2018/6/523:50
  */
-@Component
 public class UserGroupBean implements Serializable {
     private Integer id;
     private Integer userId;
-    private List<GroupBean> list;
+    private Integer groupId;
     private Integer deleteFlg;
     private String headsman;
     private Date createTime;
     private Date modifyTime;
-    @Autowired
-    private GroupMapper groupMapper;
 
     public Integer getId() {
         return id;
@@ -42,12 +39,12 @@ public class UserGroupBean implements Serializable {
         this.userId = userId;
     }
 
-    public List<GroupBean> getList() {
-        return list;
+    public Integer getGroupId() {
+        return groupId;
     }
 
-    public void setList() {
-        this.list = groupMapper.showGroup();
+    public void setGroupId(Integer groupId) {
+        this.groupId = groupId;
     }
 
     public Integer getDeleteFlg() {
@@ -80,19 +77,5 @@ public class UserGroupBean implements Serializable {
 
     public void setModifyTime(Date modifyTime) {
         this.modifyTime = modifyTime;
-    }
-
-    @Override
-    public String toString() {
-        return "UserGroupBean{" +
-                "id=" + id +
-                ", userId=" + userId +
-                ", list=" + list +
-                ", deleteFlg=" + deleteFlg +
-                ", headsman='" + headsman + '\'' +
-                ", createTime=" + createTime +
-                ", modifyTime=" + modifyTime +
-                ", groupMapper=" + groupMapper +
-                '}';
     }
 }

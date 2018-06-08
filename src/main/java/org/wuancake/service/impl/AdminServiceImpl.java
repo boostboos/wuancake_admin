@@ -3,10 +3,7 @@ package org.wuancake.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.wuancake.dao.AdminMapper;
-import org.wuancake.entity.AdminBean;
-import org.wuancake.entity.TutorBean;
-import org.wuancake.entity.UserBean;
-import org.wuancake.entity.UserGroupBean;
+import org.wuancake.entity.*;
 import org.wuancake.service.IAdminService;
 
 import java.util.List;
@@ -36,7 +33,7 @@ public class AdminServiceImpl implements IAdminService {
     }
 
     @Override
-    public List<UserGroupBean> queryAllUserBeKicked() {
+    public List<KickBean> queryAllUserBeKicked() {
         return adminMapper. queryAllUserBeKicked();
     }
 

@@ -41,16 +41,16 @@ public class AdminController extends SuperController {
     @RequestMapping(value = "/login")
     String login(AdminBean admin, HttpServletRequest request, HttpServletResponse response) throws ExecutionException, InterruptedException {
 
-        String email = admin.getEmail();
-        String password = admin.getPassword();
+        String email = admin.getEmail().replace(" ", "");
+        String password = admin.getPassword().replace(" ", "");
 
         //校验非空
         if ("".equals(email) || "".equals(password)) {
             request.getSession().setAttribute("msg", "邮箱或密码不能为空");
             return "index";
         }
-        //验证
 
+        //验证
         AdminBean isAdmin = adminService.findAdminByEmail(email);
         if (isAdmin == null) {
             request.getSession().setAttribute("msg", "邮箱错误");
@@ -147,11 +147,10 @@ public class AdminController extends SuperController {
         return "index";
     }
 
-    @RequestMapping(value = "hitman47")
+    @RequestMapping(value = "hitman")
     String hitMan47(HttpServletRequest request) {
-        List<UserGroupBean> list = adminService.queryAllUserBeKicked();
+        List<KickBean> list = adminService.queryAllUserBeKicked();
         request.getSession().setAttribute("kickList", list);
-        System.out.println(list);
-        return "hitman47";
+        return "hitman";
     }
 }

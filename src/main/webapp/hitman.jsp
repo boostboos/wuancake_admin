@@ -10,6 +10,10 @@
 <html>
 <head>
     <title>清人汇总</title>
+    <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-theme.css">
 </head>
 <body>
 <div class="container-fluid">
@@ -25,7 +29,11 @@
         </tr>
         <c:forEach items="${kickList}" var="list">
             <tr>
-                <td></td>
+                <td>${list.groupName}</td>
+                <td>${list.userName}</td>
+                <td>${list.QQ}</td>
+                <td>${list.headsman}</td>
+                <td>${list.modifyTime}</td>
             </tr>
         </c:forEach>
     </table>
