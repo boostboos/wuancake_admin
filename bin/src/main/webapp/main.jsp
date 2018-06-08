@@ -25,7 +25,7 @@
                 //请求分组
                 $.post("${pageContext.request.contextPath}/showGroup", "", function (data) {
                     $(data).each(function (m, n) {
-                        $("#groups").append("<option>" + n.groupName + "</option>")
+                        $("#groups").append("<option value=" + n.groupId + ">" + n.groupName + "</option>")
                     })
                 }, "json")
                 //请求周数
@@ -47,11 +47,10 @@
 
             //根据分组/周数查询考勤汇总的function
             function sureSub() {
-                alert($("#groups").find("option:selected").text);
-                var $subGroup = $("#groups").find("option:selected").text
-                var $subWeek = $("#weekNum").find("option:selected").text
-                if ($subGroup == "选择分组" || $subWeek == "选择周数") {
-                    $("#sb").append("<font color='red'>请选择</font>")
+                var $subGroup = $("#groups").find("option:selected").val()
+                var $subWeek = $("#weekNum").find("option:selected").text()
+                if ($subGroup == "选择分组" && $subWeek == "选择周数") {
+                    $("#sb").append("<span><font color='red'>请选择</font></span>")
                     return;
                 }
                 $("#subGroup").val($subGroup)
@@ -67,7 +66,7 @@
             <input type="hidden" id="subGroup" name="subGroup"/>
             <input type="hidden" id="subWeek" name="subWeek"/>
             <c:if test="${isAdmin.auth != 1}">
-                <div class="col-lg-2 " style="padding-left: 5%; ">
+                <div class="col-lg-2" style="padding-left: 5%; ">
                     分组：
                     <select id="groups" name="groups">
                         <option value='0'>选择分组</option>
@@ -75,17 +74,19 @@
                 </div>
             </c:if>
 
-            <div class="col-lg-2 ">
+            <div class="col-lg-2">
                 截至周数：
                 <select id="weekNum" name="weekNum">
                     <option value="0">选择周数</option>
                 </select>
             </div>
-            <div class="col-lg-8 ">
+            <div class="col-lg-2">
                 <button type="button" onclick="sureSub()">确定</button>
                 <span id="warn"></span>
             </div>
-            <span id="sb"></span>
+            <div class="col-lg-6">
+                <span id="sb"></span>
+            </div>
         </form>
 
     </div>
@@ -96,10 +97,8 @@
                     <td>分组</td>
                     <td>昵称</td>
                     <td>QQ号</td>
-                    <c:forEach items="${pageBean.gathers}" var="gather">
-                        <c:forEach items="${gather.report4StatusMap}" var="week">
-                            <td>第${week.key}周</td>
-                        </c:forEach>
+                    <c:forEach items="${pageBean.gathers[0].report4StatusMap}" var="week">
+                        <td>第${week.key}周</td>
                     </c:forEach>
                     <td>操作</td>
                 </tr>
