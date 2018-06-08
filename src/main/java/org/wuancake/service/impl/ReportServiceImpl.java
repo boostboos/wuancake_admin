@@ -38,5 +38,9 @@ public class ReportServiceImpl implements IReportService {
         return reportMapper.queryReportStatusByGroupId(userId, maxWeekNum, groupId);
     }
 
+	public List<ReportBean> queryReportByWeekAndGroup(Integer weeks, Integer groups) {
+		return reportMapper.queryReportByWeekAndGroup(weeks,groups);	
+	}
+
 
 }

@@ -103,4 +103,7 @@ public interface ReportMapper {
             "limit #{startIndex},#{pageSize}")
     List<GatherBean> queryAll(@Param("startIndex") Integer startIndex, @Param("pageSize") Integer pageSize);
 
+    @Select("select week_num weekNum,user_id userId,group_id groupId,text,status,reply_time replyTime from report where group_id = #{groups} and week_num = #{weeks}")
+	List<ReportBean> queryReportByWeekAndGroup(@Param("weeks") Integer weeks, @Param("groups") Integer groups);
+
 }
