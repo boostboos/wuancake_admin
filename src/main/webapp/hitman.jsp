@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-theme.css">
 </head>
-<body background="${pageContext.request.contextPath}/img/bg1.png">
+<body>
 <div class="container-fluid">
     <jsp:include page="guide.jsp"/>
 

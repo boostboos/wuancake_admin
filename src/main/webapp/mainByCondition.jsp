@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-theme.css">
 </head>
-<body background="${pageContext.request.contextPath}/img/bg1.png">
+<body>
 <script type="text/javascript">
     $(function () {
         $.post("${pageContext.request.contextPath}/showGroup", "", function (data) {
@@ -86,7 +86,7 @@
     </div>
     <div class="container-fluid">
         <div class="row ">
-            <table class="table table-bordered">
+            <table class="table table-bordered" style="text-align: center">
                 <tr class="active ">
                     <td>分组</td>
                     <td>昵称</td>

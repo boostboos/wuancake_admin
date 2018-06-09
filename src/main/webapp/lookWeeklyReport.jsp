@@ -12,7 +12,7 @@
 	href="${pageContext.request.contextPath}/css/bootstrap-theme.css">
 <title>查看周报</title>
 </head>
-<body background="${pageContext.request.contextPath}/img/bg1.png">
+<body>
 	<jsp:include page="guide.jsp" />
 
 	<div class="container-fluid">

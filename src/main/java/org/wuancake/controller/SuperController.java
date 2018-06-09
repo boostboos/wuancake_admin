@@ -40,15 +40,21 @@ public class SuperController {
         pageBean.setCurrPage(currPage);
         Integer pageSize = 10;
         Integer startIndex = (currPage - 1) * pageSize;
-
+        int totalSize;
         /*
         分页查询所有用户考勤汇总
          */
         List<GatherBean> gatherBeanList;
         if (auth == 1) {
             Integer groupId = isAdmin.getGroupId();
+            //为分页查询所有纪录
+            totalSize = reportService.querySizeByGroupId(groupId);
+
             gatherBeanList = reportService.queryByGroupId(groupId, startIndex, pageSize);
         } else {
+            //为分页查询所有纪录
+            totalSize = reportService.querySize();
+
             if (groups == null || groups == 0) {
                 //默认全部分组
                 gatherBeanList = reportService.queryAll(startIndex, pageSize);
@@ -87,29 +93,13 @@ public class SuperController {
              */
                 for (int i = weekNum - 3; i <= weekNum; i++) {
                     ReportBean reportBean = reportService.queryReportStatu(gather.getId(), i);
-                    if (reportBean == null) {
-                        report4StatusMap.put(i, 1);
-                    } else {
-                        switch (reportBean.getStatus()) {
-                            case 1:
-                                report4StatusMap.put(i, 1);
-                                break;
-                            case 2:
-                                report4StatusMap.put(i, 2);
-                                break;
-                            case 3:
-                                report4StatusMap.put(i, 3);
-                                break;
-                        }
-                    }
+                    report4StatusMap.put(i, reportBean == null ? 1 : reportBean.getStatus() == 1 ? 1 : reportBean.getStatus() == 2 ? 2 : 3);
                 }
                 gather.setReport4StatusMap(report4StatusMap);
                 pageBean.getGathers().add(gather);
             }
         }
-        Integer totalSize = gatherBeanList.size();
         pageBean.setWeekNum(weekNum);
-        System.out.println("--------------------------------" + pageBean.getWeekNum());
         //当前页第一页
         pageBean.setCurrPage(currPage);
         //总记录数为查询得到
@@ -117,9 +107,10 @@ public class SuperController {
         //每页固定显式10条,limit (start,10)
         pageBean.setPageSize(pageSize);
         pageBean.setTotalPage((int) Math.ceil((double) totalSize / pageSize));
+        System.out.println("总记录数" + totalSize);
+        System.out.println("页面容量" + pageSize);
 
         return new AsyncResult<>(pageBean);
-
     }
 
 }

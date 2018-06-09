@@ -107,4 +107,12 @@ public interface ReportMapper {
     @Select("select week_num weekNum,user_id userId,group_id groupId,text,status,reply_time replyTime from report where group_id = #{groups} and week_num = #{weeks}")
     List<ReportBean> queryReportByWeekAndGroup(@Param("weeks") Integer weeks, @Param("groups") Integer groups);
 
+    @Select("select count(distinct user_id) " +
+            "from report")
+    int querySize();
+
+    @Select("select count(distinct user_id) " +
+            "from report " +
+            "where group_id = #{groupId}")
+    int querySizeByGroupId(@Param("groupId") Integer groupId);
 }

@@ -43,6 +43,16 @@ public class ReportServiceImpl implements IReportService {
         return reportMapper.queryReportStatu(id, i);
     }
 
+    @Override
+    public int querySizeByGroupId(Integer groupId) {
+        return reportMapper.querySizeByGroupId(groupId);
+    }
+
+    @Override
+    public int querySize() {
+        return reportMapper.querySize();
+    }
+
 
     public List<ReportBean> queryReportByWeekAndGroup(Integer weeks, Integer groups) {
         return reportMapper.queryReportByWeekAndGroup(weeks, groups);
