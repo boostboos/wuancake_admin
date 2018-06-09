@@ -1,6 +1,7 @@
 package org.wuancake.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,6 +16,16 @@ public class GatherBean implements Serializable {
     private String userName;
     private String QQ;
     private Integer id;
+    private Date createTime;
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
     /**
      * 截至四周的周报状态集合
      */
@@ -22,7 +33,7 @@ public class GatherBean implements Serializable {
     /**
      * 是否是保护期 1 是 2 否
      */
-    private Integer isUnderProtected;
+    private Integer isUnderProtected = 2;
 
     public Integer getIsUnderProtected() {
         return isUnderProtected;

@@ -235,3 +235,63 @@
 ### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'modify_time' in field list is ambiguous
 ; ]; Column 'modify_time' in field list is ambiguous; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'modify_time' in field list is ambiguous
 2018-6-7 13:37:15时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-8 20:53:03时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-8 20:53:03时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-8 20:59:58时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-8 21:06:02时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-8 21:09:50时访问/img/bg2.jpg时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-8 21:44:17时访问/img/bg2.jpg时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-8 21:44:55时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-8 21:44:55时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-8 21:44:55时访问/img/bg2.jpg时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-8 21:46:01时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-8 21:46:01时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-8 22:16:02时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-8 22:16:02时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-8 22:16:02时访问/img/bg2.jpg时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-8 22:24:08时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-8 22:29:09时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-8 22:29:09时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-8 22:30:32时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-8 22:33:22时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-8 22:33:22时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-8 22:33:44时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-8 22:34:54时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-8 22:34:54时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-9 10:09:05时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-9 10:09:05时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-9 10:09:05时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-9 10:11:52时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-9 10:11:52时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-9 10:18:12时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-9 10:18:12时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-9 10:19:05时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-9 10:19:05时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-9 11:16:35时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-9 11:16:35时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-9 11:16:35时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-9 11:18:27时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-9 11:18:38时访问/queryGatherListByGroupAndWeek时发生错误，错误信息:java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2018-6-9 12:51:47时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-9 13:41:43时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-9 13:41:43时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-9 13:41:46时访问/login时发生错误，错误信息:org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.reflection.ReflectionException: Illegal overloaded getter method with ambiguous type for property userName in class class org.wuancake.entity.GatherBean. This breaks the JavaBeans specification and can cause unpredictable results.
+2018-6-9 13:46:09时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-9 13:46:09时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-9 13:46:09时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-9 13:46:44时访问/queryGatherListByGroupAndWeek时发生错误，错误信息:java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2018-6-9 13:51:44时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-9 22:30:06时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-9 22:30:06时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-9 22:30:06时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-9 22:30:09时访问/login时发生错误，错误信息:java.lang.NullPointerException
+2018-6-9 22:31:42时访问/login时发生错误，错误信息:java.lang.NullPointerException
+2018-6-9 22:32:44时访问/login时发生错误，错误信息:java.lang.NullPointerException
+2018-6-9 22:33:29时访问/login时发生错误，错误信息:java.lang.NullPointerException
+2018-6-9 22:38:49时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-9 22:38:49时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-9 22:38:53时访问/login时发生错误，错误信息:java.lang.NullPointerException
+2018-6-9 22:43:24时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-9 22:43:24时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-9 22:43:24时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-9 22:54:14时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。

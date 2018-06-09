@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: kellen
+  User: Ericheel
   Date: 2018/5/24
   Time: 10:35
   To change this template use File | Settings | File Templates.
@@ -46,7 +46,7 @@
 
 </script>
 <jsp:include page="guide.jsp"/>
-<div class="container">
+<div class="container-fluid">
     <form id="sub" action="${pageContext.request.contextPath}/addTutor" method="post">
         <input type="hidden" name="groupId" id="group"/>
         <div style="margin-top: 120px" class="container">

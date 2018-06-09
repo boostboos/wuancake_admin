@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: kellen
+  User: Ericheel
   Date: 2018/6/5
   Time: 23:35
   To change this template use File | Settings | File Templates.
@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-theme.css">
 </head>
-<body>
+<body background="${pageContext.request.contextPath}/img/bg1.png">
 <div class="container-fluid">
     <jsp:include page="guide.jsp"/>
 

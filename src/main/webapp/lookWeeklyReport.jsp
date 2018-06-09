@@ -12,24 +12,25 @@
 	href="${pageContext.request.contextPath}/css/bootstrap-theme.css">
 <title>查看周报</title>
 </head>
-<body>
+<body background="${pageContext.request.contextPath}/img/bg1.png">
 	<jsp:include page="guide.jsp" />
-	<form method="post" action="/lookReport">
-		<div class="col-lg-2 " style="padding-left: 5%;">
-			分组 <select id="groups" name="groups">
+
+	<div class="container-fluid">
+		<form method="post" action="/lookReport">
+			<div class="col-lg-2 " style="padding-left: 5%;">
+				分组 <select id="groups" name="groups">
 				<option value=-1>选择分组</option>
 			</select>
-		</div>
-		<div class="col-lg-2 ">
-			周数 <select id="weeks" name="weeks">
+			</div>
+			<div class="col-lg-2 ">
+				周数 <select id="weeks" name="weeks">
 				<option value=-1>选择周数</option>
 			</select>
-		</div>
-		<div class="col-lg-8 ">
-			<input type="submit" value="确定" />
-		</div>
-	</form>
-	<div class="container-fluid">
+			</div>
+			<div class="col-lg-8 ">
+				<input type="submit" value="确定" />
+			</div>
+		</form>
 		<div class="row">
 			<table class="table table-bordered">
 				<tr class="active">

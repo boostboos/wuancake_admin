@@ -47,17 +47,10 @@ public class GatherController extends SuperController {
             pageBeanFuture = pageQuery(currPage, weekNum, null, request, isAdmin);
         } else {
             //管理员或超级管理员
-            if (session.getAttribute("weekNum") != null && session.getAttribute("groups") != null) {
-                pageBeanFuture = pageQuery(currPage, (Integer) session.getAttribute("weekNum"), (Integer) session.getAttribute("groups"), request, isAdmin);
-            } else {
-                pageBeanFuture = pageQuery(currPage, weekNum, groups, request, isAdmin);
-                session.setAttribute("weekNum", weekNum);
-                session.setAttribute("groups", groups);
-            }
+            pageBeanFuture = pageQuery(currPage, weekNum, groups, request, isAdmin);
         }
         PageBean pageBean = pageBeanFuture.get();
         //pageBean放入会话
-
         session.setAttribute("pageBean", pageBean);
 
         return "mainByCondition";

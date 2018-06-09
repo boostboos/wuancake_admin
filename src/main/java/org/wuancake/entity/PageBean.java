@@ -16,8 +16,16 @@ public class PageBean implements Serializable {
     private Integer totalPage;
     private Integer pageSize;
     private Integer totalSize;
-
+    private Integer weekNum;
     private List<GatherBean> gathers = new ArrayList<>();
+
+    public Integer getWeekNum() {
+        return weekNum;
+    }
+
+    public void setWeekNum(Integer weekNum) {
+        this.weekNum = weekNum;
+    }
 
     @Override
     public String toString() {

@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-theme.css">
 </head>
-<body>
+<body background="${pageContext.request.contextPath}/img/bg1.png">
 <script type="text/javascript">
     $(function () {
         $.post("${pageContext.request.contextPath}/showGroup", "", function (data) {
@@ -51,7 +51,7 @@
 
     <jsp:include page="guide.jsp"/>
 
-    <div class="row ">
+    <div class="row">
 
         <%--根据选择的分组/周数来查询考勤汇总--%>
         <form id="sub" method="post"
@@ -88,8 +88,9 @@
                     <td>分组</td>
                     <td>昵称</td>
                     <td>QQ号</td>
-                    <c:forEach items="${pageBean.gathers[0].report4StatusMap}" var="week">
-                        <td>第${week.key}周</td>
+                    <c:forEach var="vs" begin="${pageBean.weekNum-3}"
+                               end="${pageBean.weekNum}" step="1">
+                        <td>第${vs}周</td>
                     </c:forEach>
                     <td>操作</td>
                 </tr>
@@ -102,7 +103,7 @@
                         <c:if test="${gathers.isUnderProtected == 1}">
                             <td colspan="4" class="right" style="text-align: center">处于保护期</td>
                         </c:if>
-                        <c:if test="${gathers.isUnderProtected == 0}">
+                        <c:if test="${gathers.isUnderProtected == 2}">
                             <c:forEach items="${gathers.report4StatusMap}" var="status">
                                 <c:if test="${status.value == 1}">
                                     <td class="danger">未提交</td>

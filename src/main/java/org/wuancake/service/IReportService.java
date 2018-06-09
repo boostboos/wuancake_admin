@@ -16,4 +16,6 @@ public interface IReportService {
 
 
     List<ReportBean> queryReportStatusByGroupId(Integer id, Integer maxWeekNum, int groups);
+
+    ReportBean queryReportStatu(Integer id, int i);
 }
