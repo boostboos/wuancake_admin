@@ -125,44 +125,7 @@
     </div>
 
     <div class="row " style="text-align: center; ">
-        <ul class="pagination ">
-
-            <%--上一页--%>
-            <c:if test="${pageBean.currPage!=1}">
-                <li>
-                <span>
-                        <span aria-hidden="true ">
-                            <a href="${pageContext.request.contextPath}/queryGatherList?currPage = ${pageBean.currPage - 1}">&laquo;</a>
-                        </span>
-                </span>
-                </li>
-            </c:if>
-
-            <c:forEach varStatus="vs" begin="1" end="${pageBean.totalPage}">
-
-                <c:if test="${pageBean.currPage == vs.count}">
-                    <li class="active">
-                </c:if>
-
-                <li>
-                    <a href="${pageContext.request.contextPath}/queryGatherList?currPage = ${pageBean.currPage}">
-                        <span> ${vs.count} <span class="sr-only "></span></span>
-                    </a>
-                </li>
-                </li>
-
-            </c:forEach>
-            <%--下一页--%>
-            <c:if test="${pageBean.currPage != pageBean.totalPage}">
-                <li>
-                <span>
-                    <span aria-hidden="true ">
-                        <a href="${pageContext.request.contextPath}/queryGatherList?currPage=${pageBean.currPage + 1}">&raquo;</a>
-                    </span>
-                 </span>
-                </li>
-            </c:if>
-        </ul>
+        <jsp:include page="toolbar.jsp"/>
     </div>
 </div>
 </body>

@@ -26,6 +26,7 @@ public interface UserMapper {
      * @return 用户实体
      */
     @Select("select * from user where qq = #{QQ}")
+    @Cacheable
     UserBean queryUserByQQ(@Param("QQ") String QQ);
 
     /**

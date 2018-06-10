@@ -40,7 +40,10 @@ public class AdminController extends SuperController {
 
     @RequestMapping(value = "/login")
     String login(AdminBean admin, HttpServletRequest request, HttpServletResponse response) throws ExecutionException, InterruptedException {
-
+        if (admin == null) {
+            request.getSession().setAttribute("msg", "登录失败");
+            return "index";
+        }
         String email = admin.getEmail().replace(" ", "");
         String password = admin.getPassword().replace(" ", "");
 

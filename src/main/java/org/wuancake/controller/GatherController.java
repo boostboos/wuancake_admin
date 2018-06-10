@@ -41,7 +41,6 @@ public class GatherController extends SuperController {
 
         AdminBean isAdmin = (AdminBean) request.getSession().getAttribute("isAdmin");
 
-
         Future<PageBean> pageBeanFuture = null;
         if (isAdmin.getAuth() == 1) {
             pageBeanFuture = pageQuery(currPage, weekNum, null, request, isAdmin);

@@ -27,7 +27,7 @@ public interface GroupMapper {
      */
     @Select("select * from wa_group")
     @Results({@Result(column = "id", property = "groupId")})
-
+    @Cacheable
     List<GroupBean> showGroup();
 
 }
