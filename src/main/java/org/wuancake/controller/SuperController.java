@@ -1,6 +1,7 @@
 package org.wuancake.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.scheduling.annotation.EnableAsync;
@@ -25,6 +26,9 @@ import java.util.concurrent.Future;
 @EnableAsync
 public class SuperController {
 
+    @Value("${customConfig.pageSize}")
+    private int pageSize;
+
     @Autowired
     private IReportService reportService;
 
@@ -38,7 +42,6 @@ public class SuperController {
 
         PageBean pageBean = new PageBean();
         pageBean.setCurrPage(currPage);
-        Integer pageSize = 10;
         Integer startIndex = (currPage - 1) * pageSize;
         int totalSize;
         /*
@@ -49,17 +52,15 @@ public class SuperController {
             Integer groupId = isAdmin.getGroupId();
             //为分页查询所有纪录
             totalSize = reportService.querySizeByGroupId(groupId);
-
             gatherBeanList = reportService.queryByGroupId(groupId, startIndex, pageSize);
         } else {
-            //为分页查询所有纪录
-            totalSize = reportService.querySize();
-
             if (groups == null || groups == 0) {
                 //默认全部分组
+                totalSize = reportService.querySize();
                 gatherBeanList = reportService.queryAll(startIndex, pageSize);
             } else {
                 //说明选择了分组
+                totalSize = reportService.querySizeByGroupId(groups);
                 gatherBeanList = reportService.queryByGroupId(groups, startIndex, pageSize);
             }
         }
@@ -100,16 +101,10 @@ public class SuperController {
             }
         }
         pageBean.setWeekNum(weekNum);
-        //当前页第一页
         pageBean.setCurrPage(currPage);
-        //总记录数为查询得到
         pageBean.setTotalSize(totalSize);
-        //每页固定显式10条,limit (start,10)
         pageBean.setPageSize(pageSize);
         pageBean.setTotalPage((int) Math.ceil((double) totalSize / pageSize));
-        System.out.println("总记录数" + totalSize);
-        System.out.println("页面容量" + pageSize);
-
         return new AsyncResult<>(pageBean);
     }
 

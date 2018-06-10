@@ -23,19 +23,8 @@ public class ReportServiceImpl implements IReportService {
     }
 
     @Override
-    public List<ReportBean> queryReportStatus(Integer userId, Integer maxWeekNum) {
-        List<ReportBean> reportBeans = reportMapper.queryReportStatus(userId, maxWeekNum);
-        return reportBeans;
-    }
-
-    @Override
     public List<GatherBean> queryAll(Integer startIndex, Integer pageSize) {
         return reportMapper.queryAll(startIndex, pageSize);
-    }
-
-    @Override
-    public List<ReportBean> queryReportStatusByGroupId(Integer userId, Integer maxWeekNum, int groupId) {
-        return reportMapper.queryReportStatusByGroupId(userId, maxWeekNum, groupId);
     }
 
     @Override

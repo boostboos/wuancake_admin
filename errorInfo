@@ -300,3 +300,79 @@
 2018-6-9 23:38:20时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
 2018-6-9 23:40:36时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
 2018-6-9 23:40:36时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-10 8:02:53时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-10 8:02:54时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-10 8:02:54时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-10 8:36:11时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-10 8:36:11时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-10 9:19:30时访问/queryGatherList时发生错误，错误信息:org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-8,8' at line 1
+### The error may exist in org/wuancake/dao/ReportMapper.java (best guess)
+### The error may involve org.wuancake.dao.ReportMapper.queryAll-Inline
+### The error occurred while setting parameters
+### SQL: select distinct u.id,u.create_time, user_name,QQ,group_name from user u,report r,wa_group w,user_group ug where u.id = r.user_id and r.group_id = w.id and ug.deleteFlg = 0 limit ?,?
+### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-8,8' at line 1
+; bad SQL grammar []; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-8,8' at line 1
+2018-6-10 9:22:50时访问/queryGatherList时发生错误，错误信息:org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-8,8' at line 1
+### The error may exist in org/wuancake/dao/ReportMapper.java (best guess)
+### The error may involve org.wuancake.dao.ReportMapper.queryAll-Inline
+### The error occurred while setting parameters
+### SQL: select distinct u.id,u.create_time, user_name,QQ,group_name from user u,report r,wa_group w,user_group ug where u.id = r.user_id and r.group_id = w.id and ug.deleteFlg = 0 limit ?,?
+### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-8,8' at line 1
+; bad SQL grammar []; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-8,8' at line 1
+2018-6-10 9:47:41时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-10 9:47:41时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-10 9:52:31时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-10 11:01:48时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-10 11:04:22时访问/queryGatherList时发生错误，错误信息:org.springframework.dao.RecoverableDataAccessException: 
+### Error querying database.  Cause: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 20,496 milliseconds ago.  The last packet sent successfully to the server was 19,204 milliseconds ago.
+### The error may exist in org/wuancake/dao/ReportMapper.java (best guess)
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: select count(user_id) from user_group where deleteFlg = 0 and group_id !=0
+### Cause: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 20,496 milliseconds ago.  The last packet sent successfully to the server was 19,204 milliseconds ago.
+; ]; Communications link failure
+
+The last packet successfully received from the server was 20,496 milliseconds ago.  The last packet sent successfully to the server was 19,204 milliseconds ago.; nested exception is com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 20,496 milliseconds ago.  The last packet sent successfully to the server was 19,204 milliseconds ago.
+2018-6-10 11:04:36时访问/queryGatherList时发生错误，错误信息:org.springframework.dao.RecoverableDataAccessException: 
+### Error querying database.  Cause: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 56,308 milliseconds ago.  The last packet sent successfully to the server was 19,203 milliseconds ago.
+### The error may exist in org/wuancake/dao/ReportMapper.java (best guess)
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: select count(user_id) from user_group where deleteFlg = 0 and group_id !=0
+### Cause: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 56,308 milliseconds ago.  The last packet sent successfully to the server was 19,203 milliseconds ago.
+; ]; Communications link failure
+
+The last packet successfully received from the server was 56,308 milliseconds ago.  The last packet sent successfully to the server was 19,203 milliseconds ago.; nested exception is com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 56,308 milliseconds ago.  The last packet sent successfully to the server was 19,203 milliseconds ago.
+2018-6-10 11:04:38时访问/queryGatherList时发生错误，错误信息:org.springframework.dao.RecoverableDataAccessException: 
+### Error querying database.  Cause: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 59,609 milliseconds ago.  The last packet sent successfully to the server was 19,204 milliseconds ago.
+### The error may exist in org/wuancake/dao/ReportMapper.java (best guess)
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: select count(user_id) from user_group where deleteFlg = 0 and group_id !=0
+### Cause: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 59,609 milliseconds ago.  The last packet sent successfully to the server was 19,204 milliseconds ago.
+; ]; Communications link failure
+
+The last packet successfully received from the server was 59,609 milliseconds ago.  The last packet sent successfully to the server was 19,204 milliseconds ago.; nested exception is com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 59,609 milliseconds ago.  The last packet sent successfully to the server was 19,204 milliseconds ago.
+2018-6-10 13:38:08时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-10 13:38:08时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-10 13:45:09时访问/login时发生错误，错误信息:java.lang.NullPointerException
