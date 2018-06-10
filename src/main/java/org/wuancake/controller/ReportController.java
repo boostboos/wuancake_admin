@@ -3,7 +3,7 @@ package org.wuancake.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-
+import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +22,7 @@ public class ReportController extends SuperController {
 
 	//查看周报接口
 	@RequestMapping(value="/lookReport",method=RequestMethod.POST)
-	public List<ReportBean> lookReport(@RequestParam("weeks") int weeks,@RequestParam("groups") int groups,HttpServletRequest request) {
+	public String lookReport(@RequestParam("weeks") Integer weeks,@RequestParam("groups") Integer groups,HttpServletRequest request,HttpServletResponse response) {
 		//获得当前登录用户判断其权限
 		AdminBean admin = (AdminBean) request.getSession().getAttribute("isAdmin");
 		List<ReportBean> list = null;
@@ -34,8 +34,7 @@ public class ReportController extends SuperController {
 		else {
 			list = reportServiceImpl.queryReportByWeekAndGroup(weeks, groups);
 		}
-		System.out.println(list);
-
-		return list;
+		request.getSession().setAttribute("report", list);
+		return "lookWeeklyReport";
 	}
 }

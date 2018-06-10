@@ -4,12 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.wuancake.dao.ReportMapper;
 import org.wuancake.entity.GatherBean;
-import org.wuancake.entity.PageBean;
 import org.wuancake.entity.ReportBean;
 import org.wuancake.service.IReportService;
 
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class ReportServiceImpl implements IReportService {

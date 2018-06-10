@@ -10,6 +10,10 @@ import java.util.Date;
  * @date
  */
 public class ReportBean implements Serializable {
+	
+	private static final long serialVersionUID = -1671958247817068267L;
+	private String userName;
+	private String groupName;
     private Integer weekNum;
     private Integer userId;
     private Integer groupId;
@@ -26,6 +30,8 @@ public class ReportBean implements Serializable {
                 ", text='" + text + '\'' +
                 ", status=" + status +
                 ", replyTime=" + replyTime +
+                ", userName=" + userName +
+                ", groupName=" + groupName +
                 '}';
     }
 
@@ -76,4 +82,20 @@ public class ReportBean implements Serializable {
     public void setReplyTime(Date replyTime) {
         this.replyTime = replyTime;
     }
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getGroupName() {
+		return groupName;
+	}
+
+	public void setGroupName(String groupName) {
+		this.groupName = groupName;
+	}
 }

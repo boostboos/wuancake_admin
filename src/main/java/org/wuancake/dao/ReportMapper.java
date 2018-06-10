@@ -2,13 +2,11 @@ package org.wuancake.dao;
 
 import org.apache.ibatis.annotations.*;
 import org.springframework.cache.annotation.CacheConfig;
-import org.springframework.cache.annotation.Cacheable;
 import org.wuancake.entity.GatherBean;
 import org.wuancake.entity.ReportBean;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 /**
  * 周报相关
@@ -104,8 +102,8 @@ public interface ReportMapper {
     void updateUserReportStatu(@Param("userId") Integer userId, @Param("weekNum") Integer weekNum, @Param("groupId") Integer groupId, @Param("date") Date date);
 
 
-    @Select("select week_num weekNum,user_id userId,group_id groupId,text,status,reply_time replyTime from report where group_id = #{groups} and week_num = #{weeks}")
-    List<ReportBean> queryReportByWeekAndGroup(@Param("weeks") Integer weeks, @Param("groups") Integer groups);
+    @Select("<script>select `report`.*,`user`.user_name userName,wa_group.group_name groupName from report,`user`,wa_group where report.group_id = wa_group.id and user_id = `user`.id <if test = 'weeks > 0'> and week_num = #{weeks}</if> <if test = 'groups > 0'>and group_id = #{groups}</if></script>")
+	List<ReportBean> queryReportByWeekAndGroup(@Param("weeks") Integer weeks, @Param("groups") Integer groups);
 
     @Select("select count(distinct user_id) " +
             "from report")
@@ -115,4 +113,9 @@ public interface ReportMapper {
             "from report " +
             "where group_id = #{groupId}")
     int querySizeByGroupId(@Param("groupId") Integer groupId);
+    
+    
+    
+    
+    
 }
