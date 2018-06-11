@@ -91,7 +91,7 @@ public interface ReportMapper {
     void updateUserReportStatu(@Param("userId") Integer userId, @Param("weekNum") Integer weekNum, @Param("groupId") Integer groupId, @Param("date") Date date);
 
 
-    @Select("<script>select `report`.*,`user`.user_name userName,wa_group.group_name groupName from report,`user`,wa_group where report.group_id = wa_group.id and user_id = `user`.id <if test = 'weeks > 0'> and week_num = #{weeks}</if> <if test = 'groups > 0'>and group_id = #{groups}</if></script>")
+    @Select("<script>select `report`.*,`user`.user_name userName,wa_group.group_name groupName from report,`user`,wa_group where report.group_id = wa_group.id and user_id = `user`.id  and week_num = #{weeks} <if test = 'groups > 0'> and group_id = #{groups}</if></script>")
     List<ReportBean> queryReportByWeekAndGroup(@Param("weeks") Integer weeks, @Param("groups") Integer groups);
 
     /**

@@ -2,7 +2,6 @@ package org.wuancake.dao;
 
 import org.apache.ibatis.annotations.*;
 import org.springframework.cache.annotation.CacheConfig;
-import org.springframework.cache.annotation.Cacheable;
 import org.wuancake.entity.*;
 
 import java.util.List;

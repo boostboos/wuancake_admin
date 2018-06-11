@@ -15,14 +15,16 @@
 </head>
 <body>
 	<jsp:include page="guide.jsp" />
-	<form method="post" action="/lookReport">
+	<form method="post" action="/lookReport" id = "group_and_week">
 		<div class="col-lg-2 " style="padding-left: 5%;">
-			分组 <select id="groups" name="groups">
+			分组
+			<select id="groups" name="groups">
 				<option value=-1>选择分组</option>
 			</select>
 		</div>
 		<div class="col-lg-2 ">
-			周数 <select id="weeks" name="weeks">
+			周数
+			<select id="weeks" name="weeks">
 				<option value=-1>选择周数</option>
 			</select>
 		</div>
@@ -52,5 +54,9 @@
 		</div>
 	</div>
 </body>
-<script type="text/javascript" src="./js/windowLoad.js"></script>
+<script type="text/javascript" src="./js/windowLoad.js">
+window.onload = function() {
+	document.getElementById("group_and_week").submit();
+}
+</script>
 </html>

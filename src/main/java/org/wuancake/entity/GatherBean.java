@@ -2,7 +2,6 @@ package org.wuancake.entity;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Map;
 
 /**

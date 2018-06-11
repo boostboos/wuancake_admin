@@ -1,7 +1,5 @@
 package org.wuancake.entity;
 
-import org.apache.ibatis.annotations.Param;
-
 import java.io.Serializable;
 
 /**

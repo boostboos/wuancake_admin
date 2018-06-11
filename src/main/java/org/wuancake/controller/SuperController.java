@@ -13,7 +13,6 @@ import org.wuancake.service.IUserService;
 import org.wuancake.utils.WeekNumUtils;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

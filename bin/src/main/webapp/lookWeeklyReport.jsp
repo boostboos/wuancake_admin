@@ -2,6 +2,7 @@
 <html>
 <head>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
+	import="org.wuancake.entity.ReportBean" import="java.util.*"
 	pageEncoding="UTF-8"%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
@@ -14,23 +15,22 @@
 </head>
 <body>
 	<jsp:include page="guide.jsp" />
-
-	<div class="container-fluid">
-		<form method="post" action="/lookReport">
-			<div class="col-lg-2 " style="padding-left: 5%;">
-				分组 <select id="groups" name="groups">
+	<form method="post" action="/lookReport">
+		<div class="col-lg-2 " style="padding-left: 5%;">
+			分组 <select id="groups" name="groups">
 				<option value=-1>选择分组</option>
 			</select>
-			</div>
-			<div class="col-lg-2 ">
-				周数 <select id="weeks" name="weeks">
+		</div>
+		<div class="col-lg-2 ">
+			周数 <select id="weeks" name="weeks">
 				<option value=-1>选择周数</option>
 			</select>
-			</div>
-			<div class="col-lg-8 ">
-				<input type="submit" value="确定" />
-			</div>
-		</form>
+		</div>
+		<div class="col-lg-8 ">
+			<input type="submit" value="确定" />
+		</div>
+	</form>
+	<div class="container-fluid">
 		<div class="row">
 			<table class="table table-bordered">
 				<tr class="active">
@@ -40,11 +40,17 @@
 					<td>考勤情况</td>
 					<td>考勤内容</td>
 				</tr>
-
+				<tr>
+					<%
+						List<ReportBean> reports = (List) session.getAttribute("report");
+						if(reports != null) {
+							out.print(reports);
+						}
+					%>
+				</tr>
 			</table>
 		</div>
 	</div>
-
 </body>
 <script type="text/javascript" src="./js/windowLoad.js"></script>
 </html>

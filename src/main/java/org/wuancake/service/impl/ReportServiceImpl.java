@@ -2,10 +2,12 @@ package org.wuancake.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.wuancake.controller.AjaxController;
 import org.wuancake.dao.ReportMapper;
 import org.wuancake.entity.GatherBean;
 import org.wuancake.entity.ReportBean;
 import org.wuancake.service.IReportService;
+import org.wuancake.utils.WeekNumUtils;
 
 import java.util.List;
 
@@ -14,7 +16,7 @@ public class ReportServiceImpl implements IReportService {
 
     @Autowired
     private ReportMapper reportMapper;
-
+ 
     @Override
     public List<GatherBean> queryByGroupId(Integer groupId, Integer startIndex, Integer pageSize) {
         return reportMapper.queryByGroupId(groupId, startIndex, pageSize);
@@ -42,7 +44,10 @@ public class ReportServiceImpl implements IReportService {
 
 
     public List<ReportBean> queryReportByWeekAndGroup(Integer weeks, Integer groups) {
-        return reportMapper.queryReportByWeekAndGroup(weeks, groups);
+        if(weeks <= 0) {
+        	weeks = WeekNumUtils.getMaxWeekNum();
+        }
+    	return reportMapper.queryReportByWeekAndGroup(weeks, groups);
     }
 
 

@@ -15,7 +15,7 @@
 <form action="login" method="post">
     <div style="margin-top: 200px" class="container">
         <div class="row hidden-xs hidden-sm" style="text-align: center">
-            <font size="6">午安煎饼计划考勤系统管理后台</font>
+            <font size="5" color="#6495ed">午安煎饼计划考勤系统管理后台</font>
         </div>
         <br><br>
         <div class="row">
@@ -42,7 +42,7 @@
         </div>
         <div class="row">
             <div class="col-lg-4"></div>
-            <div style="padding-left: 88px;" class="col-lg-4">
+            <div style="padding-left: 88px;" class="col-lg-3">
                 <button type="submit" style="width: 200px" class="btn btn-default">登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录
                 </button>
             </div>

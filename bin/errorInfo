@@ -300,3 +300,183 @@
 2018-6-9 23:38:20时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
 2018-6-9 23:40:36时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
 2018-6-9 23:40:36时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-10 8:02:53时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-10 8:02:54时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-10 8:02:54时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-10 8:36:11时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-10 8:36:11时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-10 9:19:30时访问/queryGatherList时发生错误，错误信息:org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-8,8' at line 1
+### The error may exist in org/wuancake/dao/ReportMapper.java (best guess)
+### The error may involve org.wuancake.dao.ReportMapper.queryAll-Inline
+### The error occurred while setting parameters
+### SQL: select distinct u.id,u.create_time, user_name,QQ,group_name from user u,report r,wa_group w,user_group ug where u.id = r.user_id and r.group_id = w.id and ug.deleteFlg = 0 limit ?,?
+### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-8,8' at line 1
+; bad SQL grammar []; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-8,8' at line 1
+2018-6-10 9:22:50时访问/queryGatherList时发生错误，错误信息:org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-8,8' at line 1
+### The error may exist in org/wuancake/dao/ReportMapper.java (best guess)
+### The error may involve org.wuancake.dao.ReportMapper.queryAll-Inline
+### The error occurred while setting parameters
+### SQL: select distinct u.id,u.create_time, user_name,QQ,group_name from user u,report r,wa_group w,user_group ug where u.id = r.user_id and r.group_id = w.id and ug.deleteFlg = 0 limit ?,?
+### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-8,8' at line 1
+; bad SQL grammar []; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-8,8' at line 1
+2018-6-10 9:47:41时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-10 9:47:41时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-10 9:52:31时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-10 11:01:48时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-10 11:04:22时访问/queryGatherList时发生错误，错误信息:org.springframework.dao.RecoverableDataAccessException: 
+### Error querying database.  Cause: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 20,496 milliseconds ago.  The last packet sent successfully to the server was 19,204 milliseconds ago.
+### The error may exist in org/wuancake/dao/ReportMapper.java (best guess)
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: select count(user_id) from user_group where deleteFlg = 0 and group_id !=0
+### Cause: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 20,496 milliseconds ago.  The last packet sent successfully to the server was 19,204 milliseconds ago.
+; ]; Communications link failure
+
+The last packet successfully received from the server was 20,496 milliseconds ago.  The last packet sent successfully to the server was 19,204 milliseconds ago.; nested exception is com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 20,496 milliseconds ago.  The last packet sent successfully to the server was 19,204 milliseconds ago.
+2018-6-10 11:04:36时访问/queryGatherList时发生错误，错误信息:org.springframework.dao.RecoverableDataAccessException: 
+### Error querying database.  Cause: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 56,308 milliseconds ago.  The last packet sent successfully to the server was 19,203 milliseconds ago.
+### The error may exist in org/wuancake/dao/ReportMapper.java (best guess)
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: select count(user_id) from user_group where deleteFlg = 0 and group_id !=0
+### Cause: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 56,308 milliseconds ago.  The last packet sent successfully to the server was 19,203 milliseconds ago.
+; ]; Communications link failure
+
+The last packet successfully received from the server was 56,308 milliseconds ago.  The last packet sent successfully to the server was 19,203 milliseconds ago.; nested exception is com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 56,308 milliseconds ago.  The last packet sent successfully to the server was 19,203 milliseconds ago.
+2018-6-10 11:04:38时访问/queryGatherList时发生错误，错误信息:org.springframework.dao.RecoverableDataAccessException: 
+### Error querying database.  Cause: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 59,609 milliseconds ago.  The last packet sent successfully to the server was 19,204 milliseconds ago.
+### The error may exist in org/wuancake/dao/ReportMapper.java (best guess)
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: select count(user_id) from user_group where deleteFlg = 0 and group_id !=0
+### Cause: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 59,609 milliseconds ago.  The last packet sent successfully to the server was 19,204 milliseconds ago.
+; ]; Communications link failure
+
+The last packet successfully received from the server was 59,609 milliseconds ago.  The last packet sent successfully to the server was 19,204 milliseconds ago.; nested exception is com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 59,609 milliseconds ago.  The last packet sent successfully to the server was 19,204 milliseconds ago.
+2018-6-10 13:38:08时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-10 13:38:08时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-10 13:45:09时访问/login时发生错误，错误信息:java.lang.NullPointerException
+2018-6-10 21:52:06时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-10 21:54:03时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-10 21:54:03时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-10 21:54:03时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 0:37:58时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 0:38:02时访问/login时发生错误，错误信息:org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.TooManyResultsException: Expected one result (or null) to be returned by selectOne(), but found: 2
+2018-6-11 9:36:42时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 9:36:42时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 9:36:42时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 10:28:57时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 10:28:57时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 11:23:42时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 11:23:42时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 11:33:50时访问/login时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 11:33:55时访问/login时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 11:34:34时访问/login时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 11:34:37时访问/login时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 11:34:46时访问/login时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 11:34:48时访问/login时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 11:35:00时访问/login时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 11:35:22时访问/login时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 11:35:34时访问/login时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 11:35:36时访问/login时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 11:36:30时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 11:36:42时访问/login时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 11:36:57时访问/login时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 11:48:12时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 11:48:12时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 11:57:53时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 11:57:53时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 11:59:06时访问/js/bootstrap-select.js时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 11:59:06时访问/css/bootstrap.min.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 11:59:06时访问/js/bootstrap.min.js时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 11:59:27时访问/login时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 11:59:57时访问/css/bootstrap.min.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 11:59:57时访问/js/bootstrap.min.js时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 11:59:57时访问/js/bootstrap-select.js时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 12:02:14时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 12:02:17时访问/css/bootstrap.min.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 12:30:13时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 12:30:13时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 14:07:16时访问/queryGatherList时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 14:07:47时访问/queryGatherList时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 14:54:07时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 14:54:07时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 15:12:37时访问/queryGatherListByGroupAndWeek时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 15:12:42时访问/queryGatherListByGroupAndWeek时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 15:14:11时访问/queryGatherListByGroupAndWeek时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 15:14:17时访问/queryGatherListByGroupAndWeek时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 15:14:51时访问/queryGatherListByGroupAndWeek时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 15:15:01时访问/queryGatherListByGroupAndWeek时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 15:36:20时访问/queryGatherListByGroupAndWeek时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 15:55:26时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 15:55:26时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 15:55:26时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 16:02:16时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 16:02:16时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 16:02:16时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 16:02:20时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 16:02:52时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 16:02:52时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 16:02:56时访问/css/bootstrap.min.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 16:02:57时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 16:02:57时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 16:03:34时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 16:03:34时访问/css/bootstrap.min.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 16:03:36时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 16:03:36时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 16:03:59时访问/css/bootstrap.min.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 16:03:59时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 16:04:01时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 16:04:01时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 16:34:10时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 16:34:10时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 18:22:47时访问/js/bootstrap.js时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 18:22:47时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 18:27:45时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 18:27:45时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 18:46:24时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 18:50:56时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 18:53:11时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 19:25:50时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 19:25:50时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 19:25:50时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 19:25:54时访问/css/bootstrap.min.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 19:30:46时访问/queryKickList时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 19:31:14时访问/queryKickList时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 19:34:34时访问/queryKickList时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 19:37:02时访问/queryKickList时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 19:37:14时访问/queryKickList时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 19:37:17时访问/queryKickList时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 19:37:27时访问/queryKickList时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 19:37:31时访问/queryKickList时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 19:40:09时访问/queryKickList时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 19:44:08时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 19:44:08时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 19:44:08时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 19:45:15时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 19:45:15时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 19:46:20时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 19:48:44时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 19:48:44时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 19:49:55时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 19:49:55时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。

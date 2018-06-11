@@ -1,13 +1,7 @@
 package org.wuancake.entity;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.wuancake.dao.GroupMapper;
-
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 /**
  * @author Ericheel

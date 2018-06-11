@@ -480,3 +480,6 @@ The last packet successfully received from the server was 59,609 milliseconds ag
 2018-6-11 19:48:44时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
 2018-6-11 19:49:55时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
 2018-6-11 19:49:55时访问/img/bg1.png时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 21:09:41时访问/login时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 21:14:15时访问/login时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 21:19:14时访问/login时发生错误，错误信息:java.lang.NullPointerException

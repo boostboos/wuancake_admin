@@ -10,9 +10,7 @@ import org.wuancake.service.IReportService;
 import org.wuancake.service.IUserService;
 import org.wuancake.utils.WeekNumUtils;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -42,7 +40,7 @@ public class AjaxController {
 
     @RequestMapping(value = "showWeekNum")
     @ResponseBody
-    Integer showWeekNum(HttpServletResponse response) {
+    public Integer showWeekNum(HttpServletResponse response) {
         return WeekNumUtils.getMaxWeekNum();
     }
 

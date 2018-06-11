@@ -19,7 +19,7 @@
 <div class="container-fluid">
     <jsp:include page="guide.jsp"/>
 
-    <table class="table table-bordered">
+    <table class="table table-striped" style="text-align: center;table-layout:fixed;">
         <tr>
             <td>分组</td>
             <td>昵称</td>
@@ -27,7 +27,7 @@
             <td>操作人</td>
             <td>操作时间</td>
         </tr>
-        <c:forEach items="${kickList}" var="list">
+        <c:forEach items="${pageBean.kickBeanList}" var="list">
             <tr>
                 <td>${list.groupName}</td>
                 <td>${list.userName}</td>
@@ -37,6 +37,45 @@
             </tr>
         </c:forEach>
     </table>
+    <div class="row " style="text-align: center; ">
+        <ul class="pagination">
+            <c:if test="${pageBean.currPage==1}">
+                <li class="disabled">
+                    <a>&laquo;</a>
+                </li>
+            </c:if>
+            <c:if test="${pageBean.currPage!=1}">
+                <li>
+                    <a href="${pageContext.request.contextPath}/queryKickList?currPage = ${pageBean.currPage - 1}">&laquo;</a>
+                </li>
+            </c:if>
+
+            <c:forEach varStatus="vs" begin="1" end="${pageBean.totalPage}">
+
+                <c:if test="${pageBean.currPage == vs.count}">
+                    <li class="active">
+                </c:if>
+                <c:if test="${pageBean.currPage != vs.count}">
+                    <li>
+                </c:if>
+                <a href="${pageContext.request.contextPath}/queryKickList?currPage = ${vs.count}">
+                    <span> ${vs.count} <span class="sr-only"></span></span>
+                </a>
+                </li>
+
+            </c:forEach>
+            <c:if test="${pageBean.currPage == pageBean.totalPage}">
+                <li class="disabled">
+                    <a>&raquo;</a>
+                </li>
+            </c:if>
+            <c:if test="${pageBean.currPage != pageBean.totalPage}">
+                <li>
+                    <a href="${pageContext.request.contextPath}/queryKickList?currPage=${pageBean.currPage + 1}">&raquo;</a>
+                </li>
+            </c:if>
+        </ul>
+    </div>
 </div>
 </body>
 </html>
