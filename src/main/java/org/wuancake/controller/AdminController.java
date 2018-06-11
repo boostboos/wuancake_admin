@@ -156,4 +156,25 @@ public class AdminController extends SuperController {
         request.getSession().setAttribute("kickList", list);
         return "hitman";
     }
+
+    @RequestMapping(value = "resetPwd")
+    String resetPwd(HttpServletRequest request, String oldPwd, String newPwd) {
+        if (newPwd.contains(" ")) {
+            request.getSession().setAttribute("authBadInfo", "新密码不要含有空格");
+            return "resetPwd";
+        }
+        
+        request.getSession().removeAttribute("authGoodInfo");
+        request.getSession().removeAttribute("authBadInfo");
+        AdminBean isAdmin = (AdminBean) request.getSession().getAttribute("isAdmin");
+        boolean verify = MD5Utils.verify(oldPwd, isAdmin.getPassword());
+        if (!verify) {
+            request.getSession().setAttribute("authBadInfo", "原密码错误");
+            return "resetPwd";
+        } else {
+            adminService.updatePwd(isAdmin.getId(), MD5Utils.generate(newPwd));
+            request.getSession().setAttribute("authGoodInfo", "修改成功，下次登录记得用新密码");
+            return "resetPwd";
+        }
+    }
 }

@@ -50,14 +50,7 @@
     <form id="sub" action="${pageContext.request.contextPath}/addTutor" method="post">
         <input type="hidden" name="groupId" id="group"/>
         <div style="margin-top: 120px" class="container">
-            <div class="row">
-                <div class="col-lg-2 " style="padding-left: 5%; ">
-                    分组：
-                    <select id="groups">
-                        <option value='0'>选择分组</option>
-                    </select>
-                </div>
-            </div>
+
             <div class="row">
                 <div class="col-lg-4"></div>
                 <div class="col-lg-4 input-group">
@@ -86,10 +79,18 @@
                 <div class="col-lg-4"></div>
                 <div class="col-lg-4 input-group">
                     <font color="#6495ed" size="3">密码:</font><input id="password" name="password" placeholder="密码"
-                                                                    type="text"
+                                                                    type="password"
                                                                     class="form-control">
                 </div>
                 <div class="col-lg-4"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div style="padding-left: 390px; ">
+                    <select style="width: 390px" id="groups">
+                        <option value='0'>&nbsp;&nbsp;选择分组&nbsp;&nbsp;</option>
+                    </select>
+                </div>
             </div>
             <div class="row">
                 <div class="col-lg-12">

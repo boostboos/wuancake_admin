@@ -80,10 +80,10 @@
                 </c:if>
                 ${isAdmin.username}
                 &nbsp;&nbsp;&nbsp;
-                <a href="${pageContext.request.contextPath}/logout">注销</a>
+                <a href="${pageContext.request.contextPath}/logout">注销</a>&nbsp;&nbsp;&nbsp;
+                <a href="${pageContext.request.contextPath}/resetPwd.jsp">修改密码</a>
             </font>
-
-
         </div>
+
     </nav>
 </div>

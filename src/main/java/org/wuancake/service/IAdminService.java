@@ -15,4 +15,6 @@ public interface IAdminService {
     List<KickBean> queryAllUserBeKicked();
 
     AdminBean findAdminByEmail(String email);
+
+    void updatePwd(Integer id, String generate);
 }

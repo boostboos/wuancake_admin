@@ -1,9 +1,6 @@
 package org.wuancake.dao;
 
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;
 import org.wuancake.entity.*;
@@ -56,4 +53,9 @@ public interface AdminMapper {
     @Select("select * from adm " +
             "where email = #{email}")
     AdminBean findAdminByEmail(@Param("email") String email);
+
+    @Update("update adm " +
+            "set password = #{generate} " +
+            "where id = #{id}")
+    void updatePwd(@Param("id") Integer id, @Param("generate") String generate);
 }

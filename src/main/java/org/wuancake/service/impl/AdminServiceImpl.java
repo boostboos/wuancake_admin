@@ -15,7 +15,6 @@ public class AdminServiceImpl implements IAdminService {
     private AdminMapper adminMapper;
 
 
-
     @Override
     public void addTutor(TutorBean tutor) {
 
@@ -34,11 +33,16 @@ public class AdminServiceImpl implements IAdminService {
 
     @Override
     public List<KickBean> queryAllUserBeKicked() {
-        return adminMapper. queryAllUserBeKicked();
+        return adminMapper.queryAllUserBeKicked();
     }
 
     @Override
     public AdminBean findAdminByEmail(String email) {
         return adminMapper.findAdminByEmail(email);
+    }
+
+    @Override
+    public void updatePwd(Integer id, String generate) {
+        adminMapper.updatePwd(id, generate);
     }
 }

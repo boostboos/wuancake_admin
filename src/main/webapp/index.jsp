@@ -42,7 +42,7 @@
         </div>
         <div class="row">
             <div class="col-lg-4"></div>
-            <div style="padding-left: 88px;" class="col-lg-4">
+            <div style="padding-left: 88px;" class="col-lg-3">
                 <button type="submit" style="width: 200px" class="btn btn-default">登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录
                 </button>
             </div>
