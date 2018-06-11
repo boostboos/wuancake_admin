@@ -12,9 +12,11 @@ public interface IAdminService {
 
     void addAdmin(AdminBean adminBean);
 
-    List<KickBean> queryAllUserBeKicked();
+    Integer queryAllUserNumBeKicked();
 
     AdminBean findAdminByEmail(String email);
 
     void updatePwd(Integer id, String generate);
+
+    List<KickBean> queryUserListBeKicked(Integer startIndex, Integer pageSize);
 }

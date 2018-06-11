@@ -22,7 +22,7 @@
                     </li>
                 </c:if>
                 <li>
-                    <a href="${pageContext.request.contextPath}/hitman">清人汇总</a>
+                    <a href="${pageContext.request.contextPath}/queryKickList?currPage=1">清人汇总</a>
                 </li>
             </ul>
 

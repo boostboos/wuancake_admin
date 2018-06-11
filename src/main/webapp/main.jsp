@@ -79,7 +79,7 @@
     </div>
     <div class="container-fluid" style="padding-top: 10px">
         <div class="row ">
-            <table class="table table-striped" style="text-align: center">
+            <table class="table table-striped" style="text-align: center;table-layout:fixed;">
                 <tr class="active ">
                     <td>分组</td>
                     <td>昵称</td>

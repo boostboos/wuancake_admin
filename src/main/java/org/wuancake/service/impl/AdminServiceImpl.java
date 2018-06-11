@@ -32,8 +32,8 @@ public class AdminServiceImpl implements IAdminService {
     }
 
     @Override
-    public List<KickBean> queryAllUserBeKicked() {
-        return adminMapper.queryAllUserBeKicked();
+    public Integer queryAllUserNumBeKicked() {
+        return adminMapper.queryAllUserNumBeKicked();
     }
 
     @Override
@@ -44,5 +44,10 @@ public class AdminServiceImpl implements IAdminService {
     @Override
     public void updatePwd(Integer id, String generate) {
         adminMapper.updatePwd(id, generate);
+    }
+
+    @Override
+    public List<KickBean> queryUserListBeKicked(Integer startIndex, Integer pageSize) {
+        return adminMapper.queryUserListBeKicked(startIndex, pageSize);
     }
 }

@@ -47,8 +47,14 @@ public interface AdminMapper {
             "from wa_group wg,user u,user_group ug " +
             "where ug.deleteFlg = 1 " +
             "and ug.user_id = u.id " +
-            "and ug.group_id = wg.id")
-    List<KickBean> queryAllUserBeKicked();
+            "and ug.group_id = wg.id " +
+            "limit #{startIndex},#{pageSize}")
+    List<KickBean> queryUserListBeKicked(@Param("startIndex")Integer startIndex,@Param("pageSize") Integer pageSize);
+
+    @Select("select count(user_id) " +
+            "from user_group " +
+            "where deleteFlg = 1")
+    Integer queryAllUserNumBeKicked();
 
     @Select("select * from adm " +
             "where email = #{email}")

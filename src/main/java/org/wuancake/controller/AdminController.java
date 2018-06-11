@@ -1,6 +1,7 @@
 package org.wuancake.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -150,10 +151,26 @@ public class AdminController extends SuperController {
         return "index";
     }
 
-    @RequestMapping(value = "hitman")
+    @Value("${customConfig.pageSize}")
+    private Integer pageSize;
+
+    @RequestMapping(value = "queryKickList/**")
     String hitMan47(HttpServletRequest request) {
-        List<KickBean> list = adminService.queryAllUserBeKicked();
-        request.getSession().setAttribute("kickList", list);
+        PageBean pageBean = new PageBean();
+        int currPage = Integer.parseInt(request.getQueryString().replace("%20", "").substring(9));
+
+        Integer startIndex = (currPage - 1) * pageSize;
+
+        int totalSize = adminService.queryAllUserNumBeKicked();
+
+        pageBean.setCurrPage(currPage);
+        pageBean.setPageSize(pageSize);
+        pageBean.setTotalSize(totalSize);
+        pageBean.setTotalPage((int) Math.ceil((double) totalSize / pageSize));
+
+        List<KickBean> list = adminService.queryUserListBeKicked(startIndex, pageSize);
+        pageBean.setKickBeanList(list);
+        request.getSession().setAttribute("pageBean", pageBean);
         return "hitman";
     }
 
@@ -163,7 +180,7 @@ public class AdminController extends SuperController {
             request.getSession().setAttribute("authBadInfo", "新密码不要含有空格");
             return "resetPwd";
         }
-        
+
         request.getSession().removeAttribute("authGoodInfo");
         request.getSession().removeAttribute("authBadInfo");
         AdminBean isAdmin = (AdminBean) request.getSession().getAttribute("isAdmin");

@@ -111,7 +111,6 @@ public class SuperController {
             }
         }
         pageBean.setWeekNum(weekNum);
-        pageBean.setCurrPage(currPage);
         pageBean.setTotalSize(totalSize);
         pageBean.setPageSize(pageSize);
         pageBean.setTotalPage((int) Math.ceil((double) totalSize / pageSize));
