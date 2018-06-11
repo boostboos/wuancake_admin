@@ -38,20 +38,34 @@ public class GatherController extends SuperController {
     @RequestMapping(value = "queryGatherListByGroupAndWeek/**")
     String queryGatherListByGroupAndWeek(HttpServletRequest request, Integer currPage, Integer weekNum, Integer groups) throws ExecutionException, InterruptedException {
         HttpSession session = request.getSession();
-
         AdminBean isAdmin = (AdminBean) request.getSession().getAttribute("isAdmin");
-
+        String queryString = request.getQueryString().replace("%20", "").substring(9);
+        //如果是第一页
+        if ((Integer.parseInt(queryString)) == 1) {
+            //并且又重选了查询条件
+            if (weekNum != null || groups != null) {
+                //销毁session中的groups和weekNum
+                session.removeAttribute("groups");
+                session.removeAttribute("weekNum");
+            }
+        }
         Future<PageBean> pageBeanFuture = null;
         if (isAdmin.getAuth() == 1) {
-            pageBeanFuture = pageQuery(currPage, weekNum, null, request, isAdmin);
+            pageBeanFuture = pageQuery(Integer.parseInt(queryString), weekNum, null, request, isAdmin);
         } else {
             //管理员或超级管理员
-            pageBeanFuture = pageQuery(currPage, weekNum, groups, request, isAdmin);
+            if (session.getAttribute("groups") != null || session.getAttribute("weekNum") != null) {
+                //session中weekNum和groups未销毁，说明正在按照条件进行分页查询
+                pageBeanFuture = pageQuery(Integer.parseInt(queryString), (Integer) session.getAttribute("weekNum"), (Integer) session.getAttribute("groups"), request, isAdmin);
+            } else {
+                pageBeanFuture = pageQuery(Integer.parseInt(queryString), weekNum, groups, request, isAdmin);
+                session.setAttribute("groups", groups);
+                session.setAttribute("weekNum", weekNum);
+            }
         }
         PageBean pageBean = pageBeanFuture.get();
         //pageBean放入会话
         session.setAttribute("pageBean", pageBean);
-
         return "mainByCondition";
     }
 }

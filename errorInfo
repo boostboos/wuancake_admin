@@ -417,3 +417,14 @@ The last packet successfully received from the server was 59,609 milliseconds ag
 2018-6-11 12:02:17时访问/css/bootstrap.min.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
 2018-6-11 12:30:13时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
 2018-6-11 12:30:13时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 14:07:16时访问/queryGatherList时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 14:07:47时访问/queryGatherList时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 14:54:07时访问/css/bootstrap-theme.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 14:54:07时访问/css/bootstrap.css时发生错误，错误信息:org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2018-6-11 15:12:37时访问/queryGatherListByGroupAndWeek时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 15:12:42时访问/queryGatherListByGroupAndWeek时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 15:14:11时访问/queryGatherListByGroupAndWeek时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 15:14:17时访问/queryGatherListByGroupAndWeek时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 15:14:51时访问/queryGatherListByGroupAndWeek时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 15:15:01时访问/queryGatherListByGroupAndWeek时发生错误，错误信息:java.lang.NullPointerException
+2018-6-11 15:36:20时访问/queryGatherListByGroupAndWeek时发生错误，错误信息:java.lang.NullPointerException
