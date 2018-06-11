@@ -49,7 +49,14 @@ public class AjaxController {
     @RequestMapping(value = "searchInfoByQQ")
     @ResponseBody
     SimpleInfoByQQ searchInfoByQQ(String qq) {
-        return userService.searchInfoByQQ(qq);
+        SimpleInfoByQQ simpleInfoByQQ = userService.searchInfoByQQ(qq);
+        if (simpleInfoByQQ == null) {
+            SimpleInfoByQQ sb = new SimpleInfoByQQ();
+            sb.setQQ("aptx4869");
+            return sb;
+        } else {
+            return simpleInfoByQQ;
+        }
     }
 
 

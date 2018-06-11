@@ -24,7 +24,7 @@
             })
         }, "json")
         $.post("${pageContext.request.contextPath}/showWeekNum", "", function (data) {
-            for (var i = data; i >= 1; i--) {
+            for (var i = data; i >= 4; i--) {
                 $("#weekNum").append("<option>" + i + "</option>");
             }
         }, "json")
@@ -60,21 +60,19 @@
         <form id="sub" method="post"
               action="${pageContext.request.contextPath}/queryGatherListByGroupAndWeek?currPage=1">
             <c:if test="${isAdmin.auth != 1}">
-                <div class="col-lg-2" style="padding-left: 5%; ">
-                    分组：
+                <div class="col-lg-1" style="padding-left: 2%; ">
                     <select id="groups" name="groups">
-                        <option value='0'>选择分组</option>
+                        <option value='0'>&nbsp;&nbsp;选择分组&nbsp;&nbsp;</option>
                     </select>
                 </div>
             </c:if>
 
-            <div class="col-lg-2">
-                截至周数：
+            <div class="col-lg-1">
                 <select id="weekNum" name="weekNum">
-                    <option value="0">选择周数</option>
+                    <option value="0">&nbsp;&nbsp;选择周数&nbsp;&nbsp;</option>
                 </select>
             </div>
-            <div class="col-lg-2">
+            <div class="col-lg-1">
                 <button type="button" onclick="sureSub()">确定</button>
                 <span id="warn"></span>
             </div>
@@ -84,7 +82,7 @@
         </form>
 
     </div>
-    <div class="container-fluid">
+    <div class="container-fluid" style="padding-top: 10px">
         <div class="row ">
             <table class="table table-bordered" style="text-align: center">
                 <tr class="active ">

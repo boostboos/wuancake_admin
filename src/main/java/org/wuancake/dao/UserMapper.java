@@ -53,5 +53,6 @@ public interface UserMapper {
             "where u.QQ = #{qq} " +
             "and u.id = ug.user_id " +
             "and ug.group_id = wg.id")
+    @Cacheable
     SimpleInfoByQQ searchInfoByQQ(@Param("qq") String qq);
 }

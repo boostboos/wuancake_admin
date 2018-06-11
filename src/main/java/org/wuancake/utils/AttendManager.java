@@ -30,7 +30,7 @@ public class AttendManager {
          */
         Integer maxWeekNum = WeekNumUtils.getMaxWeekNum();
         List<Integer> ids = userMapper.queryAllUserIdNotKicked();
-        for (int i = maxWeekNum; i >= maxWeekNum - 10; i--) {
+        for (int i = maxWeekNum; i >= maxWeekNum - 8; i--) {
             for (Integer id : ids) {
                 ReportBean reportBean = reportMapper.queryReportStatu(id, i);
                 if (reportBean == null) {

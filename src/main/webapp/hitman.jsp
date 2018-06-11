@@ -19,7 +19,7 @@
 <div class="container-fluid">
     <jsp:include page="guide.jsp"/>
 
-    <table class="table table-bordered">
+    <table class="table table-bordered" style="text-align: center">
         <tr>
             <td>分组</td>
             <td>昵称</td>
