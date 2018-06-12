@@ -34,7 +34,6 @@ public interface ReportMapper {
 //            "and r.group_id = w.id " +
 //            "and ug.deleteFlg = 0 " +
 //            "limit #{startIndex},#{pageSize}")
-
     @Select("select distinct u.id,u.user_name,u.QQ,u.create_time,wg.group_name " +
             "from user u,wa_group wg " +
             "where u.id in (select user_id from user_group where deleteFlg = 0 and group_id = #{groupId}) " +
@@ -56,7 +55,6 @@ public interface ReportMapper {
 //            "and r.group_id = w.id " +
 //            "and ug.deleteFlg = 0 " +
 //            "limit #{startIndex},#{pageSize}")
-
     @Select("select distinct u.id,u.user_name,u.QQ,u.create_time,wg.group_name " +
             "from user u,wa_group wg " +
             "where u.id in (select user_id from user_group where deleteFlg = 0) " +
