@@ -3,11 +3,11 @@
 <div class="container-fluid">
     <nav class="navbar navbar-default">
 
-        <div class="navbar-header">
+        <div class="navbar-header" data-toggle="collapse" data-target="#navBar">
             <a class="navbar-brand" href="${pageContext.request.contextPath}/queryGatherList?currPage = 1">考勤汇总</a>
         </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
+        <div class="collapse navbar-collapse" id="navBar">
+            <ul class="nav navbar-nav dropdown">
                 <li>
                     <a href="${pageContext.request.contextPath}/lookWeeklyReport.jsp">查看周报</a>
                 </li>
@@ -26,7 +26,7 @@
                 </li>
             </ul>
 
-            <form class="navbar-form navbar-left" style="padding-left: 100px;">
+            <form class="navbar-form navbar-left dropdown">
                 <div class="form-group">
                     <input id="qq" type="text" class="form-control" placeholder="输入学员QQ号">
                 </div>
@@ -68,7 +68,7 @@
                     }
                 </script>
             </form>
-            <font style="line-height: 50px;padding-right: 50px;float: right">
+            <font style="line-height: 50px;float: right">
                 <c:if test="${isAdmin.auth == 1}">
                     导师：
                 </c:if>

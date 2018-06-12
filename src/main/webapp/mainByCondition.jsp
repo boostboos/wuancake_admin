@@ -53,26 +53,25 @@
 <div class="container-fluid">
 
     <jsp:include page="guide.jsp"/>
-
+    <div class="container-fluid" style="padding-top: 10px">
     <div class="row ">
-
         <%--根据选择的分组/周数来查询考勤汇总--%>
         <form id="sub" method="post"
               action="${pageContext.request.contextPath}/queryGatherListByGroupAndWeek?currPage=1">
             <c:if test="${isAdmin.auth != 1}">
-                <div class="col-lg-1" style="padding-left: 2%; ">
+                <div class="col-lg-1 col-xs 4">
                     <select id="groups" name="groups">
                         <option value='0'>&nbsp;&nbsp;选择分组&nbsp;&nbsp;</option>
                     </select>
                 </div>
             </c:if>
 
-            <div class="col-lg-1">
+            <div class="col-lg-1 col-xs 4">
                 <select id="weekNum" name="weekNum">
                     <option value="0">&nbsp;&nbsp;选择周数&nbsp;&nbsp;</option>
                 </select>
             </div>
-            <div class="col-lg-1">
+            <div class="col-lg-1 col-xs 4">
                 <button type="button" onclick="sureSub()">确定</button>
                 <span id="warn"></span>
             </div>
@@ -82,13 +81,12 @@
         </form>
 
     </div>
-    <div class="container-fluid" style="padding-top: 10px">
         <div class="row ">
             <table class="table table-striped" style="text-align: center;table-layout:fixed;">
                 <tr class="active ">
-                    <td>分组</td>
+                    <td class="hidden-xs">分组</td>
                     <td>昵称</td>
-                    <td>QQ号</td>
+                    <td class="hidden-xs">QQ号</td>
                     <c:forEach var="vs" begin="${pageBean.weekNum-3}"
                                end="${pageBean.weekNum}" step="1">
                         <td>第${vs}周</td>
@@ -98,9 +96,9 @@
 
                 <c:forEach items="${pageBean.gathers}" var="gathers">
                     <tr>
-                        <td>${gathers.groupName}</td>
+                        <td class="hidden-xs">${gathers.groupName}</td>
                         <td>${gathers.userName}</td>
-                        <td>${gathers.QQ}</td>
+                        <td class="hidden-xs">${gathers.QQ}</td>
                         <c:if test="${gathers.isUnderProtected == 1}">
                             <td colspan="4" class="right" style="text-align: center">本周加入
                             </td>

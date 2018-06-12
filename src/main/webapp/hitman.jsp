@@ -10,6 +10,7 @@
 <html>
 <head>
     <title>清人汇总</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css">
@@ -23,16 +24,16 @@
         <tr>
             <td>分组</td>
             <td>昵称</td>
-            <td>QQ</td>
-            <td>操作人</td>
+            <td class="hidden-xs">QQ</td>
+            <td class="hidden-xs">操作人</td>
             <td>操作时间</td>
         </tr>
         <c:forEach items="${pageBean.kickBeanList}" var="list">
             <tr>
                 <td>${list.groupName}</td>
                 <td>${list.userName}</td>
-                <td>${list.QQ}</td>
-                <td>${list.headsman}</td>
+                <td class="hidden-xs">${list.QQ}</td>
+                <td class="hidden-xs">${list.headsman}</td>
                 <td>${list.modifyTime}</td>
             </tr>
         </c:forEach>

@@ -2,12 +2,8 @@ package org.wuancake.utils;
 
 
 import org.apache.commons.codec.binary.Hex;
-import sun.misc.BASE64Encoder;
 
-import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.Random;
 
 
 public class MD5Utils {

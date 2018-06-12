@@ -8,6 +8,7 @@
 <html>
 <head>
     <title>管理员后台</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
     <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
@@ -51,39 +52,40 @@
 <div class="container-fluid">
 
     <jsp:include page="guide.jsp"/>
-    <div class="row">
-        <%--根据选择的分组/周数来查询考勤汇总--%>
-        <form id="sub" method="post"
-              action="${pageContext.request.contextPath}/queryGatherListByGroupAndWeek?currPage=1">
-            <c:if test="${isAdmin.auth != 1}">
-                <div class="col-lg-1" style="padding-left: 2%">
-                    <select id="groups" name="groups">
-                        <option value='0'>&nbsp;&nbsp;选择分组&nbsp;&nbsp;</option>
+    <div class="container-fluid" style="padding-top: 10px">
+        <div class="row">
+            <%--根据选择的分组/周数来查询考勤汇总--%>
+            <form id="sub" method="post"
+                  action="${pageContext.request.contextPath}/queryGatherListByGroupAndWeek?currPage=1">
+                <c:if test="${isAdmin.auth != 1}">
+                    <div class="col-lg-1 col-xs-4">
+                        <select id="groups" name="groups">
+                            <option value='0'>&nbsp;&nbsp;选择分组&nbsp;&nbsp;</option>
+                        </select>
+                    </div>
+                </c:if>
+                <div class="col-lg-1 col-xs-4">
+                    <select id="weekNum" name="weekNum">
+                        <option value="0">&nbsp;&nbsp;选择周数&nbsp;&nbsp;</option>
                     </select>
                 </div>
-            </c:if>
-            <div class="col-lg-1">
-                <select id="weekNum" name="weekNum">
-                    <option value="0">&nbsp;&nbsp;选择周数&nbsp;&nbsp;</option>
-                </select>
-            </div>
-            <div class="col-lg-1">
-                <button type="button" onclick="sureSub()">确定
-                </button>
-                <span id="warn"></span>
-            </div>
-            <div>
-                <span id="sb"></span>
-            </div>
-        </form>
-    </div>
-    <div class="container-fluid" style="padding-top: 10px">
+                <div class="col-lg-1 col-xs-4">
+                    <button type="button" onclick="sureSub()">确定
+                    </button>
+                    <span id="warn"></span>
+                </div>
+                <div>
+                    <span id="sb"></span>
+                </div>
+            </form>
+        </div>
+
         <div class="row ">
             <table class="table table-striped" style="text-align: center;table-layout:fixed;">
                 <tr class="active ">
-                    <td>分组</td>
+                    <td class="hidden-xs">分组</td>
                     <td>昵称</td>
-                    <td>QQ号</td>
+                    <td class="hidden-xs">QQ号</td>
                     <c:forEach var="vs" begin="${pageBean.weekNum-3}"
                                end="${pageBean.weekNum}" step="1">
                         <td>第${vs}周</td>
@@ -93,9 +95,9 @@
 
                 <c:forEach items="${pageBean.gathers}" var="gathers">
                     <tr>
-                        <td>${gathers.groupName}</td>
+                        <td class="hidden-xs">${gathers.groupName}</td>
                         <td>${gathers.userName}</td>
-                        <td>${gathers.QQ}</td>
+                        <td class="hidden-xs">${gathers.QQ}</td>
                         <c:if test="${gathers.isUnderProtected == 1}">
                             <td colspan="4" class="right" style="text-align: center">
                                 本周加入
@@ -126,47 +128,47 @@
 
             </table>
         </div>
-    </div>
+        <%--container--%>
 
-    <div class="row " style="text-align: center; ">
-        <ul class="pagination">
-            <c:if test="${pageBean.currPage==1}">
-                <li class="disabled">
-                    <a>&laquo;</a>
-                </li>
-            </c:if>
-            <c:if test="${pageBean.currPage!=1}">
-                <li>
-                    <a href="${pageContext.request.contextPath}/queryGatherList?currPage = ${pageBean.currPage - 1}">&laquo;</a>
-                </li>
-            </c:if>
-
-            <c:forEach varStatus="vs" begin="1" end="${pageBean.totalPage}">
-
-                <c:if test="${pageBean.currPage == vs.count}">
-                    <li class="active">
+        <div class="row " style="text-align: center; ">
+            <ul class="pagination">
+                <c:if test="${pageBean.currPage==1}">
+                    <li class="disabled">
+                        <a>&laquo;</a>
+                    </li>
                 </c:if>
-                <c:if test="${pageBean.currPage != vs.count}">
+                <c:if test="${pageBean.currPage!=1}">
                     <li>
+                        <a href="${pageContext.request.contextPath}/queryGatherList?currPage = ${pageBean.currPage - 1}">&laquo;</a>
+                    </li>
                 </c:if>
-                <a href="${pageContext.request.contextPath}/queryGatherList?currPage = ${vs.count}">
-                    <span> ${vs.count} <span class="sr-only"></span></span>
-                </a>
-                </li>
 
-            </c:forEach>
-            <c:if test="${pageBean.currPage == pageBean.totalPage}">
-                <li class="disabled">
-                    <a>&raquo;</a>
-                </li>
-            </c:if>
-            <c:if test="${pageBean.currPage != pageBean.totalPage}">
-                <li>
-                    <a href="${pageContext.request.contextPath}/queryGatherList?currPage=${pageBean.currPage + 1}">&raquo;</a>
-                </li>
-            </c:if>
-        </ul>
+                <c:forEach varStatus="vs" begin="1" end="${pageBean.totalPage}">
+
+                    <c:if test="${pageBean.currPage == vs.count}">
+                        <li class="active">
+                    </c:if>
+                    <c:if test="${pageBean.currPage != vs.count}">
+                        <li>
+                    </c:if>
+                    <a href="${pageContext.request.contextPath}/queryGatherList?currPage = ${vs.count}">
+                        <span> ${vs.count} <span class="sr-only"></span></span>
+                    </a>
+                    </li>
+
+                </c:forEach>
+                <c:if test="${pageBean.currPage == pageBean.totalPage}">
+                    <li class="disabled">
+                        <a>&raquo;</a>
+                    </li>
+                </c:if>
+                <c:if test="${pageBean.currPage != pageBean.totalPage}">
+                    <li>
+                        <a href="${pageContext.request.contextPath}/queryGatherList?currPage=${pageBean.currPage + 1}">&raquo;</a>
+                    </li>
+                </c:if>
+            </ul>
+        </div>
     </div>
-</div>
 </body>
 </html>
