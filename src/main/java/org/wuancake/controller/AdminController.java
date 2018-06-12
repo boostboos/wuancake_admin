@@ -99,20 +99,34 @@ public class AdminController extends SuperController {
         //前端校验字段非空
         request.getSession().removeAttribute("authGoodInfo");
         request.getSession().removeAttribute("authBadInfo");
+
+        String email = tutorBean.getEmail();
+        String password = tutorBean.getPassword();
+        String username = tutorBean.getUsername();
+        Integer groupId = tutorBean.getGroupId();
+        if (email == null || password == null || username == null || groupId == null) {
+            request.getSession().setAttribute("authBadInfo", "字段不能为null");
+            return "addTutor";
+        }
+        if (email.contains(" ") || password.contains(" ") || username.contains(" ")) {
+            request.getSession().setAttribute("authBadInfo", "不要有空格");
+            return "addTutor";
+        }
+
         AdminBean isAdmin = (AdminBean) request.getSession().getAttribute("isAdmin");
 
-        if (isAdmin.getAuth() == 1) {
+        if (isAdmin == null || isAdmin.getAuth() == 1) {
             //校验权限
             request.getSession().setAttribute("authBadInfo", "权限不足");
         } else {
             //检查是否存在
-            TutorBean bean = adminService.findTutorByEmail(tutorBean.getEmail());
+            TutorBean bean = adminService.findTutorByEmail(email);
             if (bean != null) {
                 request.getSession().setAttribute("authBadInfo", "邮箱已经存在，添加失败");
                 return "addTutor";
             }
             //添加
-            tutorBean.setPassword(MD5Utils.generate(tutorBean.getPassword()));
+            tutorBean.setPassword(MD5Utils.generate(password));
             adminService.addTutor(tutorBean);
             request.getSession().setAttribute("authGoodInfo", "添加成功");
         }
@@ -124,20 +138,37 @@ public class AdminController extends SuperController {
         //前端校验字段非空
         request.getSession().removeAttribute("authGoodInfo");
         request.getSession().removeAttribute("authBadInfo");
+
         AdminBean isAdmin = (AdminBean) request.getSession().getAttribute("isAdmin");
+        String username = adminBean.getUsername();
+        String password = adminBean.getPassword();
+        String email = adminBean.getEmail();
+        if (isAdmin == null) {
+            request.getSession().setAttribute("msg", "请登录");
+            return "index";
+        }
+        if (email == null || password == null || username == null) {
+            request.getSession().setAttribute("authBadInfo", "字段不能为null");
+            return "addAdmin";
+        }
+        if (username.contains(" ") || password.contains(" ") || email.contains(" ")) {
+            request.getSession().setAttribute("authBadInfo", "不要有空格");
+            return "addAdmin";
+        }
+
 
         if (isAdmin.getAuth() != 3) {
             //校验权限
             request.getSession().setAttribute("authBadInfo", "权限不足");
         } else {
             //检查是否存在
-            TutorBean bean = adminService.findTutorByEmail(adminBean.getEmail());
+            TutorBean bean = adminService.findTutorByEmail(email);
             if (bean != null) {
                 request.getSession().setAttribute("authBadInfo", "邮箱已经存在，添加失败");
                 return "addAdmin";
             }
             //添加
-            adminBean.setPassword(MD5Utils.generate(adminBean.getPassword()));
+            adminBean.setPassword(MD5Utils.generate(password));
             adminService.addAdmin(adminBean);
             request.getSession().setAttribute("authGoodInfo", "添加成功");
         }
