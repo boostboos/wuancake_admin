@@ -2,7 +2,6 @@ package org.wuancake.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.wuancake.controller.AjaxController;
 import org.wuancake.dao.ReportMapper;
 import org.wuancake.entity.GatherBean;
 import org.wuancake.entity.ReportBean;
