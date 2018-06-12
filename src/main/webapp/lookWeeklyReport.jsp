@@ -4,6 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	import="org.wuancake.entity.ReportBean" import="java.util.*"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
@@ -15,16 +16,14 @@
 </head>
 <body>
 	<jsp:include page="guide.jsp" />
-	<form method="post" action="/lookReport" id = "group_and_week">
+	<form method="post" action="/lookReport" id="group_and_week">
 		<div class="col-lg-2 " style="padding-left: 5%;">
-			分组
-			<select id="groups" name="groups">
+			分组 <select id="groups" name="groups">
 				<option value=-1>选择分组</option>
 			</select>
 		</div>
 		<div class="col-lg-2 ">
-			周数
-			<select id="weeks" name="weeks">
+			周数 <select id="weeks" name="weeks">
 				<option value=-1>选择周数</option>
 			</select>
 		</div>
@@ -42,21 +41,18 @@
 					<td>考勤情况</td>
 					<td>考勤内容</td>
 				</tr>
-				<tr>
-					<%
-						List<ReportBean> reports = (List) session.getAttribute("report");
-						if(reports != null) {
-							out.print(reports);
-						}
-					%>
-				</tr>
+				<c:forEach items="${report}" var="reportBean">
+					<tr>
+						<td>${reportBean.groupName}</td>
+						<td>${reportBean.userName}</td>
+						<td>${reportBean.weekNum}</td>
+						<td>${reportBean.status}</td>
+						<td>${reportBean.text}</td>
+					</tr>
+				</c:forEach>
 			</table>
 		</div>
 	</div>
 </body>
-<script type="text/javascript" src="./js/windowLoad.js">
-window.onload = function() {
-	document.getElementById("group_and_week").submit();
-}
-</script>
+<script type="text/javascript" src="./js/windowLoad.js"></script>
 </html>
