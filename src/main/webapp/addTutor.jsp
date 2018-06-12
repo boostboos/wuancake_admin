@@ -19,10 +19,6 @@
 <script type="text/javascript">
 
     $(function () {
-        $(function () {
-            $("#bad").html("");
-            $("#good").html("");
-        })
         //请求分组
         $.post("${pageContext.request.contextPath}/showGroup", "", function (data) {
             $(data).each(function (m, n) {
@@ -113,6 +109,10 @@
                 <div class="col-lg-5" style="line-height: 35px"><font id="good"
                                                                       color="green">${ authGoodInfo }</font>
                 </div>
+                <%
+                    session.removeAttribute("authBadInfo");
+                    session.removeAttribute("authGoodInfo");
+                %>
             </div>
         </div>
     </form>

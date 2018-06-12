@@ -17,10 +17,7 @@
 </head>
 <body>
 <script type="text/javascript">
-    $(function () {
-        $("#bad").html("");
-        $("#good").html("");
-    })
+
 
     function sureAdd() {
         $("#bad").html("");
@@ -94,6 +91,10 @@
                 <div class="col-lg-5" style="line-height: 35px"><font id="good"
                                                                       color="green">${ authGoodInfo }</font>
                 </div>
+                <%
+                    session.removeAttribute("authBadInfo");
+                    session.removeAttribute("authGoodInfo");
+                %>
             </div>
 
 
