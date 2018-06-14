@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script type="text/javascript" src="./js/windowLoad.js"></script>
 <div class="container-fluid">
     <nav class="navbar navbar-default">
 

@@ -34,7 +34,9 @@ public class ReportController extends SuperController {
 		else {
 			list = reportServiceImpl.queryReportByWeekAndGroup(weeks, groups);
 		}
-		request.getSession().setAttribute("report", list);
+		if(list != null) {
+			request.getSession().setAttribute("report", list);
+		}
 		response.setCharacterEncoding("utf-8");
 		return "lookWeeklyReport";
 	}
