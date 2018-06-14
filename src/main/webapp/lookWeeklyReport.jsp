@@ -89,7 +89,6 @@
 	</div>
 </body>
 <script type="text/javascript">
-	window.loaded = false;
 	//网页加载时从服务器获得分组情况和当前周数
 	function sub() {
 		form.submit();
@@ -113,7 +112,6 @@
 				showWeekNum(request2.responseText);
 			}
 		}
-		window.loaded = true;
 	}
 	//将分组显示在下拉列表中
 	function displayContent(content) {
