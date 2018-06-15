@@ -21,7 +21,7 @@ public class ReportController extends SuperController {
 	private ReportServiceImpl reportServiceImpl;
 
 	//查看周报接口
-	@RequestMapping(value="/lookReport",method=RequestMethod.POST)
+	@RequestMapping(value="/lookReport")
 	public String lookReport(@RequestParam("weeks") Integer weeks,@RequestParam("groups") Integer groups,HttpServletRequest request,HttpServletResponse response) {
 		//获得当前登录用户判断其权限
 		AdminBean admin = (AdminBean) request.getSession().getAttribute("isAdmin");

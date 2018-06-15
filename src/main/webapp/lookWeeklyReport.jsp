@@ -18,18 +18,20 @@
 <%!private String displayStatus(int status) {
 		return status == 2 ? "已提交" : status == 3 ? "已请假" : "未提交";
 	}%>
-<body onload="sub();">
+<body>
 	<div class="container-fluid">
 		<jsp:include page="guide.jsp" />
 		<div class="container-fluid" style="padding-top: 10px">
 			<form method="post" action="/lookReport" id="form" name="form">
 				<div class="col-lg-2 " style="padding-left: 5%;">
-					分组 <select id="groups" name="groups">
+					分组 
+					<select id="groups" name="groups">
 						<option value=-1>选择分组</option>
 					</select>
 				</div>
 				<div class="col-lg-2 ">
-					周数 <select id="weeks" name="weeks">
+					周数
+					<select id="weeks" name="weeks">
 						<option value=-1>选择周数</option>
 					</select>
 				</div>
@@ -90,10 +92,7 @@
 </body>
 <script type="text/javascript">
 	//网页加载时从服务器获得分组情况和当前周数
-	function sub() {
-		form.submit();
-		if (window.loaded)
-			return;
+	window.onload = function() {
 		var url = "/showGroup";
 		var request = new XMLHttpRequest();
 		request.open("POST", url);

@@ -10,7 +10,7 @@
         <div class="collapse navbar-collapse" id="navBar">
             <ul class="nav navbar-nav dropdown">
                 <li>
-                    <a href="${pageContext.request.contextPath}/lookWeeklyReport.jsp">查看周报</a>
+                    <a href="${pageContext.request.contextPath}/lookReport?groups=-1&weeks=-1">查看周报</a>
                 </li>
                 <c:if test="${isAdmin.auth==3}">
                     <li>
