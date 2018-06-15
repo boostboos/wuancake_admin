@@ -32,14 +32,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <!-- 移除嵌入式tomcat插件||||||||||||||||||||||||||||| -->
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-tomcat</artifactId>
-                </exclusion>
-            </exclusions>
-            <!--||||||||||||||||||||||||||||||||||||||||||||||||||-->
+
         </dependency>
 
         <dependency>
@@ -48,6 +41,7 @@
             <version>3.1.0</version>
             <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
@@ -111,9 +105,9 @@
             <version>1.9</version>
         </dependency>
         <dependency>
-        	<groupId>org.springframework.boot</groupId>
-        	<artifactId>spring-boot-configuration-processor</artifactId>
-        	<optional>true</optional>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
         </dependency>
     </dependencies>
     <build>
@@ -122,6 +116,41 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+
+            <!--tomcat插件  -->
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <!-- tomcat地址，manager/text该地址可追加命令-->
+                    <!--http://localhost:8080/manager/stop?path=/ //停止-->                                                                                <!--http://localhost:8080/manager/start?path=/ //启动-->
+                    <!--http://localhost:8080/manager/text/deploy?path=/ //部署-->
+                    <!--http://localhost:8080/manager/text/undeploy?path=/ //卸载-->
+                    <url>http://13.114.107.36:8068/manager/text</url><!--远程服务器url-->
+                    <username>tomcat</username>
+                    <password>tomcat</password>
+                    <!-- 此处的名字是项目发布的工程名-->
+                    <path>/admin</path>
+                </configuration>
+
+            </plugin>
+
+            <!-- war插件-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <webResources>
+                        <resource>
+                            <!-- WEB-INF文件地址，idea是web,eclipse是webRoot-->
+                            <directory>\src\main\webapp</directory>
+                        </resource>
+                    </webResources>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 
