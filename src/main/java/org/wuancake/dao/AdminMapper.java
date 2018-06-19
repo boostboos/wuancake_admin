@@ -48,7 +48,7 @@ public interface AdminMapper {
             "and ug.user_id = u.id " +
             "and ug.group_id = wg.id " +
             "limit #{startIndex},#{pageSize}")
-    List<KickBean> queryUserListBeKicked(@Param("startIndex")Integer startIndex,@Param("pageSize") Integer pageSize);
+    List<KickBean> queryUserListBeKicked(@Param("startIndex") Integer startIndex, @Param("pageSize") Integer pageSize);
 
     @Select("select count(user_id) " +
             "from user_group " +

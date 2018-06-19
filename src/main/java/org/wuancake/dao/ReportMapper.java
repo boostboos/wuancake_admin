@@ -71,7 +71,8 @@ public interface ReportMapper {
      */
     @Select("select week_num,status from report " +
             "where user_id = #{userId} " +
-            "and week_num = #{weekNum} ")
+            "and week_num = #{weekNum} " +
+            "limit 1")
     @Cacheable
     ReportBean queryReportStatu(@Param("userId") Integer userId, @Param("weekNum") Integer weekNum);
 

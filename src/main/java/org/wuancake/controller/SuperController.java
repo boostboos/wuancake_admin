@@ -94,7 +94,12 @@ public class SuperController {
                 for (int i = weekNum - 3; i <= weekNum; i++) {
                     ReportBean reportBean = reportService.queryReportStatu(gather.getId(), i);
                     if (i == WeekNumUtils.getProtectedWeek(gather.getCreateTime())) {
-                        if (reportService.queryReportStatu(gather.getId(), i).getStatus() == 2) {
+                        ReportBean bean = reportService.queryReportStatu(gather.getId(), i);
+                        Integer status = null;
+                        if (bean != null) {
+                            status = bean.getStatus();
+                        }
+                        if (status != null && status == 2) {
                             //那周处于保护期，还提交周报了。。显示已提交
                             report4StatusMap.put(i, 7998);
                         } else {
