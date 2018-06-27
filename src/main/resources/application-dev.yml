@@ -5,7 +5,7 @@ spring:
     username: root
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
-    initialSize: 5
+    initialSize: 1
     minIdle: 5
     maxActive: 20
     maxWait: 60000
