@@ -14,6 +14,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableScheduling
 @EnableAsync
 @EnableCaching
+@PropertySource("file:/etc/application.yml")
 public class AdminBackApplication {
 
     public static void main(String[] args) {
