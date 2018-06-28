@@ -1,13 +1,10 @@
 package org.wuancake.controller;
 
-import net.sf.ehcache.CacheManager;
-import net.sf.ehcache.Ehcache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.wuancake.dao.GroupMapper;
 import org.wuancake.dao.ReportMapper;
 import org.wuancake.dao.UserMapper;
 import org.wuancake.entity.*;

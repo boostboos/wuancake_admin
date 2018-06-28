@@ -24,14 +24,12 @@
 		<div class="container-fluid" style="padding-top: 10px">
 			<form method="post" action="/lookReport" id="form" name="form">
 				<div class="col-lg-2 " style="padding-left: 5%;">
-					分组 
-					<select id="groups" name="groups">
+					分组 <select id="groups" name="groups">
 						<option value=-1>选择分组</option>
 					</select>
 				</div>
 				<div class="col-lg-2 ">
-					周数
-					<select id="weeks" name="weeks">
+					周数 <select id="weeks" name="weeks">
 						<option value=-1>选择周数</option>
 					</select>
 				</div>
@@ -44,10 +42,10 @@
 					<table class="table table-bordered"
 						style="text-align: center; table-layout: fixed;">
 						<tr class="active">
-							<td>分组</td>
-							<td>昵称</td>
-							<td>周数</td>
-							<td>考勤情况</td>
+							<td width="10%">分组</td>
+							<td width="10%">昵称</td>
+							<td width="10%">周数</td>
+							<td width="20%">考勤情况</td>
 							<td>考勤内容</td>
 						</tr>
 						<%
