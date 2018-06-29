@@ -1,5 +1,7 @@
 # wuancake_admin
-  spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+默认读取/etc/application.properties配置文件，配置如下：
+	
+  	spring.datasource.driver-class-name=com.mysql.jdbc.Driver
   
 	spring.datasource.url=jdbc:mysql://数据库地址:3306/数据库名?useSSL=false&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
   
