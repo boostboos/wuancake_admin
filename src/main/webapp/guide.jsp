@@ -25,6 +25,11 @@
                 <li>
                     <a href="${pageContext.request.contextPath}/queryKickList?currPage=1">清人汇总</a>
                 </li>
+                <c:if test="${isAdmin.auth!=1}">
+                    <li>
+                        <a href="${pageContext.request.contextPath}/findAllVersion?currPage=1">APP版本更新</a>
+                    </li>
+                </c:if>
             </ul>
 
             <form class="navbar-form navbar-left dropdown">
